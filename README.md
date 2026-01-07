@@ -102,5 +102,5 @@ Implementations may exist independently and are not authoritative unless they ex
 
 ## License
 
-License terms will be specified explicitly.  
-Until then, no implicit rights are granted.
+IDDAS Protocol License v1.0 – see LICENSE
+
