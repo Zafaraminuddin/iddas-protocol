@@ -1,0 +1,34 @@
+IDDAS PROTOCOL LICENSE
+Version 1.0
+
+Copyright (c) 2026 Zafar Aminuddin
+
+Permission is granted to any person to read, reference, and implement
+the IDDAS Protocol as published in this repository, subject to the
+conditions below.
+
+1. Attribution
+Any use or implementation of the IDDAS Protocol must clearly attribute
+the protocol to its original author and source repository.
+
+2. No Silent Modification
+The protocol text, rules, or specifications may not be modified and
+redistributed under the name “IDDAS” or “IDDAS Protocol” without
+explicit written permission from the author.
+
+3. Version Integrity
+If modifications or extensions are made for internal or experimental
+use, they must be clearly marked as non-canonical and must not be
+presented as an official version of the IDDAS Protocol.
+
+4. Forward-Only Changes
+No modification may be represented as retroactively altering the
+meaning, outcomes, or rules of prior versions of the protocol.
+
+5. No Warranty
+The protocol is provided “as is”, without warranty of any kind, express
+or implied.
+
+This license governs the protocol specification only. Implementations,
+applications, and services referencing the protocol are not covered by
+this license unless explicitly stated.
