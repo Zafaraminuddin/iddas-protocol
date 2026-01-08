@@ -680,6 +680,49 @@ details summary .chev { display:none !important; }
 }
 
 
+/* FAQ (Hard Questions) - mirrors FAQ styling */
+.siteAccordion[data-section="faq-hard"] .faqGrid{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:26px;
+}
+@media (max-width: 860px){
+  .siteAccordion[data-section="faq-hard"] .faqGrid{ grid-template-columns: 1fr; }
+}
+.siteAccordion[data-section="faq-hard"] .faqItem{
+  break-inside: avoid;
+  padding-top:14px;
+  border-top:1px solid rgba(255, 0, 0, 0.22);
+}
+.siteAccordion[data-section="faq-hard"] .faqItem:first-child{
+  border-top:0;
+  padding-top:0;
+}
+.siteAccordion[data-section="faq-hard"] .faqQ{
+  color: var(--accent, #ff2b2b);
+  font-weight:400;
+  margin:0 0 8px 0;
+}
+.siteAccordion[data-section="faq-hard"] .faqA p{
+  margin:0 0 10px 0;
+}
+
+/* FAQ accordion behavior (questions visible, answers collapsed by default) */
+.siteAccordion[data-section="faq-hard"] details.faqItem{ margin:0; }
+.siteAccordion[data-section="faq-hard"] summary.faqQ{ cursor:pointer; list-style:none; }
+.siteAccordion[data-section="faq-hard"] summary.faqQ::-webkit-details-marker{ display:none; }
+.siteAccordion[data-section="faq-hard"] details.faqItem[open] summary.faqQ{ margin-bottom:8px; }
+.siteAccordion[data-section="faq-hard"] .faqA ul{
+  margin:6px 0 10px 18px;
+  padding:0;
+}
+.siteAccordion[data-section="faq-hard"] .faqA li{
+  margin:0 0 6px 0;
+}
+
+
+
+
 /* Protocol Constitution (embedded) */
 .protoWrap{
   background:#000;
@@ -4260,6 +4303,290 @@ Rules interpret data. Protocols define system physics.</li>
 </details>
 </div></div>
 </details>
+
+
+<!-- FAQ (Hard Questions) - inserted 2026-01-08 -->
+<details class="siteAccordion" data-section="faq-hard">
+  
+<div class="pillRow" id="faqHardControls" style="justify-content:flex-end; margin:8px 0 14px;">
+  <button class="pill" id="faqHardExpandAllBtn" type="button">Expand FAQ</button>
+  <button class="pill" id="faqHardCollapseAllBtn" type="button">Collapse FAQ</button>
+</div>
+<summary class="siteAccordionSummary">
+    <div class="sectionHead">
+      <h2><span class="accent">Hard</span> questions</h2>
+</div>
+    <div class="hint">Protocol-level objections and direct answers .</div>
+  </summary>
+
+  <div class="siteAccordionBody">
+    <p class="sub" style="margin-top:0; color: rgba(255,255,255,.72);">
+      These are intentionally direct - and intentionally separated - so the standard FAQ stays clean.
+    </p>
+
+    <div class="faqGrid">
+      <details class="faqItem">
+  <summary class="faqQ">Isn’t this just QR codes and attribution dressed up?</summary>
+  <div class="faqA">
+    <p>No.</p>
+<p>QR codes, links, and attribution already exist. IDDAS is not about inventing those primitives. What is new is the order of operations and the governance model.</p>
+<p>IDDAS enforces that activation happens before identity, attribution follows lineage instead of accounts, and economic outcomes follow a published rule that cannot be silently changed. Most systems do the opposite - they start with identity, infer attribution later, and negotiate economics case by case.</p>
+<p>That combination is the difference.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Are you really saying there are no competitors?</summary>
+  <div class="faqA">
+    <p>There are competitors to parts of IDDAS.</p>
+<p>There are attribution tools, referral platforms, ad-tech systems, IoT platforms, and blockchain protocols. None of them combine identity-free activation, object-based capabilities, lineage-based attribution, fixed economics, and independent verification in a single system.</p>
+<p>So we don’t claim there are no competitors. We claim there are no direct protocol peers.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">If identity is optional, how do you prevent fraud?</summary>
+  <div class="faqA">
+    <p>IDDAS does not rely on identity to prevent fraud.</p>
+<p>It relies on verifiable actions, environment constraints, and lineage. Activations are bound to specific objects or environments with defined capabilities. Patterns, limits, and verification anchors detect abuse without forcing identity at the start.</p>
+<p>Identity can be introduced later if required, but it is not foundational. This is why IDDAS works in crowds, public spaces, and shared environments.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Why lock yourself into fixed economics? Isn’t that bad business?</summary>
+  <div class="faqA">
+    <p>In the short term, it reduces flexibility. In the long term, it creates trust.</p>
+<p>Protocols publish rules in advance so participants can rely on outcomes. IDDAS separates infrastructure from governance. Clients pay for activations. Distribution follows a published rule. No silent changes. No per-client exceptions.</p>
+<p>That constraint is intentional.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Why use blockchain at all? Isn’t that unnecessary?</summary>
+  <div class="faqA">
+    <p>Blockchain is not used for user interaction, payments, or identity.</p>
+<p>It is used only as a neutral verification layer to anchor rule versions and payout proofs so outcomes cannot be rewritten after the fact. No wallets are required. No tokens are required. No participant needs crypto knowledge.</p>
+<p>If a better neutral verification layer existed, IDDAS could use that instead. The goal is verifiability, not crypto.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">How is this not just an enterprise SaaS with strong opinions?</summary>
+  <div class="faqA">
+    <p>SaaS can change rules quietly. Protocols cannot.</p>
+<p>IDDAS publishes the order of operations, attribution logic, and economic rules in advance. Even the operator is bound by them. That constraint is what makes it a protocol rather than a configurable product.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What stops someone from copying this?</summary>
+  <div class="faqA">
+    <p>Interfaces can be copied. Features can be copied.</p>
+<p>What cannot be easily copied is credibility earned through consistency. Protocols win by being first, clear, and stable. Once participants rely on a rule, switching costs are not technical - they are trust-based.</p>
+<p>IDDAS also has patent protection, but more importantly, it has protocol legitimacy.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Why hasn’t someone already built this?</summary>
+  <div class="faqA">
+    <p>Because it requires giving up short-term control.</p>
+<p>Most companies want pricing flexibility, bespoke deals, and the ability to change rules quietly. Protocols require deciding hard constraints early - what never changes, what cannot be customized, and what even the operator is not allowed to do.</p>
+<p>Most teams avoid that. IDDAS didn’t.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Is CandleMe a distraction from the protocol?</summary>
+  <div class="faqA">
+    <p>No.</p>
+<p>CandleMe is a carrier, not a fork. It proves that IDDAS works at the object level, not just in apps or accounts. Stadiums, out-of-home advertising, events, transit, and physical products all use the same activation logic.</p>
+<p>CandleMe demonstrates generality, not limitation.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What would a real competitor actually look like?</summary>
+  <div class="faqA">
+    <p>A real competitor would need to start with activation before identity, bind capabilities to objects or environments, use lineage-based attribution, enforce fixed and published economic rules, provide independent verification, and work across industries without rewriting core logic.</p>
+<p>No existing system does all of this today.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Final clarification</summary>
+  <div class="faqA">
+    <p>IDDAS is not special because it is clever. It is special because it is constrained.</p>
+<p>The system deliberately limits what the operator can do so others can rely on outcomes. That is why it behaves like a protocol, not a product.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Who ultimately controls IDDAS if the rules are fixed?</summary>
+  <div class="faqA">
+    <p>IDDAS is operated by an entity, but governed by published rules.</p>
+<p>Operational control (infrastructure, uptime, integrations) remains with the operator. Outcome control (attribution, economics, verification) is constrained by the protocol. The operator cannot silently rewrite attribution logic, retroactively alter payouts, or change economic splits without publishing a new rule version.</p>
+<p>This separation is deliberate. It limits operator power so participants can rely on outcomes.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What happens if IDDAS as a company fails or changes ownership?</summary>
+  <div class="faqA">
+    <p>The protocol rules and verification anchors remain valid regardless of company changes.</p>
+<p>Because rule versions and payout proofs are independently verifiable, historical outcomes do not depend on ongoing trust in the operator. A new operator must honor existing rules going forward or publish a new version that applies only to future activations.</p>
+<p>This is one of the reasons IDDAS behaves like a protocol rather than a traditional SaaS vendor.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Doesn’t this reduce flexibility for enterprise customers?</summary>
+  <div class="faqA">
+    <p>Yes, by design.</p>
+<p>IDDAS does not optimize for bespoke enterprise deals. It optimizes for predictable, repeatable outcomes. Enterprises still configure deployments, environments, and campaigns, but the core rules are not negotiated per client.</p>
+<p>This is the same tradeoff every successful protocol makes: less short-term flexibility in exchange for long-term reliability.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">How does IDDAS scale without identity if volume becomes massive?</summary>
+  <div class="faqA">
+    <p>Identity is not a scaling primitive. Verification is.</p>
+<p>IDDAS scales by anchoring actions to environments, objects, and capabilities rather than user accounts. Rate limits, context constraints, environment capacity, and lineage validation scale far better in crowds than identity-based systems.</p>
+<p>Identity can be layered in selectively where required, but it is never the bottleneck.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What happens when regulations require identity or consent?</summary>
+  <div class="faqA">
+    <p>IDDAS is compatible with identity requirements without being dependent on them.</p>
+<p>Identity, consent, and compliance layers can be introduced at the edge when required by law or policy. The protocol itself does not prevent identity usage - it simply does not require it to begin.</p>
+<p>This allows IDDAS to operate across jurisdictions with different regulatory expectations.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Isn’t lineage-based attribution hard to explain to customers?</summary>
+  <div class="faqA">
+    <p>At first, yes. Over time, it becomes simpler than account-based attribution.</p>
+<p>Lineage answers a clearer question: how did this happen? Customers do not need to understand every internal detail. They only need to know that attribution follows a verifiable chain of actions rather than opaque platform decisions.</p>
+<p>Most users never see lineage directly. They benefit from its fairness indirectly.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Couldn’t fixed rules discourage innovation over time?</summary>
+  <div class="faqA">
+    <p>Protocols do not prevent innovation. They constrain where it happens.</p>
+<p>IDDAS allows innovation at the object level, environment level, campaign level, and content level. What does not change is how value is attributed and distributed once outcomes occur.</p>
+<p>This creates a stable foundation on top of which innovation can safely happen.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What if a client wants different economics than the protocol allows?</summary>
+  <div class="faqA">
+    <p>Then IDDAS is likely not the right system for that use case.</p>
+<p>IDDAS is designed for environments where predictability, neutrality, and verifiability matter more than bespoke terms. That constraint is intentional and helps maintain trust across participants.</p>
+<p>Not every system should be a protocol. IDDAS chooses to be one.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Does this mean IDDAS grows more slowly?</summary>
+  <div class="faqA">
+    <p>Often, yes.</p>
+<p>Protocols typically grow more slowly at first because they refuse shortcuts. Over time, they tend to become deeply embedded because switching away means losing predictability and trust, not just features.</p>
+<p>IDDAS is built for durability, not velocity at all costs.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What is the biggest risk to IDDAS?</summary>
+  <div class="faqA">
+    <p>The biggest risk is breaking its own rules.</p>
+<p>If IDDAS were ever to undermine its published constraints, it would stop being a protocol and become just another platform. That risk is taken seriously, which is why verification and rule versioning are core, not optional.</p>
+<p>Trust is not claimed. It is enforced.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Final note</summary>
+  <div class="faqA">
+    <p>IDDAS is intentionally opinionated. It does not try to serve every business model. It exists to make real-world activation, attribution, and value distribution reliable in environments where identity-first systems fail.</p>
+<p>That tradeoff is the point.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Isn’t this too rigid to adapt to future markets?</summary>
+  <div class="faqA">
+    <p>IDDAS is rigid where trust matters and flexible where innovation matters.</p>
+<p>The protocol fixes the order of operations, attribution logic, and economic rules. Everything else - environments, objects, campaigns, interfaces, integrations, and content - can evolve freely.</p>
+<p>This separation allows IDDAS to adapt to new markets without undermining past outcomes.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What prevents IDDAS from becoming a gatekeeper?</summary>
+  <div class="faqA">
+    <p>The protocol itself.</p>
+<p>Because rules are published in advance and outcomes are verifiable, IDDAS cannot quietly privilege one participant over another. The operator provides infrastructure, not discretionary authority over attribution or payouts.</p>
+<p>Gatekeeping requires opacity. IDDAS is designed to remove it.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What happens if a powerful customer pressures you to change the rules?</summary>
+  <div class="faqA">
+    <p>Then the answer is no.</p>
+<p>IDDAS cannot change rules retroactively or privately. Any change must be published as a new rule version and applies only to future activations. If a customer requires bespoke economics or exceptions, IDDAS is likely not the correct system for that use case.</p>
+<p>This constraint protects everyone else.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Could IDDAS be captured by investors or future management?</summary>
+  <div class="faqA">
+    <p>Only operationally, not economically.</p>
+<p>Infrastructure decisions can change. The protocol rules that govern attribution and distribution are constrained by publication, versioning, and verification. Any attempt to undermine those constraints would be visible and would invalidate trust.</p>
+<p>Protocols survive leadership changes because their legitimacy is rule-based, not personality-based.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Isn’t “activation before identity” dangerous from a safety perspective?</summary>
+  <div class="faqA">
+    <p>It would be, if identity were the only safety tool.</p>
+<p>IDDAS uses environment constraints, capability limits, rate controls, and lineage validation to maintain safety. Identity is available when required, but it is not the default control mechanism.</p>
+<p>This mirrors how physical systems work: tickets, doors, meters, and tools do not ask who you are first. They enforce rules through design.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What if bad actors try to flood the system with meaningless activations?</summary>
+  <div class="faqA">
+    <p>Not all activations are billable.</p>
+<p>IDDAS distinguishes between raw triggers, qualified activations, and billable outcomes. Qualification thresholds, environment constraints, and pattern analysis prevent noise from becoming value.</p>
+<p>Billing is tied to verified, intent-qualified activations, not volume alone.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Does this require customers to trust IDDAS more than other platforms?</summary>
+  <div class="faqA">
+    <p>Less, not more.</p>
+<p>Traditional platforms require trust that rules won’t change quietly. IDDAS reduces that trust requirement by making rules explicit and outcomes verifiable. Participants do not need to trust intentions. They can verify behavior.</p>
+<p>That shift is fundamental.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Is this overkill for simple use cases?</summary>
+  <div class="faqA">
+    <p>Sometimes, yes.</p>
+<p>Not every use case needs a protocol. IDDAS is designed for environments where scale, neutrality, and attribution fairness matter. For simple, closed systems, lighter tools may be sufficient.</p>
+<p>IDDAS does not try to replace everything. It exists for cases where failure modes are expensive.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What is the biggest philosophical bet IDDAS is making?</summary>
+  <div class="faqA">
+    <p>That trust should be enforced by structure, not promised by brand.</p>
+<p>IDDAS assumes that real-world activation systems will increasingly operate in shared spaces, crowds, and environments where identity-first models break down. In those contexts, rules must be clear, fixed, and verifiable.</p>
+<p>That belief shapes every design decision.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">What would invalidate IDDAS as a protocol?</summary>
+  <div class="faqA">
+    <p>If IDDAS ever allowed silent rule changes, retroactive outcome manipulation, or discretionary attribution, it would stop being a protocol.</p>
+<p>That is the line that is not crossed. Everything else is negotiable.</p>
+  </div>
+</details>
+<details class="faqItem">
+  <summary class="faqQ">Final boundary</summary>
+  <div class="faqA">
+    <p>IDDAS is not trying to be everything to everyone. It is intentionally opinionated. Its strength comes from choosing constraints early and living with them.</p>
+<p>That is why it behaves like a protocol instead of a platform.</p>
+  </div>
+</details>
+    </div>
+  </div>
+</details>
 </section>
 
 <footer>
@@ -5635,5 +5962,28 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 })();
 </script>
-</section></body>
+</section><script>
+(function(){
+  const hard = document.querySelector('details.siteAccordion[data-section="faq-hard"]');
+  if(!hard) return;
+
+  const items = hard.querySelectorAll('details.faqItem');
+  const expandBtn = document.getElementById('faqHardExpandAllBtn');
+  const collapseBtn = document.getElementById('faqHardCollapseAllBtn');
+
+  if(expandBtn){
+    expandBtn.addEventListener('click', function(){
+      items.forEach(function(d){ d.open = true; });
+    });
+  }
+
+  if(collapseBtn){
+    collapseBtn.addEventListener('click', function(){
+      items.forEach(function(d){ d.open = false; });
+    });
+  }
+})();
+
+</script>
+</body>
 </html>
