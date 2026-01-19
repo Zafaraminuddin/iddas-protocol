@@ -990,10 +990,6 @@ body.protoNoScroll{ overflow: hidden !important; }
         Start with the rule
         <small>Understand the single governing split first.</small>
       </button>
-      <button class="gs-btn" type="button" data-gs-target="allocation-math">
-        Jump to allocation math
-        <small>See the deterministic model and examples.</small>
-      </button>
       <button class="gs-btn" type="button" data-gs-target="protocol-constitution">
         Open the protocol constitution
         <small>Review the canonical ruleset in one place.</small>
@@ -1695,14 +1691,14 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 
 <div class="hero" id="top">
 <div class="heroCard">
-<div class="kicker">Activation before identity</div>
+<div class="kicker"><span class="accent-word">ACTIVATION</span> BEFORE IDENTITY</div>
 <h1>IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.</h1>
-<p class="sub">No account required to begin. Identity is optional. Attribution follows lineage. Rule versions and payout proofs are anchored on a public blockchain - no silent changes. A fixed economic rule governs distribution when real revenue occurs.</p>
+<p class="sub">IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.<br><br>No account is required to begin. Identity is optional. Attribution follows lineage. Rule versions and verification proofs are anchored to a public blockchain - no silent changes.<br><br>IDDAS starts with action in the real world: a scan, a tap, a placement, or a verified event. The system records intentional actions first and derives outcomes from those actions, rather than from identity, negotiation, or trust in an operator.<br><br>This allows IDDAS to function in crowds, public spaces, and shared environments where accounts, permissions, and coordination add friction.<br><br><span class="step-header-red">Key properties:</span><br>• Action comes first  <br>• Attribution follows lineage  <br>• Outcomes are rule-based  <br>• Results are verifiable</p>
 <div class="pillRow">
-<span class="pill">Action comes first</span>
-<span class="pill">Lineage-based attribution</span>
-<span class="pill">Fixed economics</span>
-<span class="pill">Verifiable outcomes</span>
+<span class="pill"><span class="step-header-red">Results are verifiable</span></span>
+<span class="pill"><span class="step-header-red">Lineage-based attribution</span></span>
+<span class="pill"><span class="step-header-red">Fixed economics</span></span>
+<span class="pill"><span class="step-header-red">Verifiable outcomes</span></span>
 </div>
 <div class="quiet" style="margin-top:8px"><a href="#lineage-attribution" style="text-decoration:underline; opacity:.85"></a></div>
 <details class="rule siteAccordion" id="lineage-attribution" style="margin-top:12px; max-width:560px; margin-left:auto; margin-right:auto">
@@ -1725,21 +1721,26 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 </div>
 </details>
 <div class="rule" style="margin-top:10px; max-width:560px; margin-left:auto; margin-right:auto; margin-top:36px">
-<div class="num">The thesis</div>
+<div class="num"><span class="accent">The</span> thesis</div>
 <p>Most systems start by asking who you are. Then they ask you to trust the system, create an account, accept permissions, and follow a flow.IDDAS flips that order.</p><p>IDDAS starts with action in the real world - a scan, a tap, a placement, a verified event. Identity is optional. The system does not need to know who you are to begin.</p><p>Instead of trusting first and proving later, IDDAS proves outcomes through verifiable actions and lineage-based attribution. When real revenue occurs, distribution follows a fixed rule that is published in advance - not negotiated per client and not changed quietly.</p><p>This is why IDDAS works in crowds, public spaces, and shared environments where accounts and coordination add friction.</p>
 </div>
 </div>
 <aside aria-label="Core rule" class="sideCard">
-<h3><span class="accent">The</span> economic rule</h3>
-<div class="rule">
-<div class="num">When real revenue occurs</div>
-<div><b>Platform:</b> fixed share</div>
-<div><b>Distribution:</b> allocated by published lineage rule</div>
-<p>Distribution is allocated by a published lineage rule. <b>No silent changes</b>. No per-client economics. <a href="#allocation-math" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(227,27,35,0.6);">See Allocation Math</a>.</p>
-</div>
+<h3><span class="accent">THE</span> ECONOMIC RULE</h3>
+<div class="rule"><div class="num"><span class="accent-word">WHEN</span> REAL REVENUE OCCURS</div>
+<p><span class="step-header-red">Outcomes are computed from published, versioned rules.</span></p>
+<p>• Allocation occurs only after real revenue exists<br>
+• Distribution is derived deterministically from recorded lineage<br>
+• Outcomes follow rules, not negotiation or discretion<br>
+• If one participant contributes, eligibility follows the rule<br>
+• If multiple participants contribute, eligibility follows the published lineage rule<br>
+• If no value is created, no allocation occurs</p>
+<p>The protocol does not define prices, percentages, commercial splits, or retained amounts. Those parameters, if any, are implementation- or Brand-defined and exist outside protocol logic.</p>
+<p>What the protocol fixes is how outcomes are computed once qualifying revenue exists - not the commercial terms themselves.</p>
+<p><b>No silent changes.</b> No per-client economics.</p></div>
 <div class="rule" id="no-silent-changes">
 <div style="padding:18px 20px 0 20px;">
-<span class="kicker">Learn what “no silent changes” means</span>
+<span class="kicker"><span class="accent">Learn</span> what “no silent changes” means</span>
 </div>
 <div style="padding:12px 20px 20px 20px;">
 <p>
@@ -1767,6 +1768,19 @@ html.ss-lock, body.ss-lock{overflow:hidden}
   </p>
 </div>
 </div>
+
+
+<details class="rule siteAccordion" id="deterministic-allocation-overview">
+<summary class="siteAccordionSummary" style="cursor:pointer">
+<span class="num" style="display:block"><span class="accent">Deterministic</span> Allocation (Overview)</span>
+</summary>
+<div class="siteAccordionBody">
+<p>When real revenue occurs, allocation under IDDAS follows published, versioned protocol rules.</p>
+<p>Allocation is deterministic and non-discretionary: the same committed inputs always produce the same outcomes. There is no negotiation, manual adjustment, or post-hoc override.</p>
+<p>The protocol records eligible activation events, preserves their lineage in order, and computes outcomes only after real, settled revenue exists.</p>
+<p>These properties ensure auditability and verification without requiring trust in any operator. Protocol rules are authoritative; implementations may vary.</p>
+</div>
+</details>
 </aside>
 </div>
 
@@ -1867,10 +1881,10 @@ Participants can activate and participate without touching crypto.
 <div class="grid">
 <div class="card span-6">
 <h3>It is a rule, not a product</h3>
-<p>IDDAS is not a single app or a packaged offering. It is a rule set that governs what happens when a real, measurable outcome occurs - and only then.</p><p>If no value is created, no money moves. There is nothing to sell and nothing to persuade. The rule itself is the product - a predictable way to activate value, attribute contribution, and share revenue without negotiation, discretion, or exceptions.</p><p>IDDAS defines outcomes, not features. It defines how value moves, not how it is marketed or claimed.</p><ul><li>Outcome-based distribution - only when value occurs</li><li>Attribution via lineage, not self-claims or reporting</li><li>Verification replaces trust and salesmanship</li><li>Applicable across many industries and use cases</li></ul></div>
+<p>IDDAS is not a single app or a packaged offering. It is a rule set that governs what happens when a real, measurable outcome occurs - and only then.</p><p>If no value is created, no money moves. There is nothing to sell and nothing to persuade. The rule itself is the product - a predictable way to activate value, attribute contribution, and produce verifiable outcomes without negotiation, discretion, or exceptions.</p><p>IDDAS defines outcomes, not features. It defines how value moves, not how it is marketed or claimed.</p><ul><li>Outcome-based distribution - only when value occurs</li><li>Attribution via lineage, not self-claims or reporting</li><li>Verification replaces trust and salesmanship</li><li>Applicable across many industries and use cases</li></ul></div>
 <div class="card span-6">
 <h3>It is a protocol that runs on infrastructure</h3>
-<p>IDDAS runs on normal infrastructure such as cloud services, databases, and standard software systems. It is not infrastructure itself.</p><p>Infrastructure executes the system. The protocol defines the limits of the system.</p><p>IDDAS defines the invariants - what must remain true regardless of implementation. These include activation before identity, lineage-based attribution, fixed economics, and verifiable outcomes (anchored on-chain so they can be audited independently).</p><p>Implementations can evolve. The rule cannot drift silently. The protocol is implementation-agnostic so others can build on it without changing the underlying economics or attribution logic.</p><ul><li>Activation before identity - identity optional later</li><li>Published rules with versioning and no silent changes</li><li>Lineage-based attribution with verifiable outcomes</li><li>Independent of any single platform or implementation</li></ul></div>
+<p>IDDAS runs on normal infrastructure such as cloud services, databases, and standard software systems. It is not infrastructure itself.</p><p>Infrastructure executes the system. The protocol defines the limits of the system.</p><p>IDDAS defines the invariants - what must remain true regardless of implementation. These include activation before identity, lineage-based attribution, fixed rule enforcement, and verifiable outcomes (anchored on-chain so they can be audited independently).</p><p>Implementations can evolve. The rule cannot drift silently. The protocol is implementation-agnostic so others can build on it without changing the underlying economics or attribution logic.</p><ul><li>Activation before identity - identity optional later</li><li>Published rules with versioning and no silent changes</li><li>Lineage-based attribution with verifiable outcomes</li><li>Independent of any single platform or implementation</li></ul></div>
 </div>
 <div class="divider"></div>
 <div class="grid">
@@ -2003,72 +2017,113 @@ Participants can activate and participate without touching crypto.
 </div>
 <div class="hint">Clarifications and confirmations.</div>
 </summary>
-<div class="siteAccordionBody">
-<p><span class="step-header-red">Infrastructure</span> Originators - Clarifications and Confirmations</p>
-<p>This section exists to clarify the Infrastructure Originator (IO) role and to preclude common misinterpretations.</p>
-<p>It does not introduce new rules.<br/>It restates how the protocol already works.</p>
-<p><p class="step-header-red">What an Infrastructure Originator is</p></p>
-<p>An Infrastructure Originator (IO) is a protocol-level lineage root that authorizes and anchors one or more activation surfaces.</p>
-<p>These surfaces may later produce verified activations.</p>
-<p>IO status is structural.<br/>It is not a title, partnership, designation, or program.</p>
-<p>An IO exists only if downstream, protocol-valid activations occur through an originated surface.<br/>If no activations occur, no IO exists.<br/>If no value is created, no IO share exists.</p>
-<p><p class="step-header-red">What an Infrastructure Originator is not</p></p>
+<div class="siteAccordionBody"><p><span class="step-header-red">Infrastructure</span> Originators (Deployment Roots)</p>
+<p>Clarifications and confirmations.</p>
+
+<p>This section clarifies the Infrastructure Originator (IO) role and how IO participation works in practice.<br/>
+It introduces no new protocol rules. It explains how activation-based economics apply to deployment roots.</p>
+
+<p class="step-header-red">What an Infrastructure Originator is</p>
+
+<p>An Infrastructure Originator (IO) is a deployment root that authorizes or enables one or more activation surfaces to exist in the real world.</p>
+
+<p>Those surfaces may later produce verified activations.</p>
+
+<p>IO status is structural.<br/>
+It is not a title, partnership, designation, or program.</p>
+
+<p>An IO exists only if protocol-valid activations occur through an originated surface.<br/>
+If no activations occur, no IO compensation exists.</p>
+
+<p class="step-header-red">What an Infrastructure Originator is not</p>
+
 <p>An Infrastructure Originator is not:</p>
+
 <ul>
-<li>an affiliate</li>
-<li>a sales agent</li>
-<li>a reseller</li>
-<li>a partner program participant</li>
-<li>a paid introducer</li>
-<li>a negotiator of terms</li>
-<li>a recipient of discretionary rewards</li>
+  <li>an affiliate</li>
+  <li>a sales agent</li>
+  <li>a reseller</li>
+  <li>a broker or finder</li>
+  <li>a negotiator of terms</li>
+  <li>a recipient of discretionary rewards</li>
 </ul>
-<p>Infrastructure Originators are not paid for effort, intent, access, or relationships.<br/>They are paid only when value is structurally created and verified.</p>
-<p><p class="step-header-red">No approval, application, or permission</p></p>
+
+<p>Infrastructure Originators are not compensated for effort, intent, relationships, or access.<br/>
+They are compensated only when verified activations occur.</p>
+
+<p class="step-header-red">No approval, application, or permission</p>
+
 <p>Infrastructure Originator status:</p>
+
 <ul>
-<li>is not applied for</li>
-<li>is not granted</li>
-<li>is not approved</li>
-<li>is not negotiated</li>
-<li>cannot be revoked by discretion</li>
+  <li>is not applied for</li>
+  <li>is not granted</li>
+  <li>is not approved</li>
+  <li>is not negotiated</li>
+  <li>cannot be revoked by discretion</li>
 </ul>
-<p>The protocol does not evaluate people.<br/>It evaluates events.</p>
-<p>Only verifiable activations determine outcomes.</p>
-<p><p class="step-header-red">Authorization without operation</p></p>
-<p>Infrastructure Originators may authorize or enable deployment without physically creating, installing, operating, or managing activation surfaces themselves.</p>
+
+<p>The system does not evaluate people.<br/>
+It evaluates activation events.</p>
+
+<p class="step-header-red">Authorization without operation</p>
+
+<p>Infrastructure Originators may enable deployment without directly operating, managing, or installing activation surfaces.</p>
+
 <p>An IO may:</p>
+
 <ul>
-<li>authorize a deployment root</li>
-<li>enable activation surfaces to exist</li>
-<li>allow others to deploy, distribute, or operate those surfaces</li>
+  <li>authorize a deployment root</li>
+  <li>allow activation surfaces to exist</li>
+  <li>permit others to deploy or operate those surfaces</li>
 </ul>
-<p>The protocol attributes outcomes to the root, not to operational labor.</p>
-<p><p class="step-header-red">Attribution and permanence</p></p>
-<p>IO attribution is recorded at activation creation time.<br/>It is immutable and non-retroactive.</p>
-<p>Once an IO attribution exists:</p>
+
+<p>The system attributes activations to the originating root, not to operational labor.</p>
+
+<p class="step-header-red">Activation-based compensation</p>
+
+<p>Infrastructure Originators participate only in activation economics.</p>
+
+<p>For each verified activation that occurs through an originated surface:</p>
+
 <ul>
-<li>it cannot be reassigned</li>
-<li>it cannot be removed</li>
-<li>it cannot be bypassed through side agreements</li>
-<li>it cannot be suppressed by brands or operators</li>
+  <li>20% of the activation fee is attributed to the Infrastructure Originator</li>
+  <li>This amount is computed automatically</li>
+  <li>It is proportional to activation volume</li>
+  <li>It is independent of downstream deals, revenue, or outcomes</li>
 </ul>
-<p>Any use of protocol activations necessarily honors protocol attribution.</p>
-<p><p class="step-header-red">Economic certainty</p></p>
-<p>The IO share:</p>
+
+<p>If one activation occurs, one activation fee applies.<br/>
+If one million activations occur, one million activation fees apply.</p>
+
+<p>There are no guarantees.<br/>
+There are no minimums.<br/>
+There is no compensation without activation.</p>
+
+<p class="step-header-red">Attribution and permanence</p>
+
+<p>IO attribution is recorded at activation creation time.</p>
+
+<p>Once recorded:</p>
+
 <ul>
-<li>is fixed by the protocol</li>
-<li>is calculated deterministically</li>
-<li>is allocated automatically</li>
-<li>exists only when qualifying revenue exists</li>
+  <li>it cannot be reassigned</li>
+  <li>it cannot be removed</li>
+  <li>it cannot be bypassed through side agreements</li>
+  <li>it cannot be suppressed by brands or operators</li>
 </ul>
-<p>If usage stops, payment stops.<br/>If value resumes, payment resumes.</p>
-<p>There are no guarantees.<br/>There are no promises.<br/>There is only the rule.</p>
-<p><p class="step-header-red">Why this exists</p></p>
-<p>This rule exists to reward those who make infrastructure possible,<br/>without turning infrastructure into a sales process,<br/>and without requiring trust, contracts, identity, or enforcement.</p>
-<p>Infrastructure Originators do not extract value.<br/>They enable value to exist.</p>
-<p>The protocol handles the rest.</p>
-</div>
+
+<p>Any use of protocol-valid activations necessarily honors recorded attribution.</p>
+
+<p class="step-header-red">Why this exists</p>
+
+<p>This structure rewards those who make activation possible<br/>
+without turning infrastructure into sales, brokerage, or negotiation.</p>
+
+<p>Infrastructure Originators do not extract value.<br/>
+They enable activation to exist.</p>
+
+<p>The system handles the rest.</p></div>
 </details>
 </section>
 <section id="rule" style="grid-column: 1 / -1;">
@@ -2080,96 +2135,102 @@ Participants can activate and participate without touching crypto.
 <div class="hint">A single rule governs the system.</div>
 </summary>
 <div class="siteAccordionBody">
-</div>
-<div class="grid">
-<div class="card span-7">
-<h3>The immutable economic split</h3>
-<p>Whenever real revenue is created through the system:</p>
+<p>A single rule governs the system.</p>
+
+<p><strong>Deterministic economic posture</strong></p>
+
+<p>When real revenue is created through the system, outcomes are determined by published, versioned rules.</p>
+
+<p>The protocol enforces the following invariants:</p>
+
 <ul>
-<li>The platform retains a fixed share.</li>
-<li>The remaining distribution is allocated to contributors according to a published lineage rule (<a href="#allocation-math" style="color:var(--red);text-decoration:none;border-bottom:1px solid rgba(227,27,35,0.6);">see Allocation Math</a>).</li>
-<li>If one party creates the value, they receive the distribution share.</li>
-<li>If multiple parties contribute, the share is divided according to the published lineage allocation rule.</li>
-<li>If no value is created, no money exists.</li>
+<li>Allocation occurs only after real revenue exists</li>
+<li>Distribution is computed deterministically from recorded lineage</li>
+<li>Outcomes are derived from rules, not negotiation or discretion</li>
+<li>If one participant contributes, that participant is eligible under the rule</li>
+<li>If multiple participants contribute, eligibility follows the published lineage rule</li>
+<li>If no value is created, no allocation occurs</li>
 </ul>
-<p style="margin-top:10px">These percentages are explicit and universal. They are not negotiated per industry, client, or campaign.</p>
-</div>
-<div class="card span-5">
-<h3>Why “fixed” matters</h3>
-<p>Most systems begin with clear rules and change them later.</p>
-<p>As platforms scale:</p>
+
+<p>The protocol does not define prices, percentages, commercial splits, or retained amounts. Those parameters, if any, are implementation- or Brand-defined and exist outside protocol logic.</p>
+
+<p>What the protocol fixes is how outcomes are computed once qualifying revenue exists, not the commercial terms themselves.</p>
+
+<p><strong>Why fixed rules matter</strong></p>
+
+<p>Most systems begin with clear rules and weaken them as they scale.</p>
+
+<p>As systems grow:</p>
+
 <ul>
-<li>Exceptions accumulate.</li>
-<li>Incentives drift.</li>
-<li>Outcomes become negotiable.</li>
-<li>Trust shifts from rules to operators.</li>
+<li>Exceptions accumulate</li>
+<li>Incentives drift</li>
+<li>Outcomes become negotiable</li>
+<li>Trust shifts from rules to operators</li>
 </ul>
-<p>IDDAS fixes the rule so scale cannot distort it.</p>
-<p>Because the economic split is explicit, published, and verifiable:</p>
+
+<p>IDDAS prevents this by fixing the rule layer itself.</p>
+
+<p>Because outcomes are computed from committed inputs and published rule versions:</p>
+
 <ul>
-<li>Participants know the outcome before they participate, not after.</li>
-<li>Enforcement is verification-based, not trust-based.</li>
-<li>The system is auditable by design.</li>
+<li>Participants know the rule before participation</li>
+<li>Enforcement is verification-based, not trust-based</li>
+<li>Outcomes are auditable and reproducible</li>
+<li>No operator can intervene after the fact</li>
 </ul>
-<p>This model challenges a long-standing assumption popularized by large platforms: that discretion, opacity, and post-hoc adjustment are necessary at scale.</p>
+
+<p>This challenges the assumption that discretion, opacity, or post-hoc adjustment are required at scale.</p>
+
 <p>IDDAS fixes the rule first so others can build on it without fear that success will change the outcome.</p>
-<p><b>What this enables</b></p>
+
+<p><strong>What this enables</strong></p>
+
 <ul>
 <li>Clear expectations before participation</li>
-<li>Auditable enforcement instead of promises</li>
+<li>Deterministic enforcement instead of promises</li>
 <li>Long-term credibility under scale</li>
 <li>Verification-based outcomes, not operator discretion</li>
-<li>A rare fixed economic rule layer</li>
 </ul>
-</div>
-</div>
 </details></section><section class="section" id="deal-security" style="grid-column: 1 / -1;">
 <details class="siteAccordion" data-section="deal-security">
 <summary class="siteAccordionSummary">
 <div class="sectionHead">
-<h2><span class="accent">Deal</span> Security</h2>
+<h2><span class="accent">Deal</span> Formation Integrity</h2>
 </div>
-<div class="hint">How deals are secured without anyone being cut out.</div>
+<div class="hint">How lineage is preserved when a deal is formed.</div>
 </summary>
 <div class="siteAccordionBody">
-<p><b>The object</b></p>
-<p>The candle is not symbolic. It is a functional object with embedded rules.</p>
-<p>When someone opens or passes a candle, they are not sending a message or starting a conversation. They are creating a verifiable activation that can later be used to form a real agreement. The candle carries the chain.</p>
-<p style="margin-top:14px;"><b>Step-by-step example</b></p>
-<p><p class="step-header-red">Step 1 - Initial activation</p></p>
-<p>A person lights a candle. This creates the beginning of a chain. No deal exists yet. No money exists yet. But the system now knows where the opportunity started, and that information is held by the candle itself.</p>
-<p><p class="step-header-red">Step 2 - Passing the candle forward</p></p>
-<p>That person shares the candle with someone else using a QR code or a link. No permissions are requested. No credit is negotiated. The candle simply moves forward, and the original activation remains recorded.</p>
-<p><p class="step-header-red">Step 3 - Continued propagation</p></p>
-<p>The next holder may pass the same candle forward again. Each pass adds a new activation to the chain. No one can remove or overwrite earlier activations. The chain only grows.</p>
-<p><p class="step-header-red">Step 4 - The potential buyer receives the candle</p></p>
-<p>Eventually, the candle reaches someone who can turn the opportunity into a real deal - a venue, promoter, organization, or buyer. If they want to turn the opportunity into a formal agreement, there is a specific action they must take inside the candle.</p>
-<p style="margin-top:14px;"><b>The securing action</b></p>
-<p>Securing happens only after the ritual moment ends. It is intentional and cannot occur while the flame is lit.</p>
+<p>The protocol provides a deterministic way to preserve lineage integrity when a deal is formed through the candle. This is a verification and auditability property - not a contract, and not a guarantee of any economic outcome.</p>
+
+<p><b>1. Lineage forms before any deal</b></p>
+<p>As a candle propagates, eligible activation events append to a lineage. Lineage is append-only: entries can be added, but valid entries are not removed or rewritten.</p>
+
+<p><b>2. Deals formed through the candle remain verifiable</b></p>
+<p>If a deal is formed through the candle, the resulting record retains lineage integrity and can be verified from committed events and published, versioned protocol rules.</p>
+
+<p><b>3. Canonical sealing action (enterprise-enabled)</b></p>
+<p>In enterprise-enabled implementations, a deal may be sealed through a single canonical gesture:</p>
 <ul>
-<li><b>State 1 - Flame lit:</b> tap the flame to extinguish it. Taps elsewhere do nothing.</li>
-<li><b>State 2 - After-state:</b> with the flame off, a single tap anywhere opens the save and share flow. No visible UI. No prompts.</li>
-<li><b>Enterprise access:</b> with the flame off, six rapid taps anywhere open enterprise access for sealing and admin actions.</li>
+<li>the candle must be unsealed</li>
+<li>the flame must be off</li>
+<li>the user performs a continuous 10-second hold on the candle</li>
+<li>any interruption cancels the attempt silently</li>
+<li>completion emits a single Seal Event and seals immediately</li>
+<li>no confirmation dialog exists</li>
+<li>no alternative gestures exist</li>
 </ul>
-<p style="margin-top:14px;"><b>What happens when the action is taken</b></p>
-<p>When the securing action is performed, the candle changes state and new options appear that were not visible before (for example, creating a formal anchored deal or confirming the candle is being used for a real agreement).</p>
-<p>At that moment:</p>
-<ul>
-<li>The deal becomes bound to this specific candle</li>
-<li>The full activation chain is locked</li>
-<li>No upstream participant can be removed</li>
-<li>No new chain can replace it</li>
-</ul>
-<p style="margin-top:14px;"><b>Why no one can be cut out</b></p>
-<p>A deal created through IDDAS can only exist through the candle that formed it. Because the candle already contains the complete chain, the buyer cannot bypass earlier contributors or selectively exclude participants.</p>
-<p>If someone attempts to complete the deal elsewhere, the IDDAS protections do not apply, automated payouts do not occur, and verification is lost. The candle is the gate.</p>
-<p style="margin-top:14px;"><b>What this enables</b></p>
-<ul>
-<li>People can safely introduce opportunities without negotiating credit in advance</li>
-<li>Organizations can accept deals without managing attribution manually</li>
-<li>Agreements form faster, with less friction, and with greater trust</li>
-</ul>
+
+<p><b>4. Post-seal behavior</b></p>
+<p>After sealing, the candle enters a sealed state. The lineage remains append-only and upstream participants cannot be removed or renegotiated. Sealing is one-time and irreversible - there is no unsealing, repetition, or override.</p>
+
+<p><b>5. If a deal occurs outside the candle</b></p>
+<p>If a deal is formed outside the candle, the protocol cannot produce lineage-based verification for that deal. This means loss of protocol verification and loss of lineage-based attribution for that outcome.</p>
+
+<p><b>6. The candle as boundary</b></p>
+<p>The candle is the verification boundary: only deals formed through the candle retain lineage integrity for protocol verification.</p>
 </div>
+
 </details>
 </section>
 <section class="section" id="allocation-plain-english" style="grid-column: 1 / -1;">
@@ -2180,175 +2241,114 @@ Participants can activate and participate without touching crypto.
 </div>
 <div class="hint">How allocation works before you see formulas.</div>
 </summary>
-<div class="siteAccordionBody">
-<p>IDDAS uses a fixed rule to allocate value only after a real transaction occurs.</p>
-<p>There is no negotiation after the fact. There is no discretion. There is no “we’ll figure it out later.”</p>
-<p>Everything that can be allocated is declared in advance.</p>
-<p style="margin-top:14px;"><p class="step-header-red">Step 1 - The platform share (immutable)</p></p>
-<p>When revenue exists, a fixed share goes to the platform.</p>
+<div class="siteAccordionBody"><p>Allocation Plain English</p>
+
+<p>How allocation works before formulas.</p>
+
+<p>IDDAS allocates value only after a real, qualifying transaction occurs.</p>
+
+<p>There is no negotiation after the fact.<br>
+There is no discretion.<br>
+There is no “we’ll figure it out later.”</p>
+
+<p>Everything that may be allocated is defined in advance, and outcomes are computed deterministically from recorded events and published rules.</p>
+
+<p><span class="accent">Step 1 - Revenue first</span></p>
+
+<p>Allocation begins only if real revenue exists.</p>
+
+<p>If no qualifying transaction occurs, no value exists to allocate.<br>
+If no value exists, no allocation occurs.</p>
+
+<p>The protocol does not create speculative value, implied credit, or future entitlement.</p>
+
+<p><span class="accent">Step 2 - Declared allocatable portion</span></p>
+
+<p>Before any participation occurs, the Brand or implementation defines what portion of revenue, if any, is made allocatable.</p>
+
+<p>This declaration is made up front, before activation, propagation, or contribution.</p>
+
+<p>The protocol does not decide:</p>
 <ul>
-<li><b>30%</b> of the total transaction goes to the platform</li>
-<li>This number is constant</li>
-<li>It does not change by industry, deal size, brand, or relationship</li>
+<li>commercial terms</li>
+<li>pricing</li>
+<li>retained amounts</li>
+<li>commission sizes</li>
 </ul>
-<p>This share pays for infrastructure, verification, enforcement, and long-term system stability. This step always happens first.</p>
-<p style="margin-top:14px;"><p class="step-header-red">Step 2 - The brand-declared commission (defined at the front end)</p></p>
-<p>Before any action occurs, the brand defines what portion of the transaction is available as commission. This declaration is made up front, before the candle is activated and before anyone participates.</p>
-<p style="margin-top:10px;"><b>Example</b></p>
+
+<p>It enforces only that whatever is declared allocatable is fixed in advance and cannot be altered after the fact.</p>
+
+<p>Anything not explicitly declared allocatable remains outside protocol allocation.</p>
+
+<p><span class="accent">Step 3 - Allocation pool boundary</span></p>
+
+<p>IDDAS allocates only the portion of revenue that has been declared allocatable.</p>
+
+<p>The protocol does not redistribute retained revenue.<br>
+It does not infer pools.<br>
+It does not expand allocation scope.</p>
+
+<p>If nothing is declared allocatable, nothing is allocated - even if revenue exists.</p>
+
+<p><span class="accent">Step 4 - Lineage-based distribution</span></p>
+
+<p>From the declared allocation pool, distribution follows lineage.</p>
+
+<p>Lineage is the ordered, append-only record of eligible activation events that led to the outcome.</p>
+
+<p>Allocation:</p>
 <ul>
-<li>Total transaction: <b>100%</b></li>
-<li>Platform share: <b>30%</b></li>
-<li>Brand declares a commission: <b>20%</b></li>
-<li>Remaining stays with the brand: <b>50%</b></li>
+<li>follows contribution order, not identity</li>
+<li>is computed mechanically from the lineage state</li>
+<li>is rule-based and deterministic</li>
+<li>contains no discretionary adjustments</li>
 </ul>
-<p style="margin-top:10px;"><b>Clarifications</b></p>
+
+<p>If a role does not exist in a given lineage, no allocation is reserved for it.<br>
+If only one participant contributed, allocation resolves to that participant under the rule.</p>
+
+<p>What lineage does - and does not - do</p>
+
+<p>Adding more participants to a lineage does not create additional value.</p>
+
+<p>What lineage increases is reach and likelihood - not entitlement.</p>
+
+<p>If an outcome occurs, allocation is computed.<br>
+If it does not, nothing is owed.</p>
+
+<p>IDDAS allocates value only after it exists.</p>
+
+<p><span class="accent">In short</span></p>
 <ul>
-<li>The platform does not decide commission size</li>
-<li>IDDAS does not redistribute the brand’s retained revenue</li>
-<li>Intermediaries do not receive the remaining balance by default</li>
+<li>Revenue must exist first</li>
+<li>What is allocatable is declared in advance</li>
+<li>IDDAS allocates only what is declared</li>
+<li>Distribution follows lineage deterministically</li>
+<li>Outcomes are auditable and verifiable</li>
 </ul>
-<p>Everything not explicitly declared as commission remains with the brand. Once declared, the commission amount is fixed and cannot be changed later.</p>
-<p style="margin-top:14px;"><p class="step-header-red">Step 3 - The commission pool (what IDDAS actually allocates)</p></p>
-<p>Only the brand-declared commission becomes the allocation pool. In the example above, IDDAS allocates the <b>20%</b> commission, not the full <b>70%</b> remaining after the platform share.</p>
-<p>If no transaction occurs, no money exists - and nothing is allocated.</p>
-<p><b>IDDAS only allocates what the brand has declared allocatable.</b></p>
-<p style="margin-top:14px;"><p class="step-header-red">Step 4 - Lineage distribution model (commission pool only)</p></p>
-<p>From the brand-declared commission pool (example: the <b>20%</b> commission), distribution is deterministic and follows lineage - the ordered chain of real actions that led to the outcome.</p>
-<p>All percentages below are percentages <b>of the commission pool</b>, not of total revenue.</p>
-<p style="margin-top:10px;"><b>Standard split (all roles exist)</b></p>
-<p>When there is an originator, intermediaries, and a final converter, the commission pool is split as:</p>
-<ul>
-<li><b>Originator - 15%</b> of the commission pool</li>
-<li><b>Intermediaries (shared) - 15%</b> of the commission pool - split equally across intermediaries between originator and final converter (unless the published lineage rule specifies otherwise)</li>
-<li><b>Final converter - 70%</b> of the commission pool</li>
-</ul>
-<p style="margin-top:10px;"><b>Fallback rule - no intermediaries</b></p>
-<p>From the same commission pool, if there are no intermediaries between the originator and final converter:</p>
-<ul>
-<li>The intermediary <b>15%</b> of the commission pool is not lost</li>
-<li>That <b>15%</b> is split evenly between the originator and final converter</li>
-</ul>
-<p><b>Resulting split (of the commission pool)</b></p>
-<ul>
-<li><b>Originator - 22.5%</b></li>
-<li><b>Final converter - 77.5%</b></li>
-</ul>
-<p style="margin-top:10px;"><b>Special case - originator is final converter</b></p>
-<p>From the commission pool, if the originator and final converter are the same participant:</p>
-<ul>
-<li>That participant receives <b>100%</b> of the commission pool (originator 15% + final converter 70% + intermediary 15%)</li>
-</ul>
-<p style="margin-top:14px;"><b>Core rules (locked)</b></p>
-<ul>
-<li>All percentages apply only to the brand-declared commission pool</li>
-<li>No participant is guaranteed a payout</li>
-<li>If a role does not exist, its share is reassigned to existing roles</li>
-<li>Distribution follows lineage, not identity or timing</li>
-</ul>
-<p style="margin-top:14px;"><b>One important clarification</b></p>
-<p>Adding more people to a lineage does not automatically increase the value of a deal. What it increases is reach and likelihood. More help means more chances for the outcome to occur.</p>
-<p>If the outcome occurs, value is allocated. If it does not, nothing is owed. IDDAS allocates value only after it exists.</p>
-<p style="margin-top:14px;"><b>In short</b></p>
-<p>The platform rule is fixed. The brand defines the commission in advance. IDDAS allocates only that commission. Allocation is deterministic and auditable. The rule is known before participation.</p>
-<p><b>The rule is the trust.</b></p>
-</div>
+
+<p>The rule is known before participation.<br>
+The rule does not change afterward.</p>
+
+<p>The rule is the trust.</p></div>
 </details>
 </section>
 <section class="section" id="allocation-math" style="grid-column: 1 / -1;">
 <details class="siteAccordion" data-section="allocation-math">
 <summary class="siteAccordionSummary">
 <div class="sectionHead">
-<h2><span class="accent">Allocation</span> Math</h2>
-</div>
-<div class="hint">Deterministic. Published. Verifiable.</div>
-</summary>
-<div class="siteAccordionBody">
-<p>When value is created through IDDAS, distribution is not negotiated. It is calculated.</p>
-<p>This section exists to make that explicit. There is no interpretation layer, no discretion, and no post-hoc adjustment. The same inputs always produce the same outputs.</p>
-<details class="siteAccordion">
-<summary class="siteAccordionSummary">
-<div class="sectionHead">
-<h3><span class="accent">View</span> the allocation model</h3>
+<h2>Deterministic Allocation (Overview)</h2>
 </div>
 </summary>
 <div class="siteAccordionBody">
-<div class="grid">
-<div class="card span-12">
-<div class="grid">
-<div class="span-4">
-<h4><span class="accent">Definition</span></h4>
-<p>Let <code>R</code> be real revenue created through the system.</p>
-<p>If <code>R = 0</code>, no allocation occurs. IDDAS does not create speculative value. It only allocates value after a measurable outcome.</p>
+<p>When real revenue occurs, allocation under IDDAS follows published, versioned protocol rules.</p>
+<p>Allocation is deterministic and non-discretionary: the same committed inputs always produce the same outcomes. There is no negotiation, manual adjustment, or post-hoc override.</p>
+<p>The protocol records eligible activation events, preserves their lineage in order, and computes outcomes only after real, settled revenue exists.</p>
+<p>These properties ensure auditability and verification without requiring trust in any operator. Protocol rules are authoritative; implementations may vary.</p>
 </div>
-<div class="span-4">
-<h4><span class="accent">Fixed</span> platform share</h4>
-<p>The platform share is fixed.</p>
-<p>Let <code>α = 0.30</code>. Then:</p>
-<p><code>Platform allocation = α · R</code></p>
-<p>This value is invariant across industries, partners, deployments, and time. There are no per-client economics.</p>
+</details>
+</section>
 </div>
-<div class="span-4">
-<h4><span class="accent">Brand-declared</span> commission pool</h4>
-<p>Before any action occurs, the brand declares a commission rate.</p>
-<p>Let <code>γ</code> be the commission rate (example: <code>0.20</code>). Then:</p>
-<p><code>C = γ · R</code></p>
-<p>IDDAS allocates only <code>C</code>. The platform share and the brand’s retained revenue are not part of this pool.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="card span-12">
-<div class="grid">
-<div class="span-4">
-<h4><span class="accent">Lineage</span> set</h4>
-<p>Let <code>L</code> be the ordered lineage that led to the outcome:</p>
-<p><code>L = {a<sub>1</sub>, a<sub>2</sub>, …, a<sub>n</sub>}</code></p>
-<ul>
-<li>each <code>a<sub>i</sub></code> represents a concrete activation event</li>
-<li>order reflects propagation, not time of claim</li>
-<li><code>n</code> is the total number of contributing activations</li>
-</ul>
-<p>Lineage is append-only. Entries cannot be removed or overwritten.</p>
-</div>
-<div class="span-4">
-<h4><span class="accent">Allocation</span> function</h4>
-<p>Distribution is calculated by a published allocation function <code>f</code>.</p>
-<p>For each lineage position <code>i</code>:</p>
-<p><code>β<sub>i</sub> = f(i, n, θ)</code></p>
-<ul>
-<li><code>β<sub>i</sub></code> is the fraction of <code>C</code> allocated to position <code>i</code></li>
-<li><code>θ</code> represents fixed, published parameters</li>
-<li><code>∑ β<sub>i</sub> = 1</code> over all <code>i ∈ [1, n]</code></li>
-</ul>
-<p>No hidden parameters are permitted.</p>
-</div>
-<div class="span-4">
-<h4><span class="accent">Payout</span></h4>
-<p>Each contributor receives:</p>
-<p><code>P<sub>i</sub> = β<sub>i</sub> · C</code></p>
-<p>If <code>n = 1</code>, then <code>P<sub>1</sub> = C</code>. If <code>n &gt; 1</code>, distribution follows the lineage function exactly. There is no "last touch" privilege. There is no discretionary override.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="card span-12">
-<h4><span class="accent">Constraints</span></h4>
-<ul>
-<li><code>α</code> is fixed</li>
-<li><code>γ</code> is declared in advance</li>
-<li><code>f</code> is published and versioned</li>
-<li><code>L</code> is append-only</li>
-<li><code>β<sub>i</sub></code> values are derived, not chosen</li>
-<li>allocation cannot change retroactively</li>
-</ul>
-<p>If the rule changes, a new version must be published. Old outcomes remain verifiable against the rule in effect at the time.</p>
-<h4><span class="accent">Verification</span></h4>
-<p>Allocation batches are committed via cryptographic hashes. Verification confirms the rule version used, the lineage set <code>L</code>, the computed <code>β<sub>i</sub></code> values, and the resulting payouts. Trust in the operator is not required.</p>
-<p><strong>Summary:</strong> IDDAS replaces negotiated attribution with deterministic allocation.</p>
-</div>
-</details></div>
-</details></section></div>
-<div class="midnote" style="text-align:center"><p><em>If the math feels simple, that is intentional. Complexity is usually where discretion hides.</em></p></div>
 <section class="section" id="pricing-activation" style="grid-column: 1 / -1; width: 100%; max-width: 1100px; margin: 0 auto;">
 <details class="siteAccordion" data-section="pricing-activation">
 <summary class="siteAccordionSummary">
@@ -2364,67 +2364,52 @@ Participants can activate and participate without touching crypto.
 <p>An activation is not passive exposure.<br/>It is not an impression.<br/>It is not background traffic.</p>
 <p>An activation requires intentional human action and the creation of persistent system state. Each activation is recorded at the moment it occurs and becomes part of an append-only lineage that cannot be retroactively altered.</p>
 <p>If no intentional entry occurs, no activation exists.<br/>If no activation exists, no charge occurs.</p>
+
 <p><b>Structural integrity of activations</b></p>
-<p>The system does not rely on post-hoc filtering or subjective moderation to determine valid activations.</p>
+<p>The system does not rely on post-hoc filtering, subjective moderation, or discretionary review to determine valid activations.</p>
 <p>Validity is structural.</p>
 <p>An activation must:</p>
 <ul>
 <li>Originate from intentional human entry</li>
 <li>Establish a real session context</li>
 <li>Create a unique lineage event</li>
-<li>Pass idempotent verification checks</li>
+<li>Pass deterministic, idempotent verification checks</li>
 </ul>
-<p>Automated traffic may fire requests or load URLs, but it cannot easily:</p>
+<p>Automated traffic may fire requests or load URLs, but it cannot reliably:</p>
 <ul>
 <li>Mimic physical-world scanning at scale</li>
 <li>Sustain meaningful session state</li>
 <li>Generate diverse, valid activation contexts</li>
 <li>Create lineage without detection</li>
 </ul>
-<p>Because of this, invalid activity does not qualify as an activation by definition. It is excluded structurally, not filtered later.</p>
-<p><b>Universal activation pricing</b></p>
-<p>The price per activation is fixed and universal.</p>
-<p><b>$1.00 per activation</b></p>
+<p>Invalid activity does not qualify as an activation by definition. It is excluded structurally, not filtered later.</p>
+
+<p><b>Activation-based charging (non-numeric)</b></p>
+<p>Charges, where applied, are based solely on verified activations that actually occur.</p>
+<p>The protocol defines when an activation exists.<br/>Pricing, credits, minimums, discounts, or billing structures-if any-are defined by the Brand or implementation operating within the protocol.</p>
+<p>Pricing decisions do not affect:</p>
 <ul>
-<li>Applies to all activation types</li>
-<li>Applies to all surfaces and environments</li>
-<li>Applies regardless of format, location, customer, or use case</li>
+<li>Activation eligibility</li>
+<li>Lineage formation</li>
+<li>Allocation logic</li>
+<li>Verification or determinism</li>
 </ul>
-<p><b>Effective floor via efficiency credits</b></p>
-<p>An effective floor of $0.50 exists, but it is not a listed base price.</p>
-<p>That floor is reached only through forward-only efficiency credits earned through real usage.</p>
-<p>Credits are deterministic, predefined, non-retroactive, and non-negotiated. They are never discretionary.</p>
-<p>CandleMe is one example of an activation. Other activations may involve different surfaces, rituals, or interactions, but the pricing rule remains unchanged.</p>
-<p><b>Example - CandleMe economics (clarity)</b></p>
-<p>CandleMe is a consumer interface that runs on the same IDDAS pricing rule. It does not replace IDDAS - it demonstrates it.</p>
-<p>If a CandleMe activation is $1.00, then the platform share applies to that activation:</p>
-<ul>
-<li>Gross activation price: $1.00</li>
-<li>Platform share (30%): $0.30</li>
-<li>Up to 70% allocates through lineage when real revenue exists</li>
-</ul>
-<p>If efficiency credits later reduce the effective out-of-pocket cost toward $0.50, the economic rule does not change - the platform share still applies to the effective paid amount:</p>
-<ul>
-<li>Effective paid amount: $0.50 (via forward-only usage credits)</li>
-<li>Platform share (30%): $0.15</li>
-<li>The rest remains distributable by the published rule</li>
-</ul>
-<p>So CandleMe can be “cheap” for users over time while still generating platform revenue and preserving the same deterministic economic rule.</p>
-<p>There are no tiers.<br/>There are no negotiated rates.<br/>There are no discretionary adjustments.</p>
+
 <p><b>What is charged and what is not</b></p>
-<p>Charges apply only to verified activations that actually occur.</p>
-<p>If 100 people attend and 20 intentionally enter, only 20 activations are charged.</p>
-<p>If no one enters, no charge occurs.</p>
-<p>Charges are not based on impressions, views, or inferred exposure. Charges are based solely on recorded, verifiable activation events.</p>
-<p>Subsequent actions such as saving, sharing, claiming, or converting deepen the activation and extend lineage, but they are not required for an activation to be valid.</p>
+<p>Charges apply only to verified activations that intentionally occur.</p>
+<p>If people are present but do not intentionally enter, no activation exists and no charge occurs.</p>
+<p>Charges are not based on impressions, views, reach, or inferred exposure. Charges are based solely on recorded, verifiable activation events.</p>
+<p>Subsequent actions such as saving, sharing, claiming, or converting may deepen lineage, but they are not required for an activation to be valid.</p>
+
 <p><b>Event and time boundaries</b></p>
-<p>Activations are counted within defined events or time windows.</p>
-<p>Unused capacity does not carry indefinitely. New events or deployments require new activation capacity.</p>
-<p>This aligns pricing with real-world moments and prevents ambiguity in accounting, attribution, or reconciliation.</p>
+<p>Activations are counted within defined events, deployments, or time windows as configured by the implementation.</p>
+<p>Capacity, credits, or usage limits-if any-apply to future activity only and do not retroactively alter recorded activations or outcomes.</p>
+<p>This aligns charging with real-world moments and preserves clear accounting, attribution, and reconciliation.</p>
+
 <p><b>Why this model exists</b></p>
-<p>Physical-world activation only scales when engagement is measured precisely and attribution is certain.</p>
-<p>This model replaces statistical estimation with deterministic verification. Participants know the rule before they participate, and outcomes follow the rule exactly.</p>
-<p>The result is a system designed for clarity over guesswork, verification over inference, and durability over short-term optimization.</p>
+<p>Physical-world activation only scales when engagement is measured precisely and verification is deterministic.</p>
+<p>This model replaces estimation with verification. Participants know the rule before they participate, and outcomes follow the rule exactly.</p>
+<p>Clarity replaces guesswork. Verification replaces inference.</p>
 </div>
 </details>
 </section>
@@ -2436,24 +2421,54 @@ Participants can activate and participate without touching crypto.
 </div>
 <div class="hint">Why the rule is fixed, and what is included.</div>
 </summary>
-<div class="siteAccordionBody">
-<p><b>Pricing philosophy</b></p>
+<div class="siteAccordionBody"><p class="step-header-red">Pricing philosophy</p>
+
 <p>IDDAS charges for verified activation - and nothing else.</p>
-<p>If an activation occurs, it is billed.<br/>If no activation occurs, nothing is charged.</p>
-<p>Each activation includes deterministic attribution, verifiable lineage, auditable outcomes, and independent proof of what occurred.</p>
-<p>These are not add-ons.<br/>They are not upgrades.<br/>They are not metered separately.</p>
-<p>You are paying for real entry. IDDAS provides the full truth of what that entry produced.</p>
-<p><b>Fairness rule - any industry, any size, same rule</b></p>
-<p>The pricing rule is universal. It does not change based on industry, company size, negotiating power, or volume.</p>
-<p>There are no custom deals.<br/>There are no special cases.<br/>There are no hidden terms.</p>
-<p>Small and large organizations operate under the exact same protocol rule.</p>
-<p>No one is penalized for being small.<br/>No one is favored for being large.<br/>The economics remain clean at any scale.</p>
-<p><b>Efficiency credits - forward-only convergence</b></p>
-<p>IDDAS includes a predefined efficiency model that can reduce the effective price toward a $0.50 floor over time.</p>
-<p>Efficiency is earned through cumulative, verified activations. Credits apply to future activations only.</p>
-<p>There are no retroactive adjustments, negotiated rates, or discretionary overrides.</p>
-<p>The floor cannot be exceeded downward.</p>
-</div>
+
+<p>If an activation occurs, it may be charged according to the implementation’s published pricing.<br/>
+If no activation occurs, nothing is charged.</p>
+
+<p>An activation is a verified, intentional entry that creates persistent system state.<br/>
+Charges are never based on impressions, views, exposure, or inferred interest.</p>
+
+<p>Each verified activation includes deterministic attribution, append-only lineage, auditable outcomes, and independent verification of what occurred.</p>
+
+<p>These properties are inherent to the system.<br/>
+They are not add-ons, upgrades, or optional features.</p>
+
+<p>You are paying for real entry. The system provides the full, verifiable truth of what that entry produced.</p>
+
+<p class="step-header-red">Fairness rule - uniform structure, not negotiated outcomes</p>
+
+<p>IDDAS enforces a uniform structural rule: what is charged, when charging occurs, and what properties are included do not vary by industry, organization size, negotiating power, or relationship.</p>
+
+<p>There are no special cases.<br/>
+There are no discretionary exceptions.<br/>
+There are no hidden terms.</p>
+
+<p>Commercial pricing amounts, if any, are defined by the implementation or Brand, not by the protocol.<br/>
+The protocol fixes the structure and invariants, not the numbers.</p>
+
+<p>Small and large organizations operate under the same rule structure.<br/>
+No participant is favored. No participant is penalized.</p>
+
+<p class="step-header-red">Credits and efficiency (implementation-defined)</p>
+
+<p>Implementations may support credits or efficiency mechanisms that apply to future activations.</p>
+
+<p>Such mechanisms, if offered:</p>
+
+<ul>
+  <li>apply forward-only</li>
+  <li>are deterministic and non-discretionary</li>
+  <li>do not apply retroactively</li>
+  <li>do not alter attribution, lineage, or outcome computation</li>
+</ul>
+
+<p>Credits affect billing only.<br/>
+They do not change what an activation is, when it occurs, or how outcomes are verified.</p>
+
+<p>The protocol does not define credit amounts, pricing floors, or commercial incentives.</p></div>
 </details>
 </section>
 <div class="sectionGrid">
@@ -2473,13 +2488,13 @@ Participants can activate and participate without touching crypto.
 <p>A meaningful action creates an activation.</p><p>This can be a scan, a tap, a link open, or any defined trigger.</p><p>An activation is anonymous by default. It does not require an account, identity, or prior relationship.</p><p>The activation is the root of continuity. Everything that happens later traces back to this moment.</p><p>Identity may be attached later, but identity does not create eligibility. Only the action does.</p><p>This design allows participation to begin immediately, without permission, friction, or explanation. It is optimized for moments of mass participation, not gated access.</p><p>Participants who care about persistence, control, or long-term involvement can and typically will attach identity later. The system supports that naturally.</p><ul><li>No login required</li><li>Identity can attach later</li><li>Identity never creates eligibility</li><li>Action is the only prerequisite</li></ul></div>
 <div class="card span-6">
 <h3>Lineage</h3>
-<p>Activations form lineages. A lineage is the ordered chain of actions that lead to an outcome.</p><p>Each activation links to a prior activation, creating a permanent history of contribution based on actual propagation, not claims.</p><p>Lineages do not collapse into a single winner. There is no global last person and no overwrite.</p><p>Multiple lineages can exist in parallel indefinitely. Each remains independently valid.</p><p>Eligibility for downstream value is determined by position within a lineage, not by identity, reputation, or timing tricks.</p><p>Eligibility itself does not expire. However, claiming or collecting value may be subject to clearly defined time windows (for example, 12 or 24 months), which are published in advance and apply equally to all participants.</p><p>These windows do not alter lineage or reassign value. They define how long a participant has to claim what they are already eligible for.</p><ul><li>Eligibility for downstream value is permanent within a lineage</li><li>Claim windows may apply and are explicit</li><li>No global last person</li><li>Parallel lineages can exist indefinitely</li><li>Attribution follows actual propagation</li></ul></div>
+<p>Activations form lineages. A lineage is the ordered chain of actions that lead to an outcome.</p><p>Each activation links to a prior activation, creating a permanent history of contribution based on actual propagation, not claims.</p><p>Lineages do not collapse into a single winner. There is no global last person and no overwrite.</p><p>Multiple lineages can exist in parallel indefinitely. Each remains independently valid.</p><p>Eligibility for downstream value is determined by position within a lineage, not by identity, reputation, or timing tricks.</p><p>Eligibility itself does not expire. However, claiming or collecting value may be subject to clearly defined time windows , which are published in advance and apply equally to all participants.</p><p>These windows do not alter lineage or reassign value. They define how long a participant has to claim what they are already eligible for.</p><ul><li>Eligibility for downstream value is recorded durably within a lineage, but does not guarantee compensation, payout, or economic outcome.</li><li>Claim windows may apply and are explicit</li><li>No global last person</li><li>Parallel lineages can exist indefinitely</li><li>Attribution follows actual propagation</li></ul></div>
 </div>
 <div class="divider"></div>
 <div class="grid">
 <div class="card span-6">
 <h3>Control and origin</h3>
-<p>Control comes from possession of the originating activation token, not from identity.</p><p>The first activation creates the root. That root cannot be overwritten by later actions or identities.</p><p>Identity may later anchor continuity, but it cannot rewrite origin or seize control.</p><p>If the originating token is lost, control may be lost. This is intentional. The system favors correctness and continuity over recovery by default.</p><p>In practice, participants for whom persistence matters - such as sales agents, operators, or long-term contributors - typically attach identity early. The anonymous-first model exists to remove friction for the many, not to penalize the few.</p><ul><li>The first activation creates the root</li><li>Later actions cannot overwrite the root</li><li>Identity cannot seize origin</li><li>Loss of token can mean loss of control</li></ul></div>
+<p>Continuity and origin anchoring derive from possession of the originating activation token, not from identity.</p><p>The first activation creates the root. That root cannot be overwritten by later actions or identities.</p><p>Identity may later anchor continuity, but it cannot rewrite origin or seize control.</p><p>If the originating token is lost, control may be lost. This is intentional. The system favors correctness and continuity over recovery by default.</p><p>In practice, participants for whom persistence matters - such as sales agents, operators, or long-term contributors - typically attach identity early. The anonymous-first model exists to remove friction for the many, not to penalize the few.</p><ul><li>The first activation creates the root</li><li>Later actions cannot overwrite the root</li><li>Identity cannot seize origin</li><li>Loss of token can mean loss of control</li></ul></div>
 <div class="card span-6">
 <h3>Idempotency</h3>
 <p>Actions must be safe to repeat without changing outcomes.</p><p>Reloading a page does not create a new activation. Refreshing does not duplicate events.</p><p>The system behaves as if the action happened once, even if it was triggered multiple times accidentally.</p><p>This prevents inflation, abuse, and accidental duplication.</p><p>All events are append-only. History can grow, but it cannot be rewritten.</p><ul><li>A scan creates a new activation</li><li>Refresh does not create another</li><li>Duplicate triggers do not duplicate outcomes</li><li>Events are append-only</li></ul></div>
@@ -2710,7 +2725,7 @@ Participants can activate and participate without touching crypto.
 <li>Intentional activation as the atomic unit of participation</li>
 <li>Structural verification of real, human presence</li>
 <li>Creation of permanent, append-only activation lineage</li>
-<li>Deterministic, universal activation pricing</li>
+<li>Deterministic activation accounting independent of pricing</li>
 <li>Verifiable activation records anchored for audit</li>
 </ul>
 <p>The system verifies that someone was present, not who they were.</p>
@@ -2750,14 +2765,17 @@ Participants can activate and participate without touching crypto.
 <li>Records can be independently verified without revealing identity</li>
 </ul>
 <p>Blockchain is used to make the system tamper-evident, not to introduce friction.</p>
-<p><b>Universal activation pricing</b></p>
-<p>IDDAS uses a fixed, universal pricing rule:</p>
-<ul>
-<li>$1 per verified activation</li>
-<li>Charged only when activation occurs</li>
-<li>No activation means no charge</li>
-</ul>
-<p>A portion of value may return as system credits usable for future activations, without altering the pricing rule.</p>
+<p class="step-header-red">Activation-based charging (implementation-defined)</p>
+
+<p>IDDAS charges only for verified activations.</p>
+
+<p>If an activation occurs, it may be charged according to the implementation’s published pricing.<br/>
+If no activation occurs, nothing is charged.</p>
+
+<p>The protocol does not define prices, rates, floors, credits, or numeric amounts.<br/>
+Those parameters, if any, are implementation- or Brand-defined and exist outside protocol logic.</p>
+
+<p>Any credits or efficiency mechanisms, if offered, apply forward-only, do not alter attribution or lineage, and do not change what constitutes an activation.</p>
 <p><b>Example applications (not exhaustive)</b></p>
 <p>These are expressions of the same infrastructure, not separate products.</p>
 <p>1. CandleMe<br/>A ritual activation where each scan ignites a candle, creating a lineage of presence and participation.</p>
@@ -3845,8 +3863,10 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <details class="faqItem">
 <summary class="faqQ">Why is the activation price fixed and universal?</summary>
 <div class="faqA">
-<p>A fixed price prevents negotiation, exceptions, and discretionary outcomes.</p>
-<p>Everyone knows the rule in advance, regardless of size, industry, or use case. This preserves fairness and predictability at scale.</p>
+<p>The protocol fixes the charging structure, not the numeric price.</p>
+<p>IDDAS defines what is charged (verified activations), when charging occurs (only when activation happens), and what properties are included (verification, lineage, auditability).</p>
+<p>Numeric pricing amounts are defined by the implementation or Brand and may vary by deployment. The protocol does not define prices, rates, or dollar values.</p>
+<p>What remains fixed is that pricing is applied uniformly within a deployment, without discretionary exceptions, retroactive changes, or negotiated outcomes after activation occurs.</p>
 </div>
 </details>
 <details class="faqItem">
@@ -3986,15 +4006,23 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <details class="faqItem">
 <summary class="faqQ">How are Infrastructure Originators paid?</summary>
 <div class="faqA">
-<p>If a valid infrastructure origin exists, a fixed Infrastructure Originator share is allocated automatically according to the protocol rule.</p>
-<p>If no qualifying activations occur, no allocation occurs.</p>
+<p>Infrastructure Originators participate only in activation-based economics.</p>
+<p>When verified activations occur through originated activation surfaces, a fixed portion of the activation fee is attributed to the Infrastructure Originator according to the implementation’s published rules.</p>
+<p>Infrastructure Originator compensation:</p>
+<p>• is computed automatically<br/>
+• is proportional to activation volume<br/>
+• is independent of downstream revenue, deals, or conversions<br/>
+• does not depend on negotiation, discretion, or approval</p>
+<p>If no qualifying activations occur, no compensation occurs.</p>
 </div>
 </details>
 <details class="faqItem">
 <summary class="faqQ">Where does the Infrastructure Originator share come from?</summary>
 <div class="faqA">
-<p>The Infrastructure Originator share is allocated from the platform share.</p>
-<p>It does not reduce participant distributions and does not alter lineage-based allocations.</p>
+<p>The Infrastructure Originator share is derived from activation fees.</p>
+<p>It is not taken from participant allocations, downstream revenue distribution, or lineage-based outcomes.</p>
+<p>Infrastructure Originator compensation exists entirely at the activation layer and does not alter attribution, lineage, or allocation of revenue created later through conversions.</p>
+<p>This separation ensures that infrastructure enablement is rewarded without interfering with outcome-based distribution.</p>
 </div>
 </details>
 <details class="faqItem">
@@ -4033,8 +4061,9 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <summary class="faqQ">Does Infrastructure Origination guarantee income?</summary>
 <div class="faqA">
 <p>No.</p>
-<p>Infrastructure Origination creates eligibility, not entitlement.</p>
-<p>Payment occurs only if qualifying activations and qualifying revenue occur.</p>
+<p>Infrastructure Origination creates eligibility for activation-based compensation only if verified activations occur.</p>
+<p>There are no guarantees, minimums, or promises. If activation volume is zero, compensation is zero. If activation volume increases, compensation increases proportionally.</p>
+<p>Participation creates no entitlement beyond what the recorded activations produce.</p>
 </div>
 </details>
 <details class="faqItem">
@@ -4075,7 +4104,7 @@ Payout execution may occur later without altering any protocol-defined outcome.<
     <div class="sectionHead">
       <h2><span class="accent">Hard</span> questions</h2>
 </div>
-    <div class="hint">Protocol-level objections and direct answers .</div>
+    <div class="hint">Protocol-level objections and direct answers.</div>
   </summary>
 
   <div class="siteAccordionBody">
@@ -4089,7 +4118,7 @@ Payout execution may occur later without altering any protocol-defined outcome.<
   <div class="faqA">
     <p>No.</p>
 <p>QR codes, links, and attribution already exist. IDDAS is not about inventing those primitives. What is new is the order of operations and the governance model.</p>
-<p>IDDAS enforces that activation happens before identity, attribution follows lineage instead of accounts, and economic outcomes follow a published rule that cannot be silently changed. Most systems do the opposite - they start with identity, infer attribution later, and negotiate economics case by case.</p>
+<p>IDDAS enforces that activation happens before identity, attribution follows lineage instead of accounts, and outcome computation rules follow a published rule that cannot be silently changed. Most systems do the opposite - they start with identity, infer attribution later, and negotiate economics case by case.</p>
 <p>That combination is the difference.</p>
   </div>
 </details>
@@ -4112,10 +4141,10 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <details class="faqItem">
   <summary class="faqQ">Why lock yourself into fixed economics? Isn’t that bad business?</summary>
   <div class="faqA">
-    <p>In the short term, it reduces flexibility. In the long term, it creates trust.</p>
-<p>Protocols publish rules in advance so participants can rely on outcomes. IDDAS separates infrastructure from governance. Clients pay for activations. Distribution follows a published rule. No silent changes. No per-client exceptions.</p>
-<p>That constraint is intentional.</p>
-  </div>
+<p>IDDAS fixes the rule structure, not numeric economics.</p>
+<p>The protocol locks the order of operations, attribution logic, and non-discretionary computation of outcomes. Pricing amounts, fees, and commercial terms are defined outside the protocol by implementations or Brands.</p>
+<p>This separation allows markets, pricing, and business models to evolve freely without undermining trust in how outcomes are computed once qualifying events occur.</p>
+</div>
 </details>
 <details class="faqItem">
   <summary class="faqQ">Why use blockchain at all? Isn’t that unnecessary?</summary>
@@ -4229,10 +4258,10 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <details class="faqItem">
   <summary class="faqQ">What if a client wants different economics than the protocol allows?</summary>
   <div class="faqA">
-    <p>Then IDDAS is likely not the right system for that use case.</p>
-<p>IDDAS is designed for environments where predictability, neutrality, and verifiability matter more than bespoke terms. That constraint is intentional and helps maintain trust across participants.</p>
-<p>Not every system should be a protocol. IDDAS chooses to be one.</p>
-  </div>
+<p>IDDAS governs how outcomes are computed once qualifying events occur. It does not govern pricing amounts, commercial terms, or business strategy.</p>
+<p>If a use case requires discretionary attribution, retroactive changes, or negotiated outcome overrides, IDDAS is likely not the appropriate system.</p>
+<p>IDDAS is designed for environments where predictability, neutrality, and verification matter more than bespoke outcome negotiation.</p>
+</div>
 </details>
 <details class="faqItem">
   <summary class="faqQ">Does this mean IDDAS grows more slowly?</summary>
