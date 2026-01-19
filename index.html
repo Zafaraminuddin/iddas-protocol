@@ -89,8 +89,6 @@
       grid-template-columns: 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
-      position:relative;
-      overflow:visible;
     }
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr}
@@ -1440,24 +1438,6 @@ body.nav-hidden .content, body.nav-hidden .main, body.nav-hidden main{ width:100
   border: 0 !important;
 }
 
-
-
-    .candle-hero {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      transform: translateX(-10%);
-      width: min(360px, 28vw);
-      height: auto;
-      z-index: 1;
-      pointer-events: none;
-      user-select: none;
-      filter: drop-shadow(0 0 24px rgba(255, 80, 80, 0.18));
-      opacity: 0.95;
-    }
-@media (max-width: 900px) {
-      .candle-hero { display: none; }
-    }
 </style>
 <style>
 .gs-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;background:rgba(0,0,0,.78);padding:18px}
@@ -1714,13 +1694,6 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 
 
 <div class="hero" id="top">
-  <img
-    src="/assets/images/candleme-now-still.png"
-    alt="CandleMe activation candle"
-    class="candle-hero"
-    loading="eager"
-    decoding="async"
-  />
 <div class="heroCard">
 <div class="kicker">Activation before identity</div>
 <h1>IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.</h1>
