@@ -86,12 +86,32 @@
     .hero{
       padding:22px 0 18px;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 260px 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
     }
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr}
+    }
+
+    .heroCandle{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .heroCandle img{
+      width:100%;
+      max-width:280px;
+      height:auto;
+      max-height:560px;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      pointer-events:none;
+      user-select:none;
+    }
+    @media (max-width: 920px){
+      .heroCandle img{max-height:360px; max-width:260px;}
     }
     .heroCard{
       background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
@@ -1633,17 +1653,21 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 
 <div id="devNoticeOverlay">
   <div id="devNoticeBox">
-    <h2>Developer Reference Notice</h2>
+    <h2>Reference Implementation Notice</h2>
     <p>
-      This site reflects an in-progress protocol implementation and is published
-      as a developer reference snapshot.
+      This site presents a reference view of an IDDAS-compatible implementation.
     </p>
     <p>
-      Verification services are live. On-chain anchoring is currently being finalized
-      as part of an active milestone.
+      Outcomes shown here are computed deterministically from committed inputs and published, versioned protocol rules. No discretionary adjustments, manual overrides, simulations, or illustrative examples are used.
     </p>
     <p>
-      When this notice is removed, all protocol enforcement layers are fully implemented.
+      This reference exists to demonstrate protocol behavior, verification properties, and rule enforcement. It does not constitute a product guarantee, a commercial offer, or a statement of implementation completeness.
+    </p>
+    <p>
+      Protocol rules are authoritative and versioned. Implementation details may evolve without altering past outcomes.
+    </p>
+    <p>
+      Protocol behavior is fixed. Implementations may vary.
     </p>
     <button onclick="document.getElementById('devNoticeOverlay').remove();">
       Continue to site
@@ -1690,6 +1714,9 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 
 
 <div class="hero" id="top">
+<div class="heroCandle">
+  <img src="/images/candleme-still.png" alt="CandleMe activation candle" loading="lazy" />
+</div>
 <div class="heroCard">
 <div class="kicker">Activation before identity</div>
 <h1>IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.</h1>
@@ -3248,7 +3275,7 @@ Rules interpret data. Protocols define system physics.</li>
 <a href="#p2">2. Definitions</a>
 <a href="#p3">3. Candle Model</a>
 <a href="#p4">4. Lineage Construction</a>
-<a href="#p5">5. Allocation Model</a>
+<a href="#p5">5. Allocation, Roles, and Deterministic Boundaries</a>
 <a href="#p6">6. Payout Model</a>
 <a href="#p7">7. Verification Model</a>
 <a href="#p8">8. Identity and Access</a>
@@ -3281,7 +3308,7 @@ Rules interpret data. Protocols define system physics.</li>
 <p>No discretionary overrides are permitted.</p>
 <p>No subjective interpretation is applied after revenue exists.</p>
 <p>If an outcome cannot be derived from committed inputs and published rules, it does not qualify as a valid protocol outcome.</p>
-<div class="protoH protoH2" id="p0-6">0.6 Separation of Protocol and Implementation</div><p>This protocol defines rules, not software.</p><ul class="protoList"><li>Multiple implementations may exist, including first-party, third-party, or derivative implementations</li><li>Implementations may differ in architecture, performance, infrastructure, or user interface</li><li>Implementations must not alter, reinterpret, or weaken protocol-defined behavior</li></ul><p>Protocol correctness, validity, and verification are independent of any specific implementation.</p><div class="protoH protoH2" id="p0-7">0.7 Versioning and Change Control</div><p>All protocol rule changes must be versioned.</p><p>Rules:</p><ul class="protoList"><li>Each version has a unique identifier and effective date</li><li>Changes apply prospectively unless explicitly stated otherwise</li><li>Settled outcomes remain verifiable against the protocol version in effect at the time they occurred</li><li>No change may silently alter allocation, eligibility, verification, or payout behavior</li><li>New versions may coexist with prior versions for verification and audit purposes</li></ul><p>Protocol history is immutable. Past outcomes are never rewritten.</p><div class="protoH protoH2" id="p0-8">0.8 Immutability of Recorded Events</div><p>All protocol-defined events are recorded in an append-only manner.</p><ul class="protoList"><li>Recorded events cannot be deleted</li><li>Recorded events cannot be overwritten</li><li>Corrections or adjustments occur only through the recording of additional events</li></ul><p>This immutability ensures that lineage, verification, and outcomes remain auditable and reproducible over time, independent of implementation.</p><div class="protoH protoH2" id="p0-9">0.9 Relationship to Derivatives</div><p>All derivative materials, including but not limited to websites, FAQs, white papers, documentation, and sales materials:</p><ul class="protoList"><li>Must accurately reflect the current protocol version they reference</li><li>Must not introduce new rules or requirements</li><li>Must not reinterpret, weaken, or override fixed protocol behavior</li></ul><p>If a derivative document is ambiguous, incomplete, or requires clarification, the protocol must be consulted. Informal explanations or derivative materials do not amend, supplement, or replace this document.</p><div class="protoH protoH2" id="p0-10">0.10 Scope Boundaries</div><p>This protocol intentionally does not define or govern the following:</p><ul class="protoList"><li>Business strategy or commercial positioning</li><li>Pricing beyond the fixed activation unit defined by the protocol</li><li>Commercial minimums, discounts, or negotiated contractual terms</li><li>Identity systems beyond optional anchoring mechanisms</li><li>Regulatory compliance requirements specific to any jurisdiction</li></ul><p>These concerns are external to protocol correctness and are addressed at the implementation, operational, or commercial layer. Their existence or variation does not affect protocol validity, determinism, or verification.</p><div class="protoH protoH2" id="p0-11">0.11 Activation Credits and Adoption Mechanics</div>
+<div class="protoH protoH2" id="p0-6">0.6 Separation of Protocol and Implementation</div><p>This protocol defines rules, not software.</p><ul class="protoList"><li>Multiple implementations may exist, including first-party, third-party, or derivative implementations</li><li>Implementations may differ in architecture, performance, infrastructure, or user interface</li><li>Implementations must not alter, reinterpret, or weaken protocol-defined behavior</li></ul><p>Protocol correctness, validity, and verification are independent of any specific implementation.</p><div class="protoH protoH2" id="p0-7">0.7 Versioning and Change Control</div><p>All protocol rule changes must be versioned.</p><p>Rules:</p><ul class="protoList"><li>Each version has a unique identifier and effective date</li><li>Changes apply prospectively unless explicitly stated otherwise</li><li>Settled outcomes remain verifiable against the protocol version in effect at the time they occurred</li><li>No change may silently alter allocation, eligibility, verification, or payout behavior</li><li>New versions may coexist with prior versions for verification and audit purposes</li></ul><p>Protocol history is immutable. Past outcomes are never rewritten.</p><div class="protoH protoH2" id="p0-8">0.8 Immutability of Recorded Events</div><p>All protocol-defined events are recorded in an append-only manner.</p><ul class="protoList"><li>Recorded events cannot be deleted</li><li>Recorded events cannot be overwritten</li><li>Corrections or adjustments occur only through the recording of additional events</li></ul><p>This immutability ensures that lineage, verification, and outcomes remain auditable and reproducible over time, independent of implementation.</p><div class="protoH protoH2" id="p0-9">0.9 Relationship to Derivatives</div><p>All derivative materials, including but not limited to websites, FAQs, white papers, documentation, and sales materials:</p><ul class="protoList"><li>Must accurately reflect the current protocol version they reference</li><li>Must not introduce new rules or requirements</li><li>Must not reinterpret, weaken, or override fixed protocol behavior</li></ul><p>If a derivative document is ambiguous, incomplete, or requires clarification, the protocol must be consulted. Informal explanations or derivative materials do not amend, supplement, or replace this document.</p><div class="protoH protoH2" id="p0-10">0.10 Scope Boundaries</div><p>This protocol intentionally does not define or govern the following:</p><ul class="protoList"><li>Business strategy or commercial positioning</li><li>Pricing and commercial terms beyond protocol-defined neutrality constraints</li><li>Commercial minimums, discounts, or negotiated contractual terms</li><li>Identity systems beyond optional anchoring mechanisms</li><li>Regulatory compliance requirements specific to any jurisdiction</li></ul><p>These concerns are external to protocol correctness and are addressed at the implementation, operational, or commercial layer. Their existence or variation does not affect protocol validity, determinism, or verification.</p><div class="protoH protoH2" id="p0-11">0.11 Activation Credits and Adoption Mechanics</div>
 <div class="protoH protoH3">CORE PRINCIPLES</div>
 <ul class="protoList">
 <li>Activation-before-identity is foundational.</li>
@@ -3297,25 +3324,39 @@ Rules interpret data. Protocols define system physics.</li>
 <li>Verification replaces trust.</li>
 </ul>
 <div class="protoH protoH3">PRICING MODEL</div>
+<p>Pricing is not defined by this protocol.</p>
+<p>The IDDAS protocol does not set, mandate, negotiate, or enforce:</p>
 <ul class="protoList">
-<li>The pricing unit is the activation.</li>
-<li>The price per activation is fixed.</li>
-<li>Pricing is universal across industries, sizes, and use cases.</li>
-<li>There are no negotiated rates.</li>
-<li>There are no tiers.</li>
-<li>There are no discounts.</li>
-<li>There is no discretionary pricing.</li>
+<li>prices</li>
+<li>rates</li>
+<li>tiers</li>
+<li>discounts</li>
+<li>minimums</li>
+<li>commercial terms</li>
+<li>billing structures</li>
 </ul>
-<p>If no activation occurs, no charge occurs.</p>
+<p>Pricing is defined exclusively by the Brand or implementation operating within the protocol (e.g., CandleMe), subject to the following protocol constraints:</p>
+<ul class="protoList">
+<li>Pricing MUST NOT alter activation eligibility</li>
+<li>Pricing MUST NOT alter lineage formation</li>
+<li>Pricing MUST NOT alter allocation logic or outcomes</li>
+<li>Pricing MUST NOT introduce discretionary overrides</li>
+<li>Pricing MUST NOT affect verification or determinism</li>
+</ul>
+<p>Pricing influences capacity access only, as defined in Section 8, and has no effect on attribution, eligibility, or outcome computation.</p>
+
 <div class="protoH protoH3">PAYMENT MODEL</div>
+<p>Payment handling is external to protocol logic.</p>
+<p>The protocol defines when outcomes are computed, not how or when payments are collected.</p>
+<p>Accordingly:</p>
 <ul class="protoList">
-<li>Billing is automatic.</li>
-<li>Payments are isolated from activation logic.</li>
-<li>Activation behavior never depends on payment status.</li>
-<li>Payment is an outcome, not a prerequisite.</li>
-<li>Event or deployment boundaries define billing windows.</li>
-<li>All records are auditable and verifiable.</li>
+<li>Activation behavior is independent of payment status</li>
+<li>Lineage formation is independent of payment status</li>
+<li>Allocation computation is independent of payment status</li>
+<li>Verification does not rely on payment state</li>
 </ul>
+<p>Payment collection, invoicing, settlement timing, and commercial enforcement are implementation- or contract-defined and MUST NOT modify any protocol-defined behavior.</p>
+<p>Payment is an operational concern, not a protocol prerequisite.</p>
 <div class="protoH protoH3">CANDLEME ROLE</div>
 <ul class="protoList">
 <li>CandleMe is a consumer-facing implementation built on IDDAS.</li>
@@ -3387,7 +3428,7 @@ Rules interpret data. Protocols define system physics.</li>
 </ul>
 <p>Speculative value, intent signals, or uncompleted actions do not qualify.</p>
 <p>If no real revenue exists, no allocation occurs.</p>
-<div class="protoH protoH2" id="p1-2">1.2 No Speculative Value</div><p>The protocol does not create, assign, or imply speculative value.</p><p>Actions, attention, participation, or effort alone do not generate allocatable value. Value exists only after a measurable conversion outcome occurs.</p><p>The protocol does not:</p><ul class="protoList"><li>Promise future earnings</li><li>Assign notional credit</li><li>Create implied entitlement</li></ul><div class="protoH protoH2" id="p1-3">1.3 Deterministic Allocation</div><p>All allocation outcomes are deterministic.</p><p>Given:</p><ul class="protoList"><li>A defined revenue amount</li><li>A recorded lineage</li><li>A published allocation rule</li></ul><p>The resulting distribution is uniquely determined.</p><p>No randomness, negotiation, discretion, or subjective interpretation is permitted in allocation computation.</p><div class="protoH protoH2" id="p1-4">1.4 No Discretionary Overrides</div><p>No participant, operator, administrator, or third party may override protocol-defined outcomes.</p><p>Once inputs are recorded:</p><ul class="protoList"><li>Eligibility cannot be altered</li><li>Allocation cannot be adjusted</li><li>Outcomes cannot be rebalanced</li></ul><p>Discretion is excluded by design.</p><div class="protoH protoH2" id="p1-5">1.5 Transparency by Design</div><p>Protocol behavior is transparent by construction.</p><p>Transparency includes:</p><ul class="protoList"><li>Published rules</li><li>Versioned changes</li><li>Verifiable inputs</li><li>Auditable outputs</li><li>Verifiable allocation and settlement outcomes</li></ul><p>Participants do not rely on trust in the operator. They rely on the visibility and determinism of the system.</p><div class="protoH protoH1" id="p2">2. Definitions</div><div class="protoH protoH2" id="p2-1">2.1 Revenue (R)</div><p>Revenue (R) is the amount of qualifying economic value generated by a conversion event, as defined by the protocol.</p><p>For revenue to qualify as R, it must be:</p><ul class="protoList"><li>Measurable</li><li>Attributable to a recorded lineage</li><li>Non-speculative</li><li>Settled or irrevocably committed through the defined payment rails</li></ul><p>Revenue represents gross economic value created by a conversion. Revenue is not commission and is not allocated directly to participants.</p><p>Authorizations, impressions, intent signals, or reversible activity do not qualify as revenue.</p><p>If R = 0, no allocation occurs.</p><div class="protoH protoH2" id="p2-2">2.2 Platform Share (α)</div><p>The platform share (α) is the fixed portion of qualifying revenue retained by IDDAS.</p><p>α is defined by the protocol and is invariant across deployments, Brands, and time.</p><div class="protoH protoH2" id="p2-3">2.3 Distribution Pool (D)</div><p>The distribution pool (D) is the portion of qualifying revenue made available for participant allocation.</p><p>D is computed mechanically as:</p><ul class="protoList"><li>D = (1 − α) · R</li></ul><p>If R does not qualify as revenue under the protocol, D does not exist.</p><div class="protoH protoH2" id="p2-4">2.4 Commission Pool</div><p>A commission pool is a business-defined portion of the distribution pool.</p><p>The existence and size of a commission pool are defined by the Brand, subject to protocol constraints.</p><p>A commission pool:</p><ul class="protoList"><li>Is derived from the distribution pool, not directly from revenue</li><li>Does not alter the definition of revenue</li><li>Does not alter the protocol-defined platform share</li><li>Is allocated according to protocol rules if multiple contributors exist</li></ul><p>If no commission pool is defined, the distribution pool may be allocated according to Brand business logic, provided protocol constraints on lineage, determinism, and non-discretion are not violated.</p><div class="protoH protoH2" id="p2-5">2.5 Brand</div><p>A Brand is the entity responsible for a deployment within IDDAS.</p><p>A Brand may be a company, organization, individual, or other legal or natural person.</p><p>The Brand:</p><ul class="protoList"><li>Defines business intent and selects qualifying conversion events within protocol constraints</li><li>Provides the bank account where qualifying revenue is received</li><li>Pays for activations generated through the deployment</li><li>Defines whether a commission pool exists and its size</li></ul><p>A Brand operates within the IDDAS protocol and does not control allocation, lineage, settlement rules, or payment rails.</p><div class="protoH protoH2" id="p2-6">2.6 Candle</div><p>A candle is a specific activation object representing a human-facing ritual of engagement.</p><ul class="protoList"><li>A candle is an implementation artifact, not a protocol requirement</li><li>Candle interactions may result in one or more protocol-defined activation events</li></ul><div class="protoH protoH2" id="p2-7">2.7 Open Candle</div><p>An open candle is a candle that is not bound to a persistent deployment or environment.</p><p>Open candles are ephemeral by default and may exist without long-term persistence, enterprise configuration, or integration.</p><p>Open candles may still generate valid activation events and lineage under the protocol.</p><div class="protoH protoH2" id="p2-8">2.8 Anchored Candle</div><p>An anchored candle is a candle that is bound to a persistent deployment or environment.</p><p>Anchored candles are defined at the Brand or deployment level and may support extended behavior such as persistence, enterprise configuration, analytics, or integration.</p><p>Anchoring is a protocol state and is independent of individual participant actions.</p><div class="protoH protoH2" id="p2-9">2.9 Activation Event</div><p>An activation event is a verified, intentional entry into the system initiated by a person.</p><p>An activation event occurs when a person deliberately:</p><ul class="protoList"><li>Scans a code</li><li>Opens an activation link</li><li>Enters an activation flow</li></ul><p>An activation event creates a recorded lineage entry and establishes eligibility for allocation if a qualifying conversion occurs.</p><p>Passive exposure does not qualify.</p><div class="protoH protoH2" id="p2-10">2.10 Lineage</div><p>Lineage is the ordered, append-only set of activation events that led to a conversion event.</p><p>Lineage:</p><ul class="protoList"><li>Reflects propagation, not claims or assertions of credit</li><li>Is formed automatically through recorded activation events</li><li>Cannot be edited, reordered, or selectively pruned</li><li>Is permanent once recorded</li></ul><p>Lineage determines eligibility for allocation if qualifying revenue is generated. It does not guarantee outcomes, compensation, or value.</p><p>Lineage exists independently of identity, accounts, or participant intent, and is enforced deterministically by the protocol.</p><div class="protoH protoH2" id="p2-11">2.11 Originator</div><p>The originator is the first activation event in a lineage.</p><p>The originator establishes the initial propagation context and is included in allocation if a qualifying conversion occurs.</p><div class="protoH protoH2" id="p2-12">2.12 Intermediate</div><p>An intermediate is any activation event in a lineage that is neither the originator nor the activation event immediately preceding a conversion event.</p><p>Intermediates may contribute to propagation and are eligible for allocation according to the published allocation rule if a qualifying conversion occurs.</p><div class="protoH protoH2" id="p2-13">2.13 Closer</div><p>The closer is the activation event immediately preceding a conversion event.</p><p>The closer does not receive preferential treatment unless explicitly defined by the published allocation rule.</p><div class="protoH protoH2" id="p2-14">2.14 Conversion Event</div><p>A conversion event is a completed action that generates real revenue (R).</p><p>Examples include:</p><ul class="protoList"><li>A purchase</li><li>A paid commitment</li><li>Any other defined revenue-generating outcome</li></ul><p>Conversion events trigger allocation when qualifying revenue exists.</p><p>Activation events alone do not.</p><div class="protoH protoH2" id="p2-15">2.15 Environment</div><p>An environment is the physical, digital, or operational context within which activations occur.</p><p>An environment may represent:</p><ul class="protoList"><li>A venue, location, or facility</li><li>A physical surface or object</li><li>A digital property or interface</li><li>A campaign, program, or offering</li><li>A defined deployment, tenant, or enterprise context</li></ul><p>Environments bind activations to a specific deployment and may define configuration, behavior, pricing, persistence, or integration settings applicable to that context.</p><p>Environments provide attribution and operational context but do not alter lineage formation, allocation logic, or protocol-defined settlement rules.</p><div class="protoH protoH1" id="p3">3. Candle Model</div><div class="protoH protoH2" id="p3-1">3.1 What a Candle Represents</div><p>A candle is an activation instrument within the IDDAS protocol that represents a bounded context for activation, propagation, and allocation.</p><p>A candle is not:</p><ul class="protoList"><li>a user</li><li>an account</li><li>a seat</li><li>an identity</li></ul><p>A candle represents a specific context under which activation events may occur and lineage may form.</p><p>That context may include, but is not limited to:</p><ul class="protoList"><li>representing a person</li><li>representing a business or brand</li><li>representing an offer or campaign</li><li>representing an environment or location</li></ul><p>Each candle operates independently and participates in lineage formation and allocation strictly according to the rules of this protocol.</p><div class="protoH protoH2" id="p3-2">3.2 Candle Abundance and Non-Scarcity</div><p>Candles are intentionally non-scarce.</p><p>The protocol does not impose a limit on the number of candles that may be created or anchored by any individual or entity.</p><p>This design choice is intentional and foundational:</p><ul class="protoList"><li>outcomes are scarce</li><li>value is allocated only after verified outcomes</li><li>candle creation alone does not create eligibility or entitlement to value</li></ul><p>Scarcity is enforced at the level of verified activation events and conversion events, not at the level of candle creation or anchoring.</p><div class="protoH protoH2" id="p3-3">3.3 Multiple Candles per Person or Entity</div><p>Any individual or entity may anchor multiple candles simultaneously.</p><p>There is no restriction preventing:</p><ul class="protoList"><li>one person from anchoring many candles</li><li>one entity from being represented by many candles</li><li>one representative from carrying candles for multiple entities</li></ul><p>This enables real-world representation patterns, including affiliates, agents, promoters, and delegated representatives.</p><p>Each candle maintains its own independent lineage and does not share attribution or eligibility with other candles unless explicitly connected through valid activation events.</p><div class="protoH protoH2" id="p3-4">3.4 Candle Anchoring</div><p>Anchoring a candle establishes its origin point for lineage construction.</p><p>The anchor:</p><ul class="protoList"><li>defines the initial position in the lineage</li><li>does not imply ownership of outcomes</li><li>does not guarantee allocation</li></ul><p>Anchoring a candle does not, by itself, create value, eligibility, or entitlement.</p><p>Value allocation occurs only after a qualifying conversion event, as defined elsewhere in this protocol.</p><div class="protoH protoH2" id="p3-5">3.5 Candle Propagation</div><p>Candles may propagate through eligible activation events.</p><p>Propagation:</p><ul class="protoList"><li>appends entries to the candle’s lineage</li><li>is append-only</li><li>cannot overwrite or remove prior lineage entries</li></ul><p>Propagation order reflects contribution sequence, not time of claim, assertion, or identity.</p><p>Only eligible activation events may create lineage entries. Eligibility requirements are enforced deterministically by the system.</p><div class="protoH protoH2" id="p3-6">3.6 Candle Independence and Isolation</div><p>Each candle is independent.</p><p>Rules of independence include:</p><ul class="protoList"><li>lineages do not merge across candles</li><li>outcomes are computed per candle</li><li>allocations are computed per conversion event per candle</li></ul><p>Actions taken on one candle have no effect on:</p><ul class="protoList"><li>other candles anchored by the same person</li><li>other candles within the same environment</li><li>other candles representing the same entity</li></ul><p>This isolation ensures deterministic attribution, prevents cross-contamination of allocation logic, and preserves protocol correctness under scale.</p><div class="protoH protoH1" id="p4">4. Lineage Construction</div><div class="protoH protoH2" id="p4-1">4.1 Lineage Definition</div><p>A lineage is the ordered, append-only sequence of eligible activation events associated with a specific candle.</p>
+<div class="protoH protoH2" id="p1-2">1.2 No Speculative Value</div><p>The protocol does not create, assign, or imply speculative value.</p><p>Actions, attention, participation, or effort alone do not generate allocatable value. Value exists only after a measurable conversion outcome occurs.</p><p>The protocol does not:</p><ul class="protoList"><li>Promise future earnings</li><li>Assign notional credit</li><li>Create implied entitlement</li></ul><div class="protoH protoH2" id="p1-3">1.3 Deterministic Allocation</div><p>All allocation outcomes are deterministic.</p><p>Given:</p><ul class="protoList"><li>A defined revenue amount</li><li>A recorded lineage</li><li>A published allocation rule</li></ul><p>The resulting distribution is uniquely determined.</p><p>No randomness, negotiation, discretion, or subjective interpretation is permitted in allocation computation.</p><div class="protoH protoH2" id="p1-4">1.4 No Discretionary Overrides</div><p>No participant, operator, administrator, or third party may override protocol-defined outcomes.</p><p>Once inputs are recorded:</p><ul class="protoList"><li>Eligibility cannot be altered</li><li>Allocation cannot be adjusted</li><li>Outcomes cannot be rebalanced</li></ul><p>Discretion is excluded by design.</p><div class="protoH protoH2" id="p1-5">1.5 Transparency by Design</div><p>Protocol behavior is transparent by construction.</p><p>Transparency includes:</p><ul class="protoList"><li>Published rules</li><li>Versioned changes</li><li>Verifiable inputs</li><li>Auditable outputs</li><li>Verifiable allocation and settlement outcomes</li></ul><p>Participants do not rely on trust in the operator. They rely on the visibility and determinism of the system.</p><div class="protoH protoH1" id="p2">2. Definitions</div><div class="protoH protoH2" id="p2-1">2.1 Revenue (R)</div><p>Revenue (R) is the amount of qualifying economic value generated by a conversion event, as defined by the protocol.</p><p>For revenue to qualify as R, it must be:</p><ul class="protoList"><li>Measurable</li><li>Attributable to a recorded lineage</li><li>Non-speculative</li><li>Settled or irrevocably committed through an implementation-defined settlement mechanism</li></ul><p>Revenue represents gross economic value created by a conversion. Revenue is not commission and is not allocated directly to participants.</p><p>Authorizations, impressions, intent signals, or reversible activity do not qualify as revenue.</p><p>If R = 0, no allocation occurs.</p><div class="protoH protoH2" id="p2-4">2.2 Commission Pool</div><p>A commission pool is an implementation- or contract-defined portion of qualifying revenue made available for allocation to contributors.</p><p>The protocol does not define:</p><ul class="protoList"><li>whether a commission pool exists</li><li>the size of a commission pool</li><li>revenue shares, percentages, or formulas</li><li>platform fees or retained amounts</li></ul><p>The protocol defines only:</p><ul class="protoList"><li>which activation events are eligible</li><li>how lineage is constructed and preserved</li><li>when allocation is triggered</li><li>how allocation outcomes are computed deterministically once qualifying revenue exists</li></ul><p>If a commission pool is defined by a Brand or implementation, allocation within that pool MUST follow protocol rules for eligibility, lineage, determinism, and non-discretion.</p><p>If no commission pool is defined, the protocol still records lineage and verifies outcomes, but no participant allocation occurs.</p><div class="protoH protoH2" id="p2-5">2.3 Brand</div><p>A Brand is the entity responsible for a deployment within IDDAS.</p><p>A Brand may be a company, organization, individual, or other legal or natural person.</p><p>The Brand:</p><ul class="protoList"><li>Defines business intent and selects qualifying conversion events within protocol constraints</li><li>Provides the bank account where qualifying revenue is received</li><li>Pays for activations generated through the deployment</li><li>Defines whether a commission pool exists and its size</li></ul><p>A Brand operates within the IDDAS protocol and does not control allocation, lineage, or settlement rules or mechanisms.</p><div class="protoH protoH2" id="p2-6">2.4 Candle</div><p>A candle is a specific activation object representing a human-facing ritual of engagement.</p><ul class="protoList"><li>A candle is an implementation artifact, not a protocol requirement</li><li>Candle interactions may result in one or more protocol-defined activation events</li></ul><div class="protoH protoH2" id="p2-7">2.5 Open Candle</div><p>An open candle is a candle that is not bound to a persistent deployment or environment.</p><p>Open candles are ephemeral by default and may exist without long-term persistence, enterprise configuration, or integration.</p><p>Open candles may still generate valid activation events and lineage under the protocol.</p><div class="protoH protoH2" id="p2-8">2.6 Anchored Candle</div><p>An anchored candle is a candle that is bound to a persistent deployment or environment.</p><p>Anchored candles are defined at the Brand or deployment level and may support extended behavior such as persistence, enterprise configuration, analytics, or integration.</p><p>Anchoring is a protocol state and is independent of individual participant actions.</p><div class="protoH protoH2" id="p2-9">2.7 Activation Event</div><p>An activation event is a verified, intentional entry into the system initiated by a person.</p><p>An activation event occurs when a person deliberately:</p><ul class="protoList"><li>Scans a code</li><li>Opens an activation link</li><li>Enters an activation flow</li></ul><p>An activation event creates a recorded lineage entry and establishes eligibility for allocation if a qualifying conversion occurs.</p><p>Passive exposure does not qualify.</p><div class="protoH protoH2" id="p2-10">2.8 Lineage</div><p>Lineage is the ordered, append-only set of activation events that led to a conversion event.</p><p>Lineage:</p><ul class="protoList"><li>Reflects propagation, not claims or assertions of credit</li><li>Is formed automatically through recorded activation events</li><li>Cannot be edited, reordered, or selectively pruned</li><li>Is permanent once recorded</li></ul><p>Lineage determines eligibility for allocation if qualifying revenue is generated. It does not guarantee outcomes, compensation, or value.</p><p>Lineage exists independently of identity, accounts, or participant intent, and is enforced deterministically by the protocol.</p><div class="protoH protoH2" id="p2-11">2.9 Originator</div><p>The originator is the first activation event in a lineage.</p><p>The originator establishes the initial propagation context and is included in allocation if a qualifying conversion occurs.</p><div class="protoH protoH2" id="p2-12">2.10 Intermediate</div><p>An intermediate is any activation event in a lineage that is neither the originator nor the activation event immediately preceding a conversion event.</p><p>Intermediates may contribute to propagation and are eligible for allocation according to the published allocation rule if a qualifying conversion occurs.</p><div class="protoH protoH2" id="p2-13">2.11 Closer</div><p>The closer is the activation event immediately preceding a conversion event.</p><p>The closer does not receive preferential treatment unless explicitly defined by the published allocation rule.</p><div class="protoH protoH2" id="p2-14">2.12 Conversion Event</div><p>A conversion event is a completed action that generates real revenue (R).</p><p>Examples include:</p><ul class="protoList"><li>A purchase</li><li>A paid commitment</li><li>Any other defined revenue-generating outcome</li></ul><p>Conversion events trigger allocation when qualifying revenue exists.</p><p>Activation events alone do not.</p><div class="protoH protoH2" id="p2-15">2.13 Environment</div><p>An environment is the physical, digital, or operational context within which activations occur.</p><p>An environment may represent:</p><ul class="protoList"><li>A venue, location, or facility</li><li>A physical surface or object</li><li>A digital property or interface</li><li>A campaign, program, or offering</li><li>A defined deployment, tenant, or enterprise context</li></ul><p>Environments bind activations to a specific deployment and may define configuration, behavior, pricing, persistence, or integration settings applicable to that context.</p><p>Environments provide attribution and operational context but do not alter lineage formation, allocation logic, or protocol-defined settlement rules.</p><div class="protoH protoH1" id="p3">3. Candle Model</div><div class="protoH protoH2" id="p3-1">3.1 What a Candle Represents</div><p>A candle is an activation instrument within the IDDAS protocol that represents a bounded context for activation, propagation, and allocation.</p><p>A candle is not:</p><ul class="protoList"><li>a user</li><li>an account</li><li>a seat</li><li>an identity</li></ul><p>A candle represents a specific context under which activation events may occur and lineage may form.</p><p>That context may include, but is not limited to:</p><ul class="protoList"><li>representing a person</li><li>representing a business or brand</li><li>representing an offer or campaign</li><li>representing an environment or location</li></ul><p>Each candle operates independently and participates in lineage formation and allocation strictly according to the rules of this protocol.</p><div class="protoH protoH2" id="p3-2">3.2 Candle Abundance and Non-Scarcity</div><p>Candles are intentionally non-scarce.</p><p>The protocol does not impose a limit on the number of candles that may be created or anchored by any individual or entity.</p><p>This design choice is intentional and foundational:</p><ul class="protoList"><li>outcomes are scarce</li><li>value is allocated only after verified outcomes</li><li>candle creation alone does not create eligibility or entitlement to value</li></ul><p>Scarcity is enforced at the level of verified activation events and conversion events, not at the level of candle creation or anchoring.</p><div class="protoH protoH2" id="p3-3">3.3 Multiple Candles per Person or Entity</div><p>Any individual or entity may anchor multiple candles simultaneously.</p><p>There is no restriction preventing:</p><ul class="protoList"><li>one person from anchoring many candles</li><li>one entity from being represented by many candles</li><li>one representative from carrying candles for multiple entities</li></ul><p>This enables real-world representation patterns, including affiliates, agents, promoters, and delegated representatives.</p><p>Each candle maintains its own independent lineage and does not share attribution or eligibility with other candles unless explicitly connected through valid activation events.</p><div class="protoH protoH2" id="p3-4">3.4 Candle Anchoring</div><p>Anchoring a candle establishes its origin point for lineage construction.</p><p>The anchor:</p><ul class="protoList"><li>defines the initial position in the lineage</li><li>does not imply ownership of outcomes</li><li>does not guarantee allocation</li></ul><p>Anchoring a candle does not, by itself, create value, eligibility, or entitlement.</p><p>Value allocation occurs only after a qualifying conversion event, as defined elsewhere in this protocol.</p><div class="protoH protoH2" id="p3-5">3.5 Candle Propagation</div><p>Candles may propagate through eligible activation events.</p><p>Propagation:</p><ul class="protoList"><li>appends entries to the candle’s lineage</li><li>is append-only</li><li>cannot overwrite or remove prior lineage entries</li></ul><p>Propagation order reflects contribution sequence, not time of claim, assertion, or identity.</p><p>Only eligible activation events may create lineage entries. Eligibility requirements are enforced deterministically by the implementation.</p><div class="protoH protoH2" id="p3-6">3.6 Candle Independence and Isolation</div><p>Each candle is independent.</p><p>Rules of independence include:</p><ul class="protoList"><li>lineages do not merge across candles</li><li>outcomes are computed per candle</li><li>allocations are computed per conversion event per candle</li></ul><p>Actions taken on one candle have no effect on:</p><ul class="protoList"><li>other candles anchored by the same person</li><li>other candles within the same environment</li><li>other candles representing the same entity</li></ul><p>This isolation ensures deterministic attribution, prevents cross-contamination of allocation logic, and preserves protocol correctness under scale.</p><div class="protoH protoH1" id="p4">4. Lineage Construction</div><div class="protoH protoH2" id="p4-1">4.1 Lineage Definition</div><p>A lineage is the ordered, append-only sequence of eligible activation events associated with a specific candle.</p>
 <p>For a given candle, the lineage is represented as:</p>
 <p>L = {a1, a2, …, an}</p>
 <p>Where:</p>
@@ -3398,304 +3439,31 @@ Rules interpret data. Protocols define system physics.</li>
 <li>n is the total number of lineage entries at the time of conversion</li>
 </ul>
 <p>Lineage order reflects propagation sequence, not time of claim, attribution assertion, identity, or payout request.</p>
-<div class="protoH protoH2" id="p4-2">4.2 Append-Only Property</div><p>Lineage is strictly append-only.</p><p>Once an entry is added to a lineage:</p><ul class="protoList"><li>it cannot be removed</li><li>it cannot be reordered</li><li>it cannot be overwritten</li><li>it cannot be reassigned</li></ul><p>There are no discretionary overrides, manual edits, or post-hoc adjustments to lineage state.</p><p>This property is essential to deterministic allocation, verification, and auditability.</p><div class="protoH protoH2" id="p4-3">4.3 Eligible Activation Events</div><p>Lineage entries are created only by eligible activation events.</p><p>An eligible activation event is a system-recognized action that:</p><ul class="protoList"><li>meets published eligibility criteria</li><li>is verifiable by the system</li><li>occurs within the scope of the candle and its environment</li></ul><p>Examples of eligible activation events may include, but are not limited to:</p><ul class="protoList"><li>verified placements</li><li>verified scans</li><li>verified introductions</li><li>verified handoffs</li></ul><p>Eligibility criteria and verification methods are enforced deterministically by the system and may evolve through versioned protocol changes.</p><p>The protocol does not require public disclosure of implementation details for eligibility enforcement, provided enforcement remains deterministic and non-discretionary.</p><div class="protoH protoH2" id="p4-4">4.4 Prohibited Lineage Behaviors</div><p>The following behaviors are explicitly prohibited and produce no lineage entries:</p><ul class="protoList"><li>self-appending without a qualifying activation event</li><li>repeated appending by the same actor without new eligibility</li><li>artificial looping or circular propagation</li><li>appending after a conversion event for the purpose of capturing allocation</li></ul><p>Any attempted activation that does not meet eligibility criteria is ignored for lineage purposes and has no effect on allocation.</p><div class="protoH protoH2" id="p4-5">4.5 Lineage Finalization at Conversion</div><p>A lineage is evaluated for allocation at the moment a conversion event occurs.</p><p>Only lineage entries present at the time of conversion are eligible for allocation from that conversion event.</p><p>Entries appended after a conversion event:</p><ul class="protoList"><li>do not participate in that conversion</li><li>may participate in future conversion events, if any</li></ul><p>Each conversion event is evaluated independently and produces its own allocation outcome.</p><div class="protoH protoH2" id="p4-6">4.6 Lineage Scope and Environment Boundaries</div><p>Lineage is scoped to a single candle and a single environment.</p><p>Rules:</p><ul class="protoList"><li>lineage does not cross candle boundaries</li><li>lineage does not cross environment boundaries</li><li>conversion events are evaluated within their originating environment</li></ul><p>This ensures isolation, prevents attribution leakage, and maintains deterministic allocation and verification outcomes.</p><div class="protoH protoH2" id="p4-7">4.7 Lineage Visibility and Position Awareness</div><p>The system may expose lineage position to participants.</p><p>Participants may be able to see:</p><ul class="protoList"><li>whether they are in a lineage</li><li>their relative position at a given time</li></ul><p>However:</p><ul class="protoList"><li>lineage position does not guarantee allocation</li><li>allocation is determined only at conversion</li><li>no participant can reserve, lock, or claim a future position</li></ul><p>Visibility does not confer rights, priority, or entitlement.</p><div class="protoH protoH1" id="p5">5. Allocation Model</div><div class="protoH protoH2" id="p5-1">5.1 Revenue Eligibility</div><p>Allocation occurs only after a verified conversion event produces real, net-settled revenue.</p><p>Let:</p><ul class="protoList"><li>R = net-settled revenue generated by a single conversion event</li></ul><p>If R = 0, no allocation occurs.</p><p>The protocol does not create speculative value. Allocation is strictly downstream of measurable outcomes.</p><div class="protoH protoH2" id="p5-2">5.2 Platform Allocation</div>
-<p>The platform fee is fixed.</p>
-<p>Let:</p>
-<ul class="protoList">
-<li>R = real revenue generated through the system</li>
-<li>α = 0.30</li>
-</ul>
-<p>Platform allocation:</p>
-<p>Platform fee = α · R</p>
-<p>This percentage is invariant across:</p>
-<ul class="protoList">
-<li>industries</li>
-<li>environments</li>
-<li>partners</li>
-<li>time</li>
-</ul>
-<p>There are no negotiated or per-client platform economics.</p>
-<div class="protoH protoH2" id="p5-3">5.3 Post-Platform Revenue Remainder</div>
-<p>After the platform fee is applied, the remaining revenue is:</p>
-<p>N = (1 − α) · R</p>
-<p>Therefore:</p>
-<p>N = 0.70 · R</p>
-<p>This remainder represents revenue retained by the brand after the platform fee. It is not automatically distributed and is not acted upon by the protocol unless the brand explicitly defines a commission pool.</p>
-<div class="protoH protoH2" id="p5-4">5.4 Brand-Defined Commission Pool</div>
-<p>The brand may define a commission pool as a percentage of the post-platform remainder.</p>
-<p>Let:</p>
-<ul class="protoList">
-<li>c = brand-defined commission rate, where 0 ≤ c ≤ 1</li>
-</ul>
-<p>The commission pool is:</p>
-<p>C = c · N</p>
-<p>Important clarifications:</p>
-<ul class="protoList">
-<li>The commission rate c is set solely by the brand.</li>
-<li>The platform does not set, negotiate, or promise c.</li>
-<li>C may be zero.</li>
-<li>Only C is subject to lineage-based allocation under this protocol.</li>
-<li>If C = 0, no commission allocation occurs, regardless of lineage.</li>
-<li>Any portion of the post-platform remainder not designated by the brand as a commission pool remains with the brand.</li>
-</ul>
-<p>The protocol does not allocate, restrict, or otherwise act upon this remainder. Its sole role is to deterministically allocate the brand-defined commission pool, if any, according to lineage.</p>
-<div class="protoH protoH2" id="p5-5">5.5 Lineage Roles at Conversion</div>
-<p>For a given conversion event, lineage entries are classified as follows:</p>
-<ul class="protoList">
-<li>Originator - the first lineage entry a₁</li>
-<li>Closer - the lineage entry aₖ that triggers the conversion event</li>
-<li>Intermediates - any lineage entries between the originator and the closer</li>
-</ul>
-<p>Only lineage entries present at the moment of conversion are considered.</p>
-<div class="protoH protoH2" id="p5-6">5.6 Commission Allocation Rule (15 / 15 / 70)</div>
-<p>The allocation model applies only to the commission pool C.</p>
-<p>Unless otherwise specified by a collapse rule:</p>
-<ul class="protoList">
-<li>Closer allocation = 0.70 · C</li>
-<li>Originator allocation = 0.15 · C</li>
-<li>Intermediate pool = 0.15 · C</li>
-</ul>
-<p>There is no last-touch discretion.</p>
-<p>The closer is determined solely by the system-recorded conversion trigger.</p>
-<p>The originator allocation is fixed and does not dilute based on lineage length.</p>
-<div class="protoH protoH2" id="p5-7">5.7 Intermediate Allocation</div><p>If intermediates exist between the originator and the closer, a fixed intermediate pool is allocated and divided equally among those intermediates.</p>
-<p>Let the lineage for a conversion be:</p>
-<p>L = {a1, a2, ..., ak}</p>
-<p>Where:</p>
-<ul class="protoList">
-<li>a1 is the originator</li>
-<li>ak is the closer</li>
-<li>a2 through a(k-1) are intermediates (if any)</li>
-</ul>
-<p>Let:</p>
-<p>m = k - 2, the number of intermediates (excluding originator and closer)</p>
-<p>The total intermediate pool is fixed at:</p>
-<p>0.15 · C</p>
-<p>Each intermediate receives:</p>
-<p>(0.15 · C) / m</p>
-<p>Intermediates do not receive weighting based on position, timing, or identity.</p>
-<p>Originator and closer allocations are defined separately and are not part of the intermediate pool.</p>
-<p>If m = 0 (no intermediates), the intermediate pool is reassigned as defined in the no-intermediate scenario.</p>
-<div class="protoH protoH2" id="p5-8">5.8 Collapse Rules</div>
-<p><b>Single-participant case</b></p>
-<p>If the originator is also the closer:</p>
-<p>The originator receives 100 percent of C.</p>
-<p><b>No-intermediate case</b></p>
-<p>If the lineage contains an originator and a closer with no intermediates:</p>
-<p>Originator receives 0.30 · C</p>
-<p>Closer receives 0.70 · C</p>
-<p>The unused intermediate pool is reassigned to the originator in this case.</p>
-<div class="protoH protoH2" id="p5-9">5.9 Determinism and Constraints</div>
-<p>The allocation function is deterministic and published.</p>
-<p>For any conversion event:</p>
-<ul class="protoList">
-<li>allocations are computed solely from lineage position and fixed parameters</li>
-<li>no hidden parameters are permitted</li>
-<li>the sum of all allocations equals C</li>
-<li>there are no discretionary overrides</li>
-</ul>
-<div class="protoH protoH2" id="p5-10">5.10 Worked Example (Illustrative)</div><p>Assume:</p>
-<p>Real revenue from a conversion is: R = $100</p>
-<p>Platform share is fixed at: α = 0.30</p>
-<p>Brand-defined commission rate is: c = 0.20</p>
-<p>Step 1: Platform share</p>
-<p>Platform allocation = α · R = 0.30 · $100 = $30</p>
-<p>Step 2: Commission pool (brand-defined)</p>
-<p>The commission rate applies to revenue R:</p>
-<p>C = c · R = 0.20 · $100 = $20</p>
-<p>Step 3: Lineage-based allocation of the commission pool</p>
-<p>The protocol allocates only C according to the lineage allocation model:</p>
-<ul class="protoList">
-<li>Originator pool: 0.15 · C</li>
-<li>Intermediate pool: 0.15 · C (if intermediates exist)</li>
-<li>Closer pool: 0.70 · C</li>
-</ul>
-<p>The remainder of revenue after platform share and commission is retained by the brand and is not allocated by the protocol.</p>
-<p>Note: This example is illustrative only. The protocol’s allocation math operates deterministically on the declared values of R and c, and on the lineage L at the time of conversion.</p>
-<div class="protoH protoH1" id="p5a">5A. Roles, Authority, and Economic Boundaries</div>
-<p>IDDAS is a rule-defined activation and allocation system. It separates business discretion from protocol enforcement to ensure outcomes remain fair, deterministic, and verifiable at scale.</p>
-<p>This section defines the roles within IDDAS and the boundaries that govern them.</p>
-<div class="protoH protoH2" id="p5a-1">5A.1 IDDAS - Rule Definition and Enforcement</div>
-<p>IDDAS defines and enforces the core rules of the system. These rules are fixed, versioned, and applied uniformly across all deployments.</p>
-<ul class="protoList">
+<div class="protoH protoH2" id="p4-2">4.2 Append-Only Property</div><p>Lineage is strictly append-only.</p><p>Once an entry is added to a lineage:</p><ul class="protoList"><li>it cannot be removed</li><li>it cannot be reordered</li><li>it cannot be overwritten</li><li>it cannot be reassigned</li></ul><p>There are no discretionary overrides, manual edits, or post-hoc adjustments to lineage state.</p><p>This property is essential to deterministic allocation, verification, and auditability.</p><div class="protoH protoH2" id="p4-3">4.3 Eligible Activation Events</div><p>Lineage entries are created only by eligible activation events.</p><p>An eligible activation event is an implementation-recognized action that:</p><ul class="protoList"><li>meets published eligibility criteria</li><li>is verifiable by the implementation</li><li>occurs within the scope of the candle and its environment</li></ul><p>Examples of eligible activation events may include, but are not limited to:</p><ul class="protoList"><li>verified placements</li><li>verified scans</li><li>verified introductions</li><li>verified handoffs</li></ul><p>Eligibility criteria and verification methods are enforced deterministically by the implementation and may evolve through versioned protocol changes.</p><p>The protocol does not require public disclosure of implementation details for eligibility enforcement, provided enforcement remains deterministic and non-discretionary.</p><div class="protoH protoH2" id="p4-4">4.4 Prohibited Lineage Behaviors</div><p>The following behaviors are explicitly prohibited and produce no lineage entries:</p><ul class="protoList"><li>self-appending without a qualifying activation event</li><li>repeated appending by the same actor without new eligibility</li><li>artificial looping or circular propagation</li><li>appending after a conversion event for the purpose of capturing allocation</li></ul><p>Any attempted activation that does not meet eligibility criteria is ignored for lineage purposes and has no effect on allocation.</p><div class="protoH protoH2" id="p4-5">4.5 Lineage Finalization at Conversion</div><p>A lineage is evaluated for allocation at the moment a conversion event occurs.</p><p>Only lineage entries present at the time of conversion are eligible for allocation from that conversion event.</p><p>Entries appended after a conversion event:</p><ul class="protoList"><li>do not participate in that conversion</li><li>may participate in future conversion events, if any</li></ul><p>Each conversion event is evaluated independently and produces its own allocation outcome.</p><div class="protoH protoH2" id="p4-6">4.6 Lineage Scope and Environment Boundaries</div><p>Lineage is scoped to a single candle and a single environment.</p><p>Rules:</p><ul class="protoList"><li>lineage does not cross candle boundaries</li><li>lineage does not cross environment boundaries</li><li>conversion events are evaluated within their originating environment</li></ul><p>This ensures isolation, prevents attribution leakage, and maintains deterministic allocation and verification outcomes.</p><div class="protoH protoH2" id="p4-7">4.7 Lineage Visibility and Position Awareness</div><p>The system may expose lineage position to participants.</p><p>Participants may be able to see:</p><ul class="protoList"><li>whether they are in a lineage</li><li>their relative position at a given time</li></ul><p>However:</p><ul class="protoList"><li>lineage position does not guarantee allocation</li><li>allocation is determined only at conversion</li><li>no participant can reserve, lock, or claim a future position</li></ul><p>Visibility does not confer rights, priority, or entitlement.</p><div class="protoH protoH1" id="p5">5. Allocation, Roles, and Deterministic Boundaries</div><div class="protoH protoH2" id="p5-1">5.1 Revenue Eligibility</div><p>Allocation occurs only after a verified conversion event produces real, net-settled revenue.</p><p>The protocol does not create speculative value. Allocation is strictly downstream of measurable outcomes.</p><div class="protoH protoH2" id="p5a-1">5.2 IDDAS - Rule Definition and Enforcement</div><p>IDDAS defines and enforces the core rules of the system. These rules are fixed, versioned, and applied uniformly across deployments.</p><ul class="protoList">
 <li>Defines what qualifies as a valid activation</li>
 <li>Defines what qualifies as real revenue</li>
 <li>Defines how lineage is formed and preserved</li>
-<li>Defines how allocation is computed once revenue exists</li>
-<li>Defines the settlement and payment rails used across all deployments</li>
-<li>Enforces a fixed platform fee</li>
-<li>Executes allocation and payout deterministically</li>
+<li>Defines how allocation outcomes are computed once qualifying revenue exists</li>
+<li>Computes allocation outcomes deterministically</li>
 <li>Prevents discretionary overrides, selective treatment, or retroactive changes</li>
-</ul>
-<p>IDDAS does not negotiate outcomes, adjust distributions, or intervene on a case-by-case basis. Once protocol-defined inputs are recorded, outcomes follow the rules exactly.</p>
-<div class="protoH protoH2" id="p5a-2">5A.2 Brands - Business Definition Within Protocol Constraints</div>
-<p>A Brand is the organization, entity, or individual running a deployment on IDDAS.</p>
-<ul class="protoList">
-<li>Selects which of its qualifying business events constitute conversion events, within the protocol’s definition of real revenue</li>
-<li>Defines whether a commission pool exists and its size</li>
-<li>Provides the bank account where qualifying revenue is received</li>
-<li>Pays for activations generated through the deployment</li>
-</ul>
-<p>Brand discretion exists only before revenue is created and only within protocol-defined constraints.</p>
-<p>Brands cannot:</p>
-<ul class="protoList">
-<li>Redefine what qualifies as real revenue</li>
-<li>Override, edit, or reorder lineage</li>
-<li>Collapse distribution to a single party when multiple contributors exist</li>
-<li>Selectively exclude contributors from allocation</li>
-<li>Modify or bypass settlement or payment rails</li>
-<li>Alter outcomes after revenue is created</li>
-</ul>
-<p>Once a commission pool is declared and qualifying revenue exists, allocation is enforced by the protocol without discretion.</p>
-<div class="protoH protoH2" id="p5a-3">5A.3 Commission Pools and Allocation</div>
-<p>Commission pools are defined by the Brand as a percentage of qualifying revenue derived from the protocol-defined distribution pool.</p>
-<p>Allocation within any commission pool is defined exclusively by the protocol.</p>
-<p>If a single contributor exists in a lineage, that contributor receives the full distribution pool.</p>
-<p>If multiple contributors exist, the pool is allocated deterministically according to the protocol’s published allocation rules.</p>
-<p>Brands do not assign individual payout percentages to participants. Distribution is computed solely from lineage and fixed parameters.</p>
-<div class="protoH protoH2" id="p5a-4">5A.4 Payment Rails and Settlement</div>
-<p>IDDAS defines the payment and settlement rails.</p>
-<p>These rails are fixed, standardized, and identical across deployments.</p>
-<p>Brands do not select, customize, bypass, or intervene in settlement mechanisms.</p>
-<p>Once a Brand deploys on IDDAS, revenue settlement, platform fees, allocation, and payouts follow the protocol-defined rails exactly.</p>
-<p>This structure removes discretion, prevents intervention, and ensures outcomes remain auditable and verifiable over time.</p>
-<div class="protoH protoH2" id="p5a-5">5A.5 CandleMe as an Implementation</div>
-<p>CandleMe is one Brand and one implementation built on top of IDDAS.</p>
-<p>CandleMe defines its own business terms, selects qualifying conversion events, provides its own bank account, and pays for activations like any other Brand.</p>
-<p>CandleMe has no special privileges within the protocol and is subject to the same rules, constraints, and enforcement as all other deployments.</p>
-<div class="protoH protoH2" id="p5a-6">5A.6 Infrastructure Originators (IOs) - Activation Surface Creation and IO Share</div>
-<p><b>Definition</b></p>
-<p>An Infrastructure Originator (IO) is a protocol-level lineage root that authorizes and anchors one or more activation surfaces under this protocol, where such surfaces later produce verified activations.</p>
-<p>Infrastructure Originator status is not granted, claimed, negotiated, or approved. It emerges solely through downstream protocol-valid activations attributable to activation surfaces anchored under the originator’s lineage root.</p>
-<p>Infrastructure Originators may authorize or enable deployment without physically creating, installing, operating, or managing the activation surfaces themselves. Physical deployment and operational execution may be performed by third parties, organizations, operators, integrators, or internal teams acting under the authorized deployment root.</p>
-<p>Origination is structural, not behavioral. Attribution follows lineage, not labor.</p>
-<p>Creating an activation surface alone confers no status and no entitlement. Only verified downstream activations trigger Infrastructure Originator attribution and allocation.</p>
-<p><b>Definition - Activation Surface</b></p>
-<p>An activation surface is any protocol-issued entry mechanism that enables intentional activation by one or more independent participants, regardless of medium.</p>
-<p>Activation surfaces may exist in physical, digital, or hybrid environments and may be deployed wherever intentional human entry can occur.</p>
-<p>Activation surfaces include, but are not limited to:</p>
-<ul class="protoList">
-<li>QR codes deployed on physical objects, printed media, signage, packaging, tickets, badges, or installations</li>
-<li>URL-based activation links distributed digitally or embedded in software, websites, applications, emails, messages, or APIs</li>
-<li>Screens, displays, kiosks, terminals, tablets, projectors, or other visual interfaces capable of presenting an activation entry</li>
-<li>Interactive systems such as turnstiles, access points, point-of-sale systems, gates, or public terminals that initiate protocol activation</li>
-<li>Batches of activation surfaces intended for deployment across venues, events, offices, campuses, transit systems, public spaces, or digital properties</li>
-<li>Persistent activation endpoints intended for repeated use over time</li>
-</ul>
-<p>An activation surface is defined by function, not form.</p>
-<p>The protocol does not distinguish between physical and digital surfaces.</p>
-<p>Any surface that produces intentional, protocol-valid activation qualifies equally.</p>
-<p><b>Relationship to Lineage Originators</b></p>
-<p>The protocol defines an “originator” as the first activation in a lineage for a given conversion context.</p>
-<p>An Infrastructure Originator (IO) is a separate and orthogonal role.</p>
-<p>Lineage originators are determined by activation order within a lineage.</p>
-<p>IOs are determined by activation-surface origination metadata bound at activation creation time.</p>
-<p>A single participant may simultaneously act as:</p>
-<ul class="protoList">
-<li>an Infrastructure Originator</li>
-<li>a lineage originator</li>
-<li>an intermediate</li>
-<li>a closer</li>
-<li>a generator or salesperson</li>
-</ul>
-<p>These roles are independent and evaluated separately.</p>
-<p><b>Eligibility and Origination</b></p>
-<p>Any participant controlling an activation lineage root may originate infrastructure.</p>
-<p>Infrastructure origination occurs when:</p>
-<ul class="protoList">
-<li>A participant creates an activation surface from within a controlled activation context</li>
-<li>The protocol issues a surface identifier (surface_id)</li>
-<li>The surface_id is immutably bound to the creator’s activation (io_activation_id)</li>
-<li>One or more verified activations occur through that surface</li>
-</ul>
-<p>Creating an activation surface alone confers no status and no entitlement.</p>
-<p>Only downstream verified activations trigger IO attribution.</p>
-<p><b>Attribution Mechanics (Non-Chain)</b></p>
-<p>For each activation:</p>
-<ul class="protoList">
-<li>At most one io_activation_id may exist</li>
-<li>io_activation_id is assigned only at activation creation time</li>
-<li>IO attribution does not propagate through sharing chains</li>
-</ul>
-<p>If an activation is created from:</p>
-<ul class="protoList">
-<li>an IO-deployed activation surface → io_activation_id is set</li>
-<li>a peer-to-peer share → lineage attribution applies, but IO attribution does not, unless the shared artifact itself was created as an activation surface</li>
-</ul>
-<p>Sharing a candle does not constitute infrastructure origination.</p>
-<p><b>IO Share (Economic Rule)</b></p>
-<p>The platform share is fixed at 30 percent of qualifying net-settled revenue.</p>
-<p>The Infrastructure Originator share is defined as:</p>
-<p>IO share rate γ = 5 percent</p>
-<p>The IO share is allocated from the platform share, not from the distribution pool.</p>
-<p>For qualifying revenue amount R:</p>
-<ul class="protoList">
-<li>Platform share = 0.30 × R</li>
-<li>IO share = 0.05 × R (only if a valid io_activation_id exists)</li>
-<li>Net platform retained = 0.25 × R</li>
-<li>Distribution pool and lineage-based allocations are unaffected</li>
-</ul>
-<p>If no valid io_activation_id exists, IO share is zero and the platform retains the full 30 percent.</p>
-<p><b>Determination of IO Recipient</b></p>
-<p>For a conversion event attributed to lineage L, rooted at activation a₁:</p>
-<ul class="protoList">
-<li>If io_activation_id is present on a₁, the IO recipient is that activation</li>
-<li>If no io_activation_id is present, no IO share applies</li>
-</ul>
-<p>This determination is deterministic, auditable, and non-discretionary.</p>
-<p><b>Durability and Non-Circumvention</b></p>
-<p>IO attribution is permanent once recorded:</p>
-<ul class="protoList">
-<li>io_activation_id is written at activation creation time</li>
-<li>It cannot be edited, reassigned, or removed retroactively</li>
-</ul>
-<p>Brands, deployers, or partners may not deploy private side agreements, shadow attribution systems, or off-protocol mechanisms that attempt to replicate, suppress, or bypass IO share while using protocol-generated activations.</p>
-<p>Any attempt to bypass protocol attribution:</p>
-<ul class="protoList">
-<li>does not alter on-protocol IO allocation</li>
-<li>does not suppress IO share</li>
-<li>constitutes a violation of protocol terms and access conditions</li>
-</ul>
-<p><b>Prohibited Conduct and Terms</b></p>
-<p>IDDAS is activation infrastructure and is content-agnostic.</p>
-<p>Activations, IO attribution, and IO share apply only to qualifying net-settled revenue as defined by this protocol and governed by the Terms and Conditions.</p>
-<p>Deployments intended to facilitate illegal goods, illegal services, or prohibited conduct:</p>
-<ul class="protoList">
-<li>do not produce qualifying revenue</li>
-<li>do not generate IO share</li>
-<li>are subject to enforcement under the platform’s Terms and Conditions</li>
-</ul>
-<p>The existence of IO attribution does not create entitlement to payment from non-qualifying or prohibited revenue.</p>
-<p><b>Implementation Note (Non-Normative)</b></p>
-<p>Implementations may expose a single optional control labeled “Deploy Activation Surface”, accessible from a controlled activation context.</p>
-<p>The protocol mandates structural outcomes only:</p>
-<ul class="protoList">
-<li>activation surface issuance</li>
-<li>immutable attribution</li>
-<li>deterministic IO share calculation</li>
-</ul>
-<p>Interface design is implementation-specific.</p>
-<div class="protoH protoH2" id="p5a-sum">5A Summary</div>
-<ul class="protoList">
-<li>Brands define business intent</li>
-<li>IDDAS defines and enforces the rules</li>
-<li>Once revenue exists, outcomes are deterministic</li>
-<li>Infrastructure Originators may create activation surfaces and receive a protocol-defined IO share from the platform share.</li>
-</ul>
-<p>This separation is intentional. It ensures fairness does not depend on trust, scale does not distort outcomes, and success does not rewrite the rule.</p>
-<div class="protoH protoH1" id="p6">6. Payout Model</div><div class="protoH protoH2" id="p6-1">6.1 Payout Scope</div><p>Payouts are derived from allocation outcomes computed under the Allocation Model defined in Section 5.</p><p>For each conversion event:</p><ul class="protoList"><li>R is evaluated</li><li>platform allocation and distribution pool D are computed</li><li>contributor allocations are determined deterministically</li><li>payout amounts are recorded as ledger entries</li></ul><p>Payout calculation does not imply immediate disbursement and does not alter allocation outcomes.</p><div class="protoH protoH2" id="p6-2">6.2 Net-Settled Revenue Requirement</div><p>Payouts are based exclusively on net-settled revenue.</p><p>Net-settled revenue is revenue that:</p><ul class="protoList"><li>has cleared payment processing</li><li>is no longer subject to refund, chargeback, or reversal under the applicable settlement window</li></ul><p>If revenue does not settle, no payout is finalized.</p><p>This requirement applies uniformly across all environments, Brands, and deployments.</p><div class="protoH protoH2" id="p6-3">6.3 Payout Availability</div><p>Payouts become available for disbursement only after all of the following conditions are satisfied:</p><ul class="protoList"><li>revenue is net-settled</li><li>the minimum payout threshold is met</li><li>all eligibility conditions remain satisfied</li></ul><p>The protocol may batch disbursements on a scheduled basis.</p><p>Disbursement timing does not affect allocation, eligibility, or recorded outcomes.</p><div class="protoH protoH2" id="p6-4">6.4 Minimum Payout Threshold</div><p>A minimum payout threshold applies to each recipient.</p><p>Let:</p><ul class="protoList"><li>T = minimum payout threshold</li></ul><p>T is defined as:</p><ul class="protoList"><li>T = $5.00</li></ul><p>If a calculated payout is below T:</p><ul class="protoList"><li>the amount is not disbursed</li><li>the amount is accrued to the recipient’s balance</li></ul><p>Minimum payout thresholds affect only disbursement timing and do not alter allocation or eligibility.</p><div class="protoH protoH2" id="p6-5">6.5 Accrual and Carry-Forward</div><p>Accrued balances:</p><ul class="protoList"><li>persist across time</li><li>persist across conversion events</li><li>are not forfeited due to inactivity</li></ul><p>Accrual affects only when disbursement occurs and does not modify allocation calculations.</p><div class="protoH protoH2" id="p6-6">6.6 Multiple Conversion Events</div><p>A single candle may produce multiple conversion events over time.</p><p>For each conversion event:</p><ul class="protoList"><li>allocation is computed independently</li><li>payouts are recorded independently</li></ul><p>Revenue from different conversion events is not combined for allocation purposes.</p><p>Accrued balances from multiple conversion events may combine to satisfy the minimum payout threshold.</p><p>This preserves the distinction between allocation per event and payout per recipient.</p><div class="protoH protoH2" id="p6-7">6.7 No Duplicate Payouts</div><p>Each unit of net-settled revenue is associated with a single conversion event and is allocated exactly once.</p><p>The protocol does not permit duplicate payouts for the same revenue.</p><p>If multiple conversion events occur, each must correspond to distinct net-settled revenue.</p><div class="protoH protoH2" id="p6-8">6.8 Settlement Failures and Revenue Invalidations</div>
-<p>If a conversion event fails to settle:</p>
-<ul class="protoList">
-<li>the associated allocation is void</li>
-<li>no payout is recorded</li>
-</ul>
-<p>If a transaction is invalidated after provisional recording but before disbursement:</p>
-<ul class="protoList">
-<li>the corresponding ledger entry is reversed or netted</li>
-<li>accrued balances are adjusted accordingly</li>
-</ul>
-<p>These corrections reflect the absence of real, net-settled revenue.</p>
-<p>They do not imply a refund policy, user-initiated reversal, or discretionary adjustment.</p><p></p><p>Pay-per-candle pricing supports:</p><ul class="protoList"><li>affiliates</li><li>individual representatives</li><li>small businesses</li><li>experimental and exploratory usage</li></ul>
+</ul><p>IDDAS does not negotiate outcomes, adjust distributions, or intervene on a case-by-case basis. Once protocol-defined inputs are recorded, outcomes follow the rules exactly.</p><div class="protoH protoH2" id="p5a-2">5.3 Brands - Business Definition Within Protocol Constraints</div><p>A Brand is the organization, entity, or individual running a deployment on IDDAS.</p><ul class="protoList"><li>Selects which of its qualifying business events constitute conversion events, within the protocol’s definition of real revenue</li><li>Provides the bank account where qualifying revenue is received</li></ul><p>Brand discretion exists only before revenue is created and only within protocol-defined constraints.</p><p>Brands cannot:</p><ul class="protoList"><li>Redefine what qualifies as real revenue</li><li>Override, edit, or reorder lineage</li><li>Collapse distribution to a single party when multiple contributors exist</li><li>Selectively exclude contributors from allocation</li><li>Alter outcomes after revenue is created</li></ul><div class="protoH protoH2" id="p5a-3">5.4 Protocol Boundary</div>
+<p>This protocol defines eligibility, lineage, and deterministic outcome computation. It does not define pricing, revenue sharing, fees, commission structures, payout thresholds, or settlement mechanisms. Such terms, if any, are implementation- or contract-defined and do not alter protocol validity.</p>
+<div class="protoH protoH2" id="p5a-5">5.5 CandleMe as an Implementation</div><p>CandleMe is one implementation built on top of IDDAS.</p><p>CandleMe may define its own business terms, select qualifying conversion events, and provide its own bank account like any other Brand.</p><p>CandleMe has no special privileges within the protocol and is subject to the same rules, constraints, and enforcement as all deployments.</p><div class="protoH protoH2" id="p5-9">5.6 Determinism and Constraints</div><p>Allocation outcomes are deterministic when defined by published rules applied to the recorded lineage and qualifying events.</p><p>For any conversion event:</p><ul class="protoList"><li>allocation depends on lineage state and published rules</li><li>no hidden parameters are permitted</li><li>there are no discretionary overrides</li></ul><div class="protoH protoH1" id="p6">6. Payout Model</div><div class="protoH protoH2" id="p6-1">6.1 Payout Scope</div><p>For each conversion event:</p><ul class="protoList"><li>allocation outcomes are referenced</li><li>payout amounts are recorded as ledger entries</li></ul><div class="protoH protoH2" id="p6-2">6.2 Payout Finality and Settlement Dependency</div>
+
+<p>Payout ledger entries are provisional until the associated revenue is confirmed as net-settled.</p>
+<p>If revenue fails to settle, is reversed, or is invalidated prior to settlement finality:</p><ul class="protoList"><li>the corresponding payout ledger entry is voided or reversed</li><li>no allocation is finalized for that conversion event</li></ul>
+<p>Settlement status affects payout finality only. It does not modify lineage, eligibility, or recorded activation events.</p>
+
+<div class="protoH protoH2" id="p6-3">6.3 Payout Timing Independence</div>
+
+<p>The timing of payout recording or disbursement does not affect:</p><ul class="protoList"><li>allocation outcomes</li><li>lineage eligibility</li><li>determinism of results</li></ul>
+<p>Allocation is computed at the moment a qualifying conversion occurs.
+Payout execution may occur later without altering any protocol-defined outcome.</p>
+
+<div class="protoH protoH2" id="p6-4">6.4 No Discretionary Payout Adjustment</div>
+
+<p>No participant, operator, or implementation may:</p><ul class="protoList"><li>modify payout amounts after allocation is computed</li><li>reorder or rebalance payouts</li><li>selectively accelerate or delay payouts to influence outcomes</li></ul>
+<p>All payout handling must reflect the deterministic allocation results produced by the protocol.</p>
 <div class="protoH protoH1" id="p7">7. Scale and Capacity Model</div>
 <p>The protocol supports self-serve operation by default, and introduces objective, capacity-based gating only when enterprise-scale throughput is requested.</p>
 <div class="protoH protoH2" id="p7-1">7.1 Self-Serve Operation</div>
@@ -3727,7 +3495,7 @@ Rules interpret data. Protocols define system physics.</li>
 <li>bulk or programmatic operations</li>
 <li>advanced environment-level analytics</li>
 </ul>
-<p>No monitoring, classification, detection, or discretionary escalation occurs. Availability is determined solely by declared capacity and deterministic rules. When capacity is exhausted, usage naturally halts until additional credits or prepayment are applied.</p>
+<p>No monitoring, classification, detection, or discretionary escalation occurs. Availability is determined solely by declared capacity and deterministic rules. When prepaid credits are exhausted, enterprise-scale capabilities may be gated, while standard usage may continue under metered billing as defined in Sections 7.6 and 8.6.</p>
 <div class="protoH protoH2" id="p7-4">7.4 Environment-Based Capacity Requirements</div>
 <p>Certain environment types inherently require enterprise-scale capacity.</p>
 <p>Examples include:</p>
@@ -3740,21 +3508,24 @@ Rules interpret data. Protocols define system physics.</li>
 <p>When such an environment type is requested, enterprise-scale capacity requirements apply before activation may proceed.</p>
 <p>No manual classification or subjective approval is performed.</p>
 <div class="protoH protoH2" id="p7-5">7.5 Minimum Commitment Requirement</div>
-<p>Enterprise-scale deployments require a minimum upfront commitment.</p>
-<p>The minimum commitment:</p>
-<ul>
-<li>is applied as prepaid usage credits</li>
-<li>is non-refundable</li>
-<li>is immediately usable upon payment</li>
+<p>Enterprise-scale capacity may require a minimum upfront commitment.</p>
+
+<p>The protocol does not define the amount of any minimum commitment.</p>
+
+<p>Where a minimum exists, it:</p>
+<ul class="protoList">
+<li>is satisfied through prepaid usage credits</li>
+<li>is applied under uniform, non-negotiated rules</li>
+<li>exists solely to provision capacity, verification, and settlement resources proportional to the requested scale</li>
 </ul>
-<p>Minimum commitments exist solely to provision capacity, verification, and settlement resources proportional to the requested scale.</p>
+
 <div class="protoH protoH2" id="p7-6">7.6 Credit Consumption</div>
 <p>Prepaid credits are consumed by:</p>
 <ul>
 <li>candle creation</li>
 <li>activation verification load</li>
 <li>environment-level operations</li>
-<li>other usage-based costs defined by the system</li>
+<li>other usage-based costs defined by the implementation</li>
 </ul>
 <p>Credits are consumed automatically as usage occurs.</p>
 <p>When prepaid credits are exhausted, usage continues under metered billing and additional charges are applied automatically.</p>
@@ -3772,29 +3543,29 @@ Rules interpret data. Protocols define system physics.</li>
 <p>The protocol imposes no upfront friction on experimentation, evaluation, or early adoption.</p>
 <div class="protoH protoH1" id="p8">8. Pricing Model</div>
 <div class="protoH protoH2" id="p8-1">8.1 Pricing Principles</div>
-<p>Pricing is defined to support capacity provisioning without influencing economic outcomes.</p>
+<p>Pricing, where applied by an implementation, is defined to support capacity provisioning without influencing economic outcomes.</p>
 <p>The pricing model is designed to:</p>
 <ul>
 <li>charge for capacity and instruments, not outcomes</li>
 <li>avoid penalizing success or scale</li>
 <li>remain predictable and transparent</li>
 <li>scale from individual usage to large deployments</li>
-<li>operate without negotiation or discretionary pricing</li>
+<li>avoid negotiation or discretionary pricing</li>
 </ul>
 <p>Pricing does not alter lineage, allocation rules, or payout mechanics.</p>
 <div class="protoH protoH2" id="p8-2">8.2 Pay-Per-Candle Pricing</div>
-<p>Candles are priced as individual activation instruments.</p>
-<p>Each anchored candle incurs a fixed creation cost.</p>
-<p>Pricing is applied at the time of candle creation.</p>
+<p>Candles may be priced as individual activation instruments.</p>
+<p>Each anchored candle may incur a fixed creation cost.</p>
+<p>Pricing may be applied at the time of candle creation.</p>
 <p>Candles may be configured with predefined expiry parameters selected at creation time. Expiry parameters are fixed, declared in advance, and applied deterministically. Once a candle is created, its expiry cannot be modified, extended, or overridden. Expiry exists solely to bound activation eligibility and does not alter attribution, allocation, or pricing rules.</p>
-<p>Pay-per-candle pricing supports:</p>
+<p>Pay-per-candle pricing may support:</p>
 <ul>
 <li>affiliates</li>
 <li>individual representatives</li>
 <li>small businesses</li>
 <li>experimental and exploratory usage</li>
 </ul>
-<div class="protoH protoH2" id="p8-3">8.3 Metered Accounts</div><p>For higher-volume usage, the protocol supports open-ended metered accounts.</p><p>Metered accounts:</p><ul class="protoList"><li>track usage over time</li><li>automatically bill for usage beyond prepaid credits</li><li>do not impose seat limits or user-based pricing</li></ul><p>Metered billing applies only after usage occurs.</p><p>There are no subscription tiers tied to identity, role, or participant classification.</p><div class="protoH protoH2" id="p8-4">8.4 Enterprise-Scale Capacity and Prepaid Credits</div><p>Enterprise-scale capacity may require prepaid credits to ensure availability, throughput, and operational stability.</p>
+<div class="protoH protoH2" id="p8-3">8.3 Metered Accounts</div><p>For higher-volume usage, implementations may support open-ended metered accounts.</p><p>Metered accounts:</p><ul class="protoList"><li>track usage over time</li><li>automatically bill for usage beyond prepaid credits</li><li>do not impose seat limits or user-based pricing</li></ul><p>Metered billing applies only after usage occurs.</p><p>There are no subscription tiers tied to identity, role, or participant classification.</p><div class="protoH protoH2" id="p8-4">8.4 Enterprise-Scale Capacity and Prepaid Credits</div><p>Enterprise-scale capacity may require prepaid credits to ensure availability, throughput, and operational stability.</p>
 <p>Prepaid credits:</p>
 <ul class="protoList">
 <li>are paid upfront</li>
@@ -3802,49 +3573,26 @@ Rules interpret data. Protocols define system physics.</li>
 <li>are non-refundable once consumed</li>
 <li>do not change pricing, attribution, allocation, or verification rules</li>
 </ul>
-<p>There is no negotiated minimum commitment inside the protocol. Capacity gating is satisfied through prepaid credits when required.</p>
-<div class="protoH protoH2" id="p8-5">8.5 Credit-Based Accounting</div><p>Prepaid credits represent capacity within the system.</p><p>Credits may be consumed by:</p><ul class="protoList"><li>candle creation</li><li>activation verification</li><li>environment-level operations</li><li>other usage-based costs defined by the protocol</li></ul><p>Credits are deducted automatically as usage occurs.</p><p>Unused credits remain available until consumed.</p><div class="protoH protoH2" id="p8-6">8.6 Overage and Continuity</div><p>When prepaid credits are exhausted:</p><ul class="protoList"><li>usage continues without interruption</li><li>additional usage is billed automatically under metered pricing</li></ul><p>Service is not suspended solely due to credit exhaustion, except where required for risk control, system integrity, or compliance.</p><div class="protoH protoH2" id="p8-7">8.7 Pricing Neutrality</div><p>Pricing decisions:</p><ul class="protoList"><li>do not affect lineage</li><li>do not affect allocation percentages</li><li>do not affect payout priority</li></ul><p>All participants are treated identically under allocation rules regardless of pricing tier, commitment size, or deployment scale.</p>
-<p>The pricing model applies universally across all deployments, environments, and scales. Scale is not gated by pricing tiers or negotiated thresholds. Capacity is governed exclusively by activation credits, prepaid balances, and activation burn rate.</p>
-<div class="protoH protoH1" id="p9">9. Eligibility and Verification</div><div class="protoH protoH2" id="p9-1">9.1 Eligibility Principles</div><p>Only eligible activation events may create lineage entries or participate in allocation.</p><p>Eligibility exists to:</p><ul class="protoList"><li>preserve attribution integrity</li><li>prevent artificial or spam propagation</li><li>ensure that value allocation reflects real contribution</li></ul><p>Eligibility rules apply uniformly across all environments, candles, and participants.</p><div class="protoH protoH2" id="p9-2">9.2 Eligible Activation Events</div><p>An eligible activation event is an action that:</p><ul class="protoList"><li>is recognized by the system</li><li>occurs within the scope of a specific candle and environment</li><li>meets protocol-defined contribution criteria</li><li>is verifiable using system-enforced methods</li></ul><p>Activation events that do not meet eligibility criteria are ignored for lineage and allocation purposes.</p><div class="protoH protoH2" id="p9-3">9.3 Verification Requirements</div><p>Verification is required for all activation events that contribute to lineage.</p><p>Verification may include, but is not limited to:</p><ul class="protoList"><li>system event validation</li><li>device or session confirmation</li><li>contextual consistency checks</li><li>timing and frequency constraints</li></ul><p>Verification is enforced programmatically.</p><p>No activation event is eligible without verification.</p><div class="protoH protoH2" id="p9-4">9.4 Participation Constraints</div><p>The protocol enforces participation constraints to prevent abuse.</p><p>Such constraints may include:</p><ul class="protoList"><li>limits on repeated participation by the same actor within a lineage</li><li>prevention of circular or looping propagation</li><li>restrictions on self-referential activation patterns</li></ul><p>The protocol does not require persistent identity disclosure to participants in order to enforce these constraints.</p><div class="protoH protoH2" id="p9-5">9.5 Anti-Abuse Enforcement</div><p>Anti-abuse enforcement is integral to eligibility determination.</p><p>The protocol may:</p><ul class="protoList"><li>reject ineligible activation events</li><li>ignore invalid or non-conforming propagation attempts</li><li>invalidate activation events that fail verification</li></ul><p>Anti-abuse enforcement operates deterministically and does not alter valid lineage entries or allocation outcomes.</p><div class="protoH protoH2" id="p9-6">9.6 Disclosure Boundaries</div>
+<p>This protocol does not define a numeric minimum commitment amount; where enterprise-scale capacity requires a minimum, it is satisfied through prepaid credits under uniform, non-negotiated rules.</p>
+<div class="protoH protoH2" id="p8-5">8.5 Credit-Based Accounting</div><p>Prepaid credits represent capacity within the system.</p><p>Credits may be consumed by:</p><ul class="protoList"><li>candle creation</li><li>activation verification</li><li>environment-level operations</li><li>other usage-based costs defined by an implementation</li></ul><p>Credits are deducted automatically as usage occurs.</p><p>Unused credits remain available until consumed.</p><div class="protoH protoH2" id="p8-6">8.6 Overage and Continuity</div><p>When prepaid credits are exhausted:</p><ul class="protoList"><li>usage may continue without interruption</li><li>additional usage may be billed under metered pricing</li></ul><p>Service may not be suspended solely due to credit exhaustion, except where required for risk control, system integrity, or compliance.</p><div class="protoH protoH2" id="p8-7">8.7 Pricing Neutrality</div><p>Pricing decisions do not affect lineage formation, allocation outcomes, payout eligibility, or deterministic results.</p><p>All participants are treated identically under protocol-defined rules regardless of pricing model, commitment size, deployment scale, or commercial arrangement.</p><p>Pricing influences capacity access only and has no effect on attribution, eligibility, or outcome computation.</p><div class="protoH protoH1" id="p9">9. Eligibility and Verification</div><div class="protoH protoH2" id="p9-1">9.1 Eligibility Principles</div><p>Only eligible activation events may create lineage entries or participate in allocation.</p><p>Eligibility exists to:</p><ul class="protoList"><li>preserve attribution integrity</li><li>prevent artificial or spam propagation</li><li>ensure that value allocation reflects real contribution</li></ul><p>Eligibility rules apply uniformly across all environments, candles, and participants.</p><div class="protoH protoH2" id="p9-2">9.2 Eligible Activation Events</div><p>An eligible activation event is an action that:</p><ul class="protoList"><li>is recognized by the implementation</li><li>occurs within the scope of a specific candle and environment</li><li>meets protocol-defined contribution criteria</li><li>is verifiable using implementation-enforced methods</li></ul><p>Activation events that do not meet eligibility criteria are ignored for lineage and allocation purposes.</p><div class="protoH protoH2" id="p9-3">9.3 Verification Requirements</div><p>Verification is required for all activation events that contribute to lineage.</p><p>Verification may include, but is not limited to:</p><ul class="protoList"><li>implementation event validation</li><li>device or session confirmation</li><li>contextual consistency checks</li><li>timing and frequency constraints</li></ul><p>Verification is enforced programmatically.</p><p>No activation event is eligible without verification.</p><div class="protoH protoH2" id="p9-4">9.4 Participation Constraints</div><p>The protocol enforces participation constraints to prevent abuse.</p><p>Such constraints may include:</p><ul class="protoList"><li>limits on repeated participation by the same actor within a lineage</li><li>prevention of circular or looping propagation</li><li>restrictions on self-referential activation patterns</li></ul><p>The protocol does not require persistent identity disclosure to participants in order to enforce these constraints.</p><div class="protoH protoH2" id="p9-5">9.5 Anti-Abuse Enforcement</div><p>Anti-abuse enforcement is integral to eligibility determination.</p><p>The protocol may:</p><ul class="protoList"><li>reject ineligible activation events</li><li>ignore invalid or non-conforming propagation attempts</li><li>invalidate activation events that fail verification</li></ul><p>Anti-abuse enforcement operates deterministically and does not alter valid lineage entries or allocation outcomes.</p><div class="protoH protoH2" id="p9-6">9.6 Disclosure Boundaries</div>
 <p>Internal safeguard, abuse-prevention, and validity-gating mechanisms may influence which interactions qualify as accepted activations and are included in the committed activation set.</p>
 <p>The specific implementation details of these safeguards are intentionally not publicly disclosed in order to preserve their effectiveness and prevent circumvention.</p>
 <p>This non-disclosure does not violate determinism because verification operates on the accepted activation set and the published protocol rules, not on raw traffic or rejected interactions.</p>
 <p>Safeguards are structural and rule-bounded. While certain detection or evaluation heuristics may remain private, their function is limited to admission into the committed set and does not alter published rules, outcomes, or allocation once an activation is accepted.</p>
-<div class="protoH protoH2" id="p9-7">9.7 Effect on Allocation and Payout</div><p>Only activation events that pass eligibility and verification:</p><ul class="protoList"><li>appear in lineage</li><li>participate in allocation</li><li>receive payouts</li></ul><p>Ineligible or unverified events receive no allocation and no payout.</p><div class="protoH protoH1" id="p10">10. Edge Cases and Deterministic Resolution</div><div class="protoH protoH2" id="p10-1">10.1 Single-Participant Scenario</div><p>If a candle has only one eligible participant and that participant is both the originator and the closer for the conversion event:</p>
-<ul class="protoList">
-<li>the participant is treated as both originator and closer</li>
-<li>the participant receives 100 percent of the commission pool C</li>
-<li>No other allocations are created.</li>
-</ul>
+<div class="protoH protoH2" id="p9-7">9.7 Effect on Allocation and Payout</div><p>Only activation events that pass eligibility and verification:</p><ul class="protoList"><li>appear in lineage</li><li>participate in allocation</li><li>receive payouts</li></ul><p>Ineligible or unverified events receive no allocation and no payout.</p><div class="protoH protoH1" id="p10">10. Edge Cases and Deterministic Resolution</div><div class="protoH protoH2" id="p10-1">10.1 Single-Participant Scenario</div>
+<p>If a candle has only one eligible participant at the time of a conversion event, allocation is resolved deterministically according to the applicable published rules for that deployment or implementation.</p>
 <div class="protoH protoH2" id="p10-2">10.2 No-Intermediate Scenario</div>
-<p>If a lineage contains an originator and a closer with no intermediates between them:</p>
-<ul class="protoList">
-<li>The originator receives 0.30 · C</li>
-<li>The closer receives 0.70 · C</li>
-</ul>
-<p>In this case, the fixed intermediate pool (0.15 · C) is reassigned to the originator.</p>
-<p>This reassignment is deterministic and does not constitute a discretionary adjustment.</p>
-<div class="protoH protoH2" id="p10-3">10.3 Long-Chain Dilution</div><p>If a lineage contains multiple intermediates:</p><ul class="protoList"><li>the total intermediate allocation remains capped</li><li>intermediate allocations are divided equally</li><li>individual intermediate payouts may be small</li></ul><p>Increasing lineage length does not increase the total allocation to intermediates.</p><p>This behavior is intentional and reflects diminishing contribution as distance from conversion increases.</p><div class="protoH protoH2" id="p10-4">10.4 Post-Conversion Appending Attempts</div><p>Any activation attempts occurring after a conversion event:</p><ul class="protoList"><li>do not affect allocation for that conversion</li><li>do not retroactively modify lineage</li><li>may participate only in future conversion events</li></ul><p>Post-conversion appending produces no retroactive entitlement.</p><div class="protoH protoH2" id="p10-5">10.5 Duplicate or Conflicting Claims</div><p>If multiple parties assert responsibility for a conversion:</p><ul class="protoList"><li>the system-recorded conversion trigger determines the closer</li><li>manual claims or assertions are ignored</li></ul><p>The protocol does not adjudicate subjective disputes.</p><div class="protoH protoH2" id="p10-6">10.6 Multiple Conversion Events</div><p>If multiple conversion events occur from the same candle:</p><ul class="protoList"><li>each conversion event is evaluated independently</li><li>allocation is computed separately for each event</li><li>revenue is not double-counted</li></ul><p>Accrued balances may combine across events for payout threshold purposes.</p><div class="protoH protoH2" id="p10-7">10.7 Failed or Reversed Transactions</div><p>If a conversion event fails to settle:</p><ul class="protoList"><li>no allocation is finalized</li><li>no payout is issued</li></ul><p>If a transaction reverses after provisional recording but before payout:</p><ul class="protoList"><li>the allocation is reversed or netted</li><li>accrued balances are adjusted accordingly</li></ul><div class="protoH protoH2" id="p10-8">10.8 Ineligible Participation Discovery</div><p>If an activation event is determined to be ineligible prior to settlement:</p><ul class="protoList"><li>the event is excluded from lineage</li><li>allocation is recalculated if required</li><li>no payout is issued for the ineligible event</li></ul><p>If settlement has already occurred, reversal handling follows Section 6.</p><div class="protoH protoH2" id="p10-9">10.9 System Faults and Interruptions</div><p>In the event of system faults or interruptions:</p><ul class="protoList"><li>incomplete activation events may be discarded</li><li>incomplete conversion events produce no allocation</li><li>completed and verified events remain authoritative</li></ul><p>There are no discretionary reallocations due to system interruption.</p><div class="protoH protoH1" id="p11">11. Environment Rules</div><div class="protoH protoH2" id="p11-1">11.1 Environment Definition</div><p>An environment is a bounded operational context within which candles operate, lineage is constructed, and conversion events occur.</p><p>An environment may represent, for example:</p><ul class="protoList"><li>a location</li><li>a venue</li><li>a business unit</li><li>a campaign scope</li><li>a deployment boundary</li></ul><p>Every candle operates within exactly one environment at any given time.</p><div class="protoH protoH2" id="p11-2">11.2 Environment Isolation</div><p>Environments are isolated from one another.</p><p>Isolation rules include:</p><ul class="protoList"><li>lineage does not cross environment boundaries</li><li>conversion events are evaluated within a single environment</li><li>allocation and payout are computed per environment</li></ul><p>Actions in one environment have no effect on:</p><ul class="protoList"><li>lineage in other environments</li><li>allocations in other environments</li><li>payouts associated with other environments</li></ul><p>This isolation ensures clarity, auditability, and deterministic outcomes.</p><div class="protoH protoH2" id="p11-3">11.3 Environment Association of Candles</div><p>A candle is associated with an environment at the time it is anchored.</p><p>Rules:</p><ul class="protoList"><li>a candle may not belong to multiple environments simultaneously</li><li>a candle’s lineage remains scoped to its environment</li><li>changing a candle’s environment creates a new operational context</li></ul><p>Environment association defines context only and does not imply ownership, entitlement, or preferential treatment.</p><div class="protoH protoH2" id="p11-4">11.4 Environment Lifecycle</div><p>An environment progresses through defined lifecycle states.</p><p>Lifecycle states may include:</p><ul class="protoList"><li>creation</li><li>configuration</li><li>activation</li><li>operation</li><li>suspension</li><li>deactivation</li></ul><p>Lifecycle transitions are system-controlled and do not modify lineage, allocation, or payout rules.</p><div class="protoH protoH2" id="p11-5">11.5 Environment Capacity Constraints</div><p>Environments may be subject to capacity constraints based on:</p><ul class="protoList"><li>scale of deployment</li><li>verification throughput</li><li>activation volume</li><li>analytics load</li></ul><p>Capacity constraints are enforced automatically according to the Scale and Capacity Model defined in Section 7.</p><p>Requests exceeding environment capacity Requests exceeding environment capacity may require prepaid credits to provision the required throughput or operational load. This requirement is rule-based and does not alter pricing, attribution, allocation, or verification.</p><div class="protoH protoH2" id="p11-6">11.6 Environment-Level Operations</div><p>Certain operations occur at the environment level.</p>
+<p>If a lineage contains an originator and a closer with no intermediates, allocation is resolved deterministically according to the applicable published rules. No discretionary reassignment occurs.</p>
+<div class="protoH protoH2" id="p10-3">10.3 Long-Chain Dilution</div>
+<p>If a lineage contains multiple intermediates, allocation outcomes are determined by the applicable published rules. Increasing lineage length does not, by itself, create additional allocatable value.</p>
+<div class="protoH protoH2" id="p10-4">10.4 Post-Conversion Appending Attempts</div><p>Any activation attempts occurring after a conversion event:</p><ul class="protoList"><li>do not affect allocation for that conversion</li><li>do not retroactively modify lineage</li><li>may participate only in future conversion events</li></ul><p>Post-conversion appending produces no retroactive entitlement.</p><div class="protoH protoH2" id="p10-5">10.5 Duplicate or Conflicting Claims</div><p>If multiple parties assert responsibility for a conversion:</p><ul class="protoList"><li>the system-recorded conversion trigger determines the closer</li><li>manual claims or assertions are ignored</li></ul><p>The protocol does not adjudicate subjective disputes.</p><div class="protoH protoH2" id="p10-6">10.6 Multiple Conversion Events</div><p>If multiple conversion events occur from the same candle:</p><ul class="protoList"><li>each conversion event is evaluated independently</li><li>allocation is computed separately for each event</li><li>revenue is not double-counted</li></ul><p>Accrued balances may combine across events for payout threshold purposes.</p><div class="protoH protoH2" id="p10-7">10.7 Failed or Reversed Transactions</div><p>If a conversion event fails to settle:</p><ul class="protoList"><li>no allocation is finalized</li><li>no payout is issued</li></ul><p>If a transaction reverses after provisional recording but before payout:</p><ul class="protoList"><li>the allocation is reversed or netted</li><li>accrued balances are adjusted accordingly</li></ul><div class="protoH protoH2" id="p10-8">10.8 Ineligible Participation Discovery</div><p>If an activation event is determined to be ineligible prior to settlement:</p><ul class="protoList"><li>the event is excluded from lineage</li><li>allocation is recalculated if required</li><li>no payout is issued for the ineligible event</li></ul><p>If settlement has already occurred, reversal handling follows Section 6.</p><div class="protoH protoH2" id="p10-9">10.9 System Faults and Interruptions</div><p>In the event of system faults or interruptions:</p><ul class="protoList"><li>incomplete activation events may be discarded</li><li>incomplete conversion events produce no allocation</li><li>completed and verified events remain authoritative</li></ul><p>There are no discretionary reallocations due to system interruption.</p><div class="protoH protoH1" id="p11">11. Environment Rules</div><div class="protoH protoH2" id="p11-1">11.1 Environment Definition</div><p>An environment is a bounded operational context within which candles operate, lineage is constructed, and conversion events occur.</p><p>An environment may represent, for example:</p><ul class="protoList"><li>a location</li><li>a venue</li><li>a business unit</li><li>a campaign scope</li><li>a deployment boundary</li></ul><p>Every candle operates within exactly one environment at any given time.</p><div class="protoH protoH2" id="p11-2">11.2 Environment Isolation</div><p>Environments are isolated from one another.</p><p>Isolation rules include:</p><ul class="protoList"><li>lineage does not cross environment boundaries</li><li>conversion events are evaluated within a single environment</li><li>allocation and payout are computed per environment</li></ul><p>Actions in one environment have no effect on:</p><ul class="protoList"><li>lineage in other environments</li><li>allocations in other environments</li><li>payouts associated with other environments</li></ul><p>This isolation ensures clarity, auditability, and deterministic outcomes.</p><div class="protoH protoH2" id="p11-3">11.3 Environment Association of Candles</div><p>A candle is associated with an environment at the time it is anchored.</p><p>Rules:</p><ul class="protoList"><li>a candle may not belong to multiple environments simultaneously</li><li>a candle’s lineage remains scoped to its environment</li><li>changing a candle’s environment creates a new operational context</li></ul><p>Environment association defines context only and does not imply ownership, entitlement, or preferential treatment.</p><div class="protoH protoH2" id="p11-4">11.4 Environment Lifecycle</div><p>An environment progresses through defined lifecycle states.</p><p>Lifecycle states may include:</p><ul class="protoList"><li>creation</li><li>configuration</li><li>activation</li><li>operation</li><li>suspension</li><li>deactivation</li></ul><p>Lifecycle transitions are system-controlled and do not modify lineage, allocation, or payout rules.</p><div class="protoH protoH2" id="p11-5">11.5 Environment Capacity Constraints</div><p>Environments may be subject to capacity constraints based on:</p><ul class="protoList"><li>scale of deployment</li><li>verification throughput</li><li>activation volume</li><li>analytics load</li></ul><p>Capacity constraints are enforced automatically according to the Scale and Capacity Model defined in Section 7.</p><p>Requests exceeding environment capacity may require prepaid credits to provision the required throughput or operational load. This requirement is rule-based and does not alter pricing, attribution, allocation, or verification.</p><div class="protoH protoH2" id="p11-6">11.6 Environment-Level Operations</div><p>Certain operations occur at the environment level.</p>
 <p>Environment-level operations may apply to candles and other activation instruments deployed within an environment.</p>
-<p>These may include:</p><ul class="protoList"><li>bulk candle creation</li><li>environment-wide analytics</li><li>activation verification configuration</li><li>capacity management</li></ul><p>Access to environment-level operations may be gated by scale and capacity requirements.</p><div class="protoH protoH2" id="p11-7">11.7 Environment Integrity</div><p>The protocol enforces integrity within each environment.</p><p>Integrity enforcement may include:</p><ul class="protoList"><li>prevention of duplicate environments with conflicting scopes</li><li>consistency checks between environment configuration and usage</li><li>enforcement of environment-specific eligibility constraints</li></ul><p>Integrity enforcement operates deterministically and does not alter valid lineage entries, allocation outcomes, or payouts.</p><p>Section Status</p><p>Section 11 defines how environments function as isolated operational contexts within the protocol.</p><p>Environment rules preserve determinism, auditability, and correctness at scale.</p><div class="protoH protoH1" id="p12">12. Transparency and Auditability</div><div class="protoH protoH2" id="p12-1">12.1 Deterministic Rule Enforcement</div><p>All protocol outcomes are governed by deterministic rules.</p><p>For any conversion event:</p><ul class="protoList"><li>lineage state</li><li>allocation percentages</li><li>payout calculations</li></ul><p>are derived mechanically from published rules and recorded events.</p><p>There are no discretionary adjustments, overrides, or negotiated outcomes.</p><div class="protoH protoH2" id="p12-2">12.2 Inspectable Allocation Logic</div><p>The allocation model is published and invariant.</p><p>Participants may inspect:</p><ul class="protoList"><li>allocation percentages</li><li>role definitions</li><li>collapse rules</li><li>conditions under which allocation occurs</li></ul><p>Given identical inputs, the protocol always produces identical outputs.</p><div class="protoH protoH2" id="p12-3">12.3 Event Logging and Records</div>
-<p>The protocol maintains authoritative records of:</p>
-<ul class="protoList">
-<li>candle anchoring</li>
-<li>accepted activation events</li>
-<li>lineage construction</li>
-<li>conversion events</li>
-<li>allocation and payout calculations</li>
-</ul>
-<p>Official records must be maintained in full to support auditability and internal verification, and to support third-party review when authorized.</p>
-<p>Sensitive operational and business data, including but not limited to revenue amounts, volumes, and partner performance, is not required to be publicly disclosed.</p>
-<p>The public blockchain is used to anchor cryptographic commitments such as hashes, Merkle roots, and protocol rule version identifiers sufficient to enable independent verification.</p>
-<p>Independent verification is achieved through mathematical proof of correctness against committed data and published rules, not through public exposure of raw transactional or business data.</p>
-<div class="protoH protoH2" id="p12-4">12.4 Participant Visibility</div><p>Participants may be provided visibility into:</p><ul class="protoList"><li>their participation in a lineage</li><li>their role at the time of conversion</li><li>their calculated allocation</li><li>their accrued payout balance</li></ul><p>Visibility does not confer control, discretion, or influence over outcomes.</p><div class="protoH protoH2" id="p12-5">12.5 Dispute Minimization by Design</div><p>The protocol minimizes disputes by:</p><ul class="protoList"><li>defining rules in advance</li><li>enforcing rules automatically</li><li>removing discretionary decision points</li><li>evaluating outcomes solely on recorded events</li></ul><p>Subjective claims, assertions, or interpretations do not affect protocol outcomes.</p><div class="protoH protoH2" id="p12-6">12.6 Separation of Transparency and Enforcement</div><p>Transparency concerns what rules apply and how outcomes are computed.</p><p>Enforcement concerns how eligibility and verification are implemented.</p><p>The protocol discloses rule logic and outcome computation while not requiring disclosure of enforcement mechanisms that protect system integrity.</p><div class="protoH protoH1" id="p13">13. Implementation Notes (Non-Normative)</div><div class="protoH protoH2" id="p13-1">13.1 Mobile-First Assumptions</div><p>The protocol is designed to operate in mobile-first contexts.</p><p>Primary interactions are expected to occur on mobile devices, including:</p><ul class="protoList"><li>candle anchoring</li><li>activation and propagation</li><li>basic lineage visibility</li><li>balance and payout awareness</li></ul><p>Mobile interfaces prioritize speed, clarity, and minimal friction.</p><p>Desktop interfaces may complement mobile usage but are not required for protocol participation.</p><div class="protoH protoH2" id="p13-2">13.2 Desktop Administrative Functions</div><p>Desktop interfaces are intended primarily for administrative and oversight functions, including:</p><ul class="protoList"><li>environment administration</li><li>analytics and reporting</li><li>export and reconciliation</li><li>billing and credit management</li><li>oversight of large-scale deployments</li></ul><p>Desktop access does not alter protocol rules and does not confer allocation, eligibility, or payout privileges.</p><div class="protoH protoH2" id="p13-3">13.3 Enforcement Without Manual Review</div><p>Eligibility, verification, scale gating, allocation, and payout enforcement are designed to operate without routine human intervention.</p><p>Manual review may occur only in exceptional circumstances, including:</p><ul class="protoList"><li>regulatory or compliance requirements</li><li>external legal obligations</li><li>confirmed system faults</li></ul><p>Manual review does not modify valid lineage entries, allocation outcomes, or payout determinations.</p><div class="protoH protoH2" id="p13-4">13.4 System Invariants</div><p>The following invariants must hold across all implementations:</p><ul class="protoList"><li>allocation percentages are fixed and deterministic</li><li>lineage is append-only</li><li>conversion events are authoritative</li><li>outcomes derive solely from recorded events</li><li>no discretionary overrides exist</li></ul><p>Implementations may evolve, but these invariants must remain intact.</p><div class="protoH protoH2" id="p13-5">13.5 Versioning and Backward Compatibility</div><p>Protocol versions may evolve over time.</p><p>Changes to the protocol:</p><ul class="protoList"><li>must be versioned</li><li>must not retroactively alter settled outcomes</li><li>may introduce new features or constraints prospectively</li></ul><p>Backward compatibility is preserved for existing candles and lineages unless explicitly deprecated by a future protocol version.</p><div class="protoH protoH2" id="p13-6">13.6 Separation of Protocol and Product</div><p>The protocol defines rules and guarantees.</p><p>Products and interfaces:</p><ul class="protoList"><li>enforce protocol rules</li><li>expose protocol outcomes</li><li>may vary in design, architecture, and presentation</li></ul><p>Product changes do not modify protocol-defined behavior.</p><div class="protoH protoH1" id="p14">14. Public Communication Derivatives</div><div class="protoH protoH2" id="p14-1">14.1 Purpose of Public Derivatives</div><p>Public communication materials are derivative explanations of the protocol.</p><p>They exist to:</p><ul class="protoList"><li>explain behavior</li><li>build confidence</li><li>reduce confusion</li><li>support adoption</li></ul><p>Public materials do not define rules and do not override protocol behavior.</p><p>The protocol defined in Sections 1 through 13 is authoritative.</p><div class="protoH protoH2" id="p14-2">14.2 Website Summaries</div><p>The public website may present simplified descriptions of the protocol.</p><p>Website summaries may include:</p><ul class="protoList"><li>high-level explanations of candles</li><li>general descriptions of lineage and allocation</li><li>statements regarding scale requirements</li><li>non-technical descriptions of eligibility</li></ul><p>Website content must:</p><ul class="protoList"><li>avoid operational thresholds</li><li>avoid implementation details</li><li>avoid negotiable or discretionary language</li></ul><p>Acceptable phrasing includes:</p><ul class="protoList"><li>“Certain deployments require a minimum commitment.”</li><li>“Allocation occurs only after real outcomes.”</li><li>“Lineage entries require eligible activation events.”</li></ul><p>The website must not publish:</p><ul class="protoList"><li>internal enforcement mechanisms</li><li>anti-abuse thresholds</li><li>verification logic</li><li>internal system limits</li></ul><div class="protoH protoH2" id="p14-3">14.3 FAQ Content</div><p>FAQ content may expand on website summaries but remains non-normative.</p><p>FAQs may explain:</p><ul class="protoList"><li>common allocation scenarios</li><li>the rationale for closer-dominant allocation</li><li>natural dilution in long lineage chains</li><li>why scale requires commitment</li></ul><p>FAQs must:</p><ul class="protoList"><li>accurately reflect protocol rules</li><li>avoid exceptions not defined in the protocol</li><li>avoid promising discretionary outcomes</li></ul><p>FAQs must not:</p><ul class="protoList"><li>introduce new rules</li><li>contradict the protocol</li><li>imply negotiability or special treatment</li></ul><div class="protoH protoH2" id="p14-4">14.4 Product UI Prompts</div><p>Product interfaces may display prompts and notices derived from protocol rules.</p><p>Examples include:</p><ul class="protoList"><li>scale gating notices</li><li>minimum commitment prompts</li><li>payout availability messages</li><li>eligibility-related feedback</li></ul><p>UI prompts:</p><ul class="protoList"><li>explain what is required</li><li>do not explain how enforcement operates</li><li>do not invite negotiation or exception handling</li></ul><p>All UI messaging must remain consistent with protocol definitions.</p><div class="protoH protoH2" id="p14-5">14.5 Sales and Partner Explanations</div><p>Sales materials, partnerships, and external discussions may reference protocol behavior at a conceptual level.</p><p>Sales materials may:</p><ul class="protoList"><li>explain incentives</li><li>describe economic structure</li><li>explain why outcomes are deterministic and fair</li></ul><p>Sales materials must not:</p><ul class="protoList"><li>promise custom allocation</li><li>suggest rule overrides</li><li>imply preferential treatment</li></ul><p>Any commitment beyond protocol-defined behavior requires a formal protocol amendment.</p><div class="protoH protoH2" id="p14-6">14.6 Documentation Hierarchy</div><p>In the event of conflicting explanations, the following precedence applies:</p><ul class="protoList"><li>This protocol document prevails</li><li>Formal technical documentation follows</li><li>Website summaries follow</li><li>FAQs follow</li><li>Marketing and sales materials follow</li></ul><p>No derivative material may supersede or reinterpret the protocol.</p><div class="protoH protoH1" id="p15">15. Amendments and Future Versions</div><div class="protoH protoH2" id="p15-1">15.1 Amendment Authority</div><p>Amendments to this protocol may be proposed only by the protocol steward.</p><p>No participant, partner, Brand, or deployment has the authority to alter protocol rules unilaterally.</p><div class="protoH protoH2" id="p15-2">15.2 Versioning</div><p>All protocol changes must be versioned.</p><p>Each protocol version:</p><ul class="protoList"><li>is identified by a unique version identifier</li><li>has a defined effective date</li><li>applies prospectively unless explicitly stated otherwise</li></ul><p>Historical versions remain authoritative for outcomes settled under those versions.</p><div class="protoH protoH2" id="p15-3">15.3 Non-Retroactivity</div><p>Protocol amendments do not retroactively alter:</p><ul class="protoList"><li>completed lineages</li><li>settled conversion events</li><li>finalized allocations</li><li>paid or accrued payouts</li></ul><p>Once revenue has settled and allocation has been recorded, outcomes are final under the protocol version in effect at the time of conversion.</p><div class="protoH protoH2" id="p15-4">15.4 Forward Compatibility</div><p>Future protocol versions may introduce:</p><ul class="protoList"><li>new environment types</li><li>new scale thresholds</li><li>new pricing mechanisms</li><li>new eligibility constraints</li><li>new operational features</li></ul><p>Such changes must:</p><ul class="protoList"><li>preserve core invariants</li><li>avoid breaking existing candle behavior</li><li>maintain deterministic allocation</li></ul><div class="protoH protoH2" id="p15-5">15.5 Core Invariants</div><p>The following invariants must be preserved across all protocol versions:</p><ul class="protoList"><li>allocation occurs only after real, net-settled revenue</li><li>lineage is append-only</li><li>allocation is deterministic and rule-based</li><li>platform allocation percentage remains fixed unless explicitly amended</li><li>no discretionary overrides exist</li></ul><p>Any amendment that violates these invariants constitutes a new protocol rather than a modification of this one.</p><div class="protoH protoH2" id="p15-6">15.6 Deprecation Policy</div><p>Features, environments, or behaviors may be deprecated in future versions.</p><p>Deprecation:</p><ul class="protoList"><li>is announced in advance</li><li>does not invalidate existing outcomes</li><li>applies only to future activity</li></ul><p>Deprecated features may continue to operate for a defined transition period.</p><div class="protoH protoH2" id="p15-7">15.7 Emergency Changes</div><p>In rare circumstances involving:</p><ul class="protoList"><li>legal requirements</li><li>critical security vulnerabilities</li><li>system integrity threats</li></ul><p>Temporary emergency changes may be applied.</p><p>Such changes:</p><ul class="protoList"><li>are narrowly scoped</li><li>are documented retroactively</li><li>do not alter settled outcomes</li></ul><p>Emergency changes do not establish precedent and do not modify core protocol invariants.</p><p>Section Status</p><p>Section 15 defines how the protocol evolves while preserving determinism, fairness, and auditability.</p><p>Protocol authority is explicit, changes are controlled, and history is never rewritten.</p><p>Final Constitutional Summary</p><ul class="protoList"><li>Brands define business intent</li><li>IDDAS defines and enforces the rules</li><li>Once revenue exists, outcomes are deterministic</li></ul>
+<p>These may include:</p><ul class="protoList"><li>bulk candle creation</li><li>environment-wide analytics</li><li>activation verification configuration</li><li>capacity management</li></ul><p>Access to environment-level operations may be gated by scale and capacity requirements.</p><div class="protoH protoH2" id="p11-7">11.7 Environment Integrity</div><p>The protocol enforces integrity within each environment.</p><p>Integrity enforcement may include:</p><ul class="protoList"><li>prevention of duplicate environments with conflicting scopes</li><li>consistency checks between environment configuration and usage</li><li>enforcement of environment-specific eligibility constraints</li></ul><p>Integrity enforcement operates deterministically and does not alter valid lineage entries, allocation outcomes, or payouts.</p><p>Section Status</p><p>Section 11 defines how environments function as isolated operational contexts within the protocol.</p><p>Environment rules preserve determinism, auditability, and correctness at scale.</p><div class="protoH protoH1" id="p12">12. Transparency and Auditability</div><div class="protoH protoH2" id="p12-1">12.1 Deterministic Rule Enforcement</div><p>All protocol outcomes are governed by deterministic rules.</p><p>For any conversion event:</p><ul class="protoList"><li>lineage state</li><li>allocation outcomes</li><li>payout calculations</li></ul><p>are derived mechanically from published rules and recorded events.</p><p>There are no discretionary adjustments, overrides, negotiations, or case-by-case decisions.</p><div class="protoH protoH2" id="p12-2">12.2 Inspectable Allocation Logic</div><p>Allocation logic is rule-defined and invariant within a given protocol version.</p><p>Participants may inspect:</p><ul class="protoList"><li>role definitions</li><li>eligibility conditions</li><li>collapse or resolution rules</li><li>conditions under which allocation occurs</li></ul><p>Given identical inputs, the protocol always produces identical outputs.</p><div class="protoH protoH2" id="p12-3">12.3 Event Logging and Records</div><p>The protocol maintains authoritative records of:</p><ul class="protoList"><li>candle anchoring</li><li>accepted activation events</li><li>lineage construction</li><li>conversion events</li><li>allocation and payout calculations</li></ul><p>Records are retained to support auditability, internal verification, and authorized third-party review.</p><p>Sensitive operational or business data is not required to be publicly disclosed.</p><p>Cryptographic commitments (including hashes, Merkle roots, or version identifiers) may be anchored to a public blockchain to enable independent verification of correctness without exposing raw transactional data.</p><div class="protoH protoH2" id="p12-4">12.4 Participant Visibility</div><p>Implementations may provide participants visibility into:</p><ul class="protoList"><li>their participation in a lineage</li><li>their role at the time of conversion</li><li>their calculated allocation</li><li>their accrued payout balance</li></ul><p>Visibility does not confer control, discretion, or influence over outcomes.</p><div class="protoH protoH2" id="p12-5">12.5 Dispute Minimization by Design</div><p>The protocol minimizes disputes by:</p><ul class="protoList"><li>defining rules in advance</li><li>enforcing rules automatically</li><li>removing discretionary decision points</li><li>evaluating outcomes solely on recorded events</li></ul><p>Subjective claims, interpretations, or assertions do not affect protocol outcomes.</p><div class="protoH protoH2" id="p12-6">12.6 Separation of Transparency and Enforcement</div><p>Transparency concerns which rules apply and how outcomes are computed.</p><p>Enforcement concerns how eligibility, verification, and abuse prevention are implemented.</p><p>The protocol discloses rule logic and outcome computation while not requiring disclosure of internal enforcement mechanisms that protect system integrity.</p><div class="protoH protoH1" id="p13">13. Implementation Notes (Non-Normative)</div><div class="protoH protoH2" id="p13-1">13.1 Mobile-First Assumptions</div><p>The protocol is designed to operate in mobile-first contexts.</p><p>Primary interactions are expected to occur on mobile devices, including:</p><ul class="protoList"><li>candle anchoring</li><li>activation and propagation</li><li>basic lineage visibility</li><li>balance and payout awareness</li></ul><p>Mobile interfaces prioritize speed, clarity, and minimal friction.</p><p>Desktop interfaces may complement mobile usage but are not required for protocol participation.</p><div class="protoH protoH2" id="p13-2">13.2 Desktop Administrative Functions</div><p>Desktop interfaces are intended primarily for administrative and oversight functions, including:</p><ul class="protoList"><li>environment administration</li><li>analytics and reporting</li><li>export and reconciliation</li><li>billing and credit management</li><li>oversight of large-scale deployments</li></ul><p>Desktop access does not alter protocol rules and does not confer allocation, eligibility, or payout privileges.</p><div class="protoH protoH2" id="p13-3">13.3 Enforcement Without Manual Review</div><p>Eligibility, verification, scale gating, allocation, and payout enforcement are designed to operate without routine human intervention.</p><p>Manual review may occur only in exceptional circumstances, including:</p><ul class="protoList"><li>regulatory or compliance requirements</li><li>external legal obligations</li><li>confirmed system faults</li></ul><p>Manual review does not modify valid lineage entries, allocation outcomes, or payout determinations.</p><div class="protoH protoH2" id="p13-4">13.4 System Invariants</div><p>The following invariants must hold across all implementations:</p><ul class="protoList"><li>lineage is append-only</li><li>conversion events are authoritative</li><li>outcomes derive solely from recorded events</li><li>allocation and eligibility are deterministic</li><li>no discretionary overrides exist</li></ul><p>Implementations may evolve, but these invariants must remain intact.</p><div class="protoH protoH2" id="p13-5">13.5 Versioning and Backward Compatibility</div><p>Protocol versions may evolve over time.</p><p>Changes to the protocol:</p><ul class="protoList"><li>must be versioned</li><li>must not retroactively alter settled outcomes</li><li>may introduce new features or constraints prospectively</li></ul><p>Backward compatibility is preserved for existing candles and lineages unless explicitly deprecated by a future protocol version.</p><div class="protoH protoH2" id="p13-6">13.6 Separation of Protocol and Product</div><p>The protocol defines rules and guarantees.</p><p>Products and interfaces:</p><ul class="protoList"><li>enforce protocol rules</li><li>expose protocol outcomes</li><li>may vary in design, architecture, and presentation</li></ul><p>Product changes do not modify protocol-defined behavior.</p><div class="protoH protoH1" id="p14">14. Public Communication Derivatives</div><div class="protoH protoH2" id="p14-1">14.1 Purpose of Public Derivatives</div><p>Public communication materials are derivative explanations of the protocol.</p><p>They exist to:</p><ul class="protoList"><li>explain behavior</li><li>build confidence</li><li>reduce confusion</li><li>support adoption</li></ul><p>Public materials do not define rules and do not override protocol behavior.</p><p>The protocol defined in Sections 1 through 13 is authoritative.</p><div class="protoH protoH2" id="p14-2">14.2 Website Summaries</div><p>The public website may present simplified descriptions of the protocol.</p><p>Website summaries may include:</p><ul class="protoList"><li>high-level explanations of candles</li><li>general descriptions of lineage and allocation</li><li>statements regarding scale requirements</li><li>non-technical descriptions of eligibility</li></ul><p>Website content must:</p><ul class="protoList"><li>avoid operational thresholds</li><li>avoid implementation details</li><li>avoid negotiable or discretionary language</li></ul><p>Acceptable phrasing includes:</p><ul class="protoList"><li>“Certain deployments require a minimum commitment.”</li><li>“Allocation occurs only after real outcomes.”</li><li>“Lineage entries require eligible activation events.”</li></ul><p>The website must not publish:</p><ul class="protoList"><li>internal enforcement mechanisms</li><li>anti-abuse thresholds</li><li>verification logic</li><li>internal system limits</li></ul><div class="protoH protoH2" id="p14-3">14.3 FAQ Content</div><p>FAQ content may expand on website summaries but remains non-normative.</p><p>FAQs may explain:</p><ul class="protoList"><li>common allocation scenarios</li><li>the rationale for closer-dominant allocation</li><li>natural dilution in long lineage chains</li><li>why scale requires commitment</li></ul><p>FAQs must:</p><ul class="protoList"><li>accurately reflect protocol rules</li><li>avoid exceptions not defined in the protocol</li><li>avoid promising discretionary outcomes</li></ul><p>FAQs must not:</p><ul class="protoList"><li>introduce new rules</li><li>contradict the protocol</li><li>imply negotiability or special treatment</li></ul><div class="protoH protoH2" id="p14-4">14.4 Product UI Prompts</div><p>Product interfaces may display prompts and notices derived from protocol rules.</p><p>Examples include:</p><ul class="protoList"><li>scale gating notices</li><li>minimum commitment prompts</li><li>payout availability messages</li><li>eligibility-related feedback</li></ul><p>UI prompts:</p><ul class="protoList"><li>explain what is required</li><li>do not explain how enforcement operates</li><li>do not invite negotiation or exception handling</li></ul><p>All UI messaging must remain consistent with protocol definitions.</p><div class="protoH protoH2" id="p14-5">14.5 Sales and Partner Explanations</div><p>Sales materials, partnerships, and external discussions may reference protocol behavior at a conceptual level.</p><p>Sales materials may:</p><ul class="protoList"><li>explain incentives</li><li>describe economic structure</li><li>explain why outcomes are deterministic and fair</li></ul><p>Sales materials must not:</p><ul class="protoList"><li>promise custom allocation</li><li>suggest rule overrides</li><li>imply preferential treatment</li></ul><p>Any commitment beyond protocol-defined behavior requires a formal protocol amendment.</p><div class="protoH protoH2" id="p14-6">14.6 Documentation Hierarchy</div><p>In the event of conflicting explanations, the following precedence applies:</p><ul class="protoList"><li>This protocol document prevails</li><li>Formal technical documentation follows</li><li>Website summaries follow</li><li>FAQs follow</li><li>Marketing and sales materials follow</li></ul><p>No derivative material may supersede or reinterpret the protocol.</p><div class="protoH protoH1" id="p15">15. Amendments and Future Versions</div><div class="protoH protoH2" id="p15-1">15.1 Amendment Authority</div><p>Amendments to this protocol may be proposed only by the protocol steward.</p><p>No participant, partner, Brand, or deployment has the authority to alter protocol rules unilaterally.</p><div class="protoH protoH2" id="p15-2">15.2 Versioning</div><p>All protocol changes must be versioned.</p><p>Each protocol version:</p><ul class="protoList"><li>is identified by a unique version identifier</li><li>has a defined effective date</li><li>applies prospectively unless explicitly stated otherwise</li></ul><p>Historical versions remain authoritative for outcomes settled under those versions.</p><div class="protoH protoH2" id="p15-3">15.3 Non-Retroactivity</div><p>Protocol amendments do not retroactively alter:</p><ul class="protoList"><li>completed lineages</li><li>settled conversion events</li><li>finalized allocations</li><li>paid or accrued payouts</li></ul><p>Once revenue has settled and allocation has been recorded, outcomes are final under the protocol version in effect at the time of conversion.</p><div class="protoH protoH2" id="p15-4">15.4 Forward Compatibility</div><p>Future protocol versions may introduce:</p><ul class="protoList"><li>new environment types</li><li>new scale thresholds</li><li>new pricing mechanisms</li><li>new eligibility constraints</li><li>new operational features</li></ul><p>Such changes must:</p><ul class="protoList"><li>preserve core invariants</li><li>avoid breaking existing candle behavior</li><li>maintain deterministic allocation</li></ul><div class="protoH protoH2" id="p15-5">15.5 Core Invariants</div><p>The following invariants must be preserved across all protocol versions:</p><ul class="protoList"><li>allocation occurs only after real, net-settled revenue</li><li>lineage is append-only</li><li>allocation is deterministic and rule-based</li><li>no discretionary overrides exist</li><li>protocol rules apply uniformly across deployments</li></ul><div class="protoH protoH2" id="p15-6">15.6 Deprecation Policy</div><p>Features, environments, or behaviors may be deprecated in future versions.</p><p>Deprecation:</p><ul class="protoList"><li>is announced in advance</li><li>does not invalidate existing outcomes</li><li>applies only to future activity</li></ul><p>Deprecated features may continue to operate for a defined transition period.</p><div class="protoH protoH2" id="p15-7">15.7 Emergency Changes</div><p>In rare circumstances involving:</p><ul class="protoList"><li>legal requirements</li><li>critical security vulnerabilities</li><li>system integrity threats</li></ul><p>Temporary emergency changes may be applied.</p><p>Such changes:</p><ul class="protoList"><li>are narrowly scoped</li><li>are documented retroactively</li><li>do not alter settled outcomes</li></ul><p>Emergency changes do not establish precedent and do not modify core protocol invariants.</p><p>Section Status</p><p>Section 15 defines how the protocol evolves while preserving determinism, fairness, and auditability.</p><p>Protocol authority is explicit, changes are controlled, and history is never rewritten.</p><p>Final Constitutional Summary</p><ul class="protoList"><li>Brands define business intent</li><li>IDDAS defines and enforces the rules</li><li>Once revenue exists, outcomes are deterministic</li></ul>
 <div class="protoH protoH1" id="p16">16. Canonical Commitment Specification - Candle Sealing</div>
 <p>CANDLE SEALING SPEC v1.0</p>
 <p>IDDAS Protocol - Canonical Commitment Event</p>
 <div class="protoH protoH2" id="p16-1">16.1 Purpose</div>
-<p>The Candle Seal is the irreversible commitment action that converts a candle-based opportunity into a secured, verifiable deal object within IDDAS. This spec defines:</p>
+<p>The Candle Seal is the irreversible commitment action that converts a candle-based opportunity into a secured, verifiable deal object within IDDAS. This sealing specification applies only to enterprise-enabled implementations, and IDDAS compatibility does not require exposing Candle Sealing. This spec defines:</p>
 <ul class="protoList">
 <li>The only valid sealing action</li>
 <li>The conditions under which sealing may occur</li>
@@ -3853,8 +3601,8 @@ Rules interpret data. Protocols define system physics.</li>
 </ul>
 <p>This spec is protocol law. UI, animation, and implementation must conform to it.</p>
 <div class="protoH protoH2" id="p16-2">16.2 Canonical sealing action (non-negotiable)</div>
-<p>The only valid sealing path is:</p>
-<p>With the flame off, six rapid taps anywhere open enterprise access. Sealing happens only from that enterprise path.</p>
+<p>The only valid sealing action is:</p>
+<p>In an enterprise-enabled context, the user performs a continuous 10-second hold on an unsealed candle with the flame off. Any interruption cancels the attempt silently, and completion seals immediately with no confirmation dialog.</p>
 <p>There are:</p>
 <ul class="protoList">
 <li>No alternative gestures</li>
@@ -3862,23 +3610,23 @@ Rules interpret data. Protocols define system physics.</li>
 <li>No shortcuts</li>
 <li>No secondary confirmation mechanisms</li>
 </ul>
-<p>This action is universal across contexts, devices, and environments.</p>
+<p>This action is canonical across enterprise-enabled implementations, devices, and environments.</p>
 <div class="protoH protoH2" id="p16-3">16.3 Preconditions (when sealing is allowed)</div>
 <p>A candle may be sealed only if all of the following are true:</p>
 <ul class="protoList">
-<li>1) The candle is lit (burning state)</li>
-<li>2) The candle is unsealed</li>
-<li>3) The user performs a continuous 5-second hold directly on the flame</li>
+<li>1) The candle is unsealed</li>
+<li>2) The flame is off</li>
+<li>3) The user performs a continuous 10-second hold on the candle (or flame area) in an enterprise-enabled context</li>
 </ul>
 <p>Notes:</p>
 <ul class="protoList">
-<li>A candle may be sealed immediately upon receipt, or saved and sealed later when reignited.</li>
-<li>An unlit candle cannot be sealed.</li>
+<li>A candle may be sealed immediately upon receipt, or saved and sealed later while it remains unsealed.</li>
+<li>A candle with the flame on cannot be sealed.</li>
 </ul>
 <div class="protoH protoH2" id="p16-4">16.4 Sealing gesture requirements</div>
 <p>Duration</p>
 <ul class="protoList">
-<li>Hold duration: 5.0 seconds</li>
+<li>Hold duration: 10.0 seconds</li>
 <li>Must be continuous</li>
 <li>Any interruption cancels the attempt</li>
 </ul>
@@ -3896,11 +3644,11 @@ Rules interpret data. Protocols define system physics.</li>
 <li>The candle remains unsealed</li>
 </ul>
 <div class="protoH protoH2" id="p16-5">16.5 Completion moment (the seal)</div>
-<p>When the 5-second hold completes:</p>
+<p>When the 10-second hold completes:</p>
 <ul class="protoList">
 <li>1) A single seal acknowledgment moment occurs</li>
 <li>2) The candle is immediately and permanently sealed</li>
-<li>3) A Seal Event is emitted (see Section 8)</li>
+<li>3) A Seal Event is emitted (see 16.8)</li>
 </ul>
 <p>There is no confirmation dialog. Completion of the hold is the commitment.</p>
 <div class="protoH protoH2" id="p16-6">16.6 Irreversibility</div>
@@ -3947,7 +3695,7 @@ Rules interpret data. Protocols define system physics.</li>
 <li>A multi-gesture system</li>
 <li>A gamified interaction</li>
 <li>A shortcut or hidden trick</li>
-<li>An enterprise-only feature</li>
+<li>A consumer-default feature</li>
 </ul>
 <p>There is one candle. There is one seal.</p>
 <div class="protoH protoH2" id="p16-11">16.11 Authority</div>
@@ -4715,13 +4463,34 @@ Rules interpret data. Protocols define system physics.</li>
     .hero{
       padding:22px 0 18px;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 260px 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
     }
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr}
     }
+
+    .heroCandle{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .heroCandle img{
+      width:100%;
+      max-width:280px;
+      height:auto;
+      max-height:560px;
+      object-fit:contain;
+      object-position:center;
+      display:block;
+      pointer-events:none;
+      user-select:none;
+    }
+    @media (max-width: 920px){
+      .heroCandle img{max-height:360px; max-width:260px;}
+    }
+
     .heroCard{
       background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
       border:1px solid rgba(174,182,197,.22);
@@ -5522,9 +5291,15 @@ iddasBackToTop.addEventListener('click', () => {
           // Chapter 0 uses decimal-style numbering (0.11 should sort between 0.1 and 0.2).
           // Other chapters use integer-style numbering (5.10 should sort after 5.9).
           var id = item.id || '';
-          // Lettered section (e.g., 5A / 5A.1) should appear after 5.10 and before chapter 6
+          // Lettered section (e.g., 5 / 5.1) should appear after 5.10 and before chapter 6
           var ma = id.match(new RegExp('^p' + ch + 'a(?:-(\\d+))?$'));
           if(ma){
+            // Prefer numbering from visible label (e.g., "5.2 ...") when present.
+            // This keeps subnav order aligned with the on-page order when lettered ids (e.g., p5a-1)
+            // are used while headings are numbered sequentially (e.g., 5.2, 5.3, ...).
+            var mLabel = (item.label || '').match(new RegExp('^' + ch + '\\.(\\d+)'));
+            if(mLabel && mLabel[1]) return parseInt(mLabel[1], 10);
+
             var sub = ma[1] ? parseInt(ma[1], 10) : 0;
             return 10.5 + (sub ? sub/1000 : 0);
           }
