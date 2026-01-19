@@ -86,32 +86,14 @@
     .hero{
       padding:22px 0 18px;
       display:grid;
-      grid-template-columns: 260px 1.1fr .9fr;
+      grid-template-columns: 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
+      position:relative;
+      overflow:visible;
     }
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr}
-    }
-
-    .heroCandle{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .heroCandle img{
-      width:100%;
-      max-width:280px;
-      height:auto;
-      max-height:560px;
-      object-fit:contain;
-      object-position:center;
-      display:block;
-      pointer-events:none;
-      user-select:none;
-    }
-    @media (max-width: 920px){
-      .heroCandle img{max-height:360px; max-width:260px;}
     }
     .heroCard{
       background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
@@ -1458,6 +1440,24 @@ body.nav-hidden .content, body.nav-hidden .main, body.nav-hidden main{ width:100
   border: 0 !important;
 }
 
+
+
+    .candle-hero {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transform: translateX(-10%);
+      width: min(360px, 28vw);
+      height: auto;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      filter: drop-shadow(0 0 24px rgba(255, 80, 80, 0.18));
+      opacity: 0.95;
+    }
+@media (max-width: 900px) {
+      .candle-hero { display: none; }
+    }
 </style>
 <style>
 .gs-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;background:rgba(0,0,0,.78);padding:18px}
@@ -1714,9 +1714,13 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 
 
 <div class="hero" id="top">
-<div class="heroCandle">
-  <img src="/images/candleme-still.png" alt="CandleMe activation candle" loading="lazy" />
-</div>
+  <img
+    src="/assets/images/candleme-now-still.png"
+    alt="CandleMe activation candle"
+    class="candle-hero"
+    loading="eager"
+    decoding="async"
+  />
 <div class="heroCard">
 <div class="kicker">Activation before identity</div>
 <h1>IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.</h1>
@@ -4463,34 +4467,13 @@ Payout execution may occur later without altering any protocol-defined outcome.<
     .hero{
       padding:22px 0 18px;
       display:grid;
-      grid-template-columns: 260px 1.1fr .9fr;
+      grid-template-columns: 1.1fr .9fr;
       gap:18px;
       align-items:stretch;
     }
     @media (max-width: 920px){
       .hero{grid-template-columns:1fr}
     }
-
-    .heroCandle{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .heroCandle img{
-      width:100%;
-      max-width:280px;
-      height:auto;
-      max-height:560px;
-      object-fit:contain;
-      object-position:center;
-      display:block;
-      pointer-events:none;
-      user-select:none;
-    }
-    @media (max-width: 920px){
-      .heroCandle img{max-height:360px; max-width:260px;}
-    }
-
     .heroCard{
       background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
       border:1px solid rgba(174,182,197,.22);
