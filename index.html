@@ -334,6 +334,8 @@
     .footRow > div:first-child{display:block}
     .footDisclaimer{margin-left:auto; margin-right:auto; text-align:center}
 
+    .protocol-summary{max-width:980px; margin:0 auto}
+
 
     /* small red accent for headings */
     .accent{color:var(--red)}
@@ -1693,12 +1695,12 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 <div class="heroCard">
 <div class="kicker"><span class="accent-word">ACTIVATION</span> BEFORE IDENTITY</div>
 <h1>IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.</h1>
-<p class="sub">IDDAS is a deterministic protocol for identity-free activation, lineage-based attribution, and verifiable outcomes.<br><br>No account is required to begin. Identity is optional. Attribution follows lineage. Rule versions and verification proofs are anchored to a public blockchain - no silent changes.<br><br>IDDAS starts with action in the real world: a scan, a tap, a placement, or a verified event. The system records intentional actions first and derives outcomes from those actions, rather than from identity, negotiation, or trust in an operator.<br><br>This allows IDDAS to function in crowds, public spaces, and shared environments where accounts, permissions, and coordination add friction.<br><br><span class="step-header-red">Key properties:</span><br>• Action comes first  <br>• Attribution follows lineage  <br>• Outcomes are rule-based  <br>• Results are verifiable</p>
+<p class="sub">No account is required to begin. Identity is optional. Attribution follows lineage. Rule versions and verification proofs are anchored to a public blockchain - no silent changes.<br><br>IDDAS starts with action in the real world: a scan, a tap, a placement, or a verified event. The system records intentional actions first and derives outcomes from those actions, rather than from identity, negotiation, or trust in an operator.<br><br>This allows IDDAS to function in crowds, public spaces, and shared environments where accounts, permissions, and coordination add friction.<br><br><span class="step-header-red">Key properties:</span><br>• Action comes first  <br>• Attribution follows lineage  <br>• Outcomes are rule-based  <br>• Results are verifiable</p>
 <div class="pillRow">
 <span class="pill"><span class="step-header-red">Results are verifiable</span></span>
-<span class="pill"><span class="step-header-red">Lineage-based attribution</span></span>
-<span class="pill"><span class="step-header-red">Fixed economics</span></span>
-<span class="pill"><span class="step-header-red">Verifiable outcomes</span></span>
+<span class="pill"><span class="step-header-red">Attribution follows lineage</span></span>
+<span class="pill"><span class="step-header-red">Outcome computation is rule-based</span></span>
+<span class="pill"><span class="step-header-red">Economic rules are fixed and versioned</span></span>
 </div>
 <div class="quiet" style="margin-top:8px"><a href="#lineage-attribution" style="text-decoration:underline; opacity:.85"></a></div>
 <details class="rule siteAccordion" id="lineage-attribution" style="margin-top:12px; max-width:560px; margin-left:auto; margin-right:auto">
@@ -1726,8 +1728,8 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 </div>
 </div>
 <aside aria-label="Core rule" class="sideCard">
-<h3><span class="accent">THE</span> ECONOMIC RULE</h3>
-<div class="rule"><div class="num"><span class="accent-word">WHEN</span> REAL REVENUE OCCURS</div>
+<h3><span class="accent">THE</span> ECONOMIC RULE (WHEN REAL REVENUE OCCURS)</h3>
+<div class="rule"><div class="num"></div>
 <p><span class="step-header-red">Outcomes are computed from published, versioned rules.</span></p>
 <p>• Allocation occurs only after real revenue exists<br>
 • Distribution is derived deterministically from recorded lineage<br>
@@ -1788,10 +1790,10 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 <h2>Before Anything Else, Here’s What Makes This Different</h2>
 <div class="subtitle">Capabilities live in the object, not the user.</div>
 <p>Most digital systems work the same way.</p>
-<p class="quiet">You identify yourself. You log in. You are granted access to features tied to you.</p>
+<p class="quiet">You identify yourself. You log in. You are granted access to features tied to your account.</p>
 <p>IDDAS works differently.</p>
-<p class="quiet">With IDDAS, capabilities are embedded into the object itself. Identity is optional. Sometimes it is not needed at all.</p>
-<p class="quiet">This may feel unfamiliar at first. That’s normal. Because it is not how most digital experiences are designed.</p>
+<p class="quiet">With IDDAS, capabilities are embedded into the object itself. Identity is optional, and in many cases not required at all.</p>
+<p class="quiet">This may feel unfamiliar at first. That’s normal. It is not how most digital experiences are designed.</p>
 <p class="strong">If you only read one section on this site, read this one.</p>
 <div class="iddas-details">
 <details class="siteAccordion">
@@ -1800,7 +1802,7 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 <span aria-hidden="true" class="chev"></span>
 </summary>
 <h3>What does “capabilities live in the object” mean?</h3>
-<p class="quiet">Think of a physical object you already understand.</p>
+<p class="quiet">Think of physical objects you already understand.</p>
 <ul>
 <li>A parking meter does not ask who you are.</li>
 <li>A ticket does not ask for your identity.</li>
@@ -1811,7 +1813,7 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 <p class="quiet">Those allowed actions are called capabilities.</p>
 <h3>Why most systems tie everything to identity</h3>
 <ul>
-<li>Identity is the control mechanism.</li>
+<li>Identity becomes the control mechanism.</li>
 <li>Permissions live on user accounts.</li>
 <li>Context is inferred indirectly.</li>
 <li>Every interaction starts with friction.</li>
@@ -1824,17 +1826,13 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 <li>Context determines which capabilities are active.</li>
 <li>Identity is optional, not foundational.</li>
 </ul>
-<p class="quiet">The same object can behave differently in different contexts, without explaining anything to the user. They simply interact.</p>
+<p class="quiet">The same object can behave differently in different contexts without explanation. People simply interact.</p>
 <h3>Why IDDAS is a protocol (not just infrastructure)</h3>
-<p class="quiet">Infrastructure is software that can change. A protocol defines rules that others can rely on.</p>
-<p class="quiet">IDDAS is a protocol because it fixes the order of operations, the economic split, and the attribution logic in advance. Even the operator cannot silently change outcomes.</p>
+<p class="quiet">Infrastructure is software that can change. A protocol defines rules others can rely on.</p>
+<p class="quiet">IDDAS is a protocol because it fixes the order of operations, the attribution logic, and the economic rules in advance. Even the operator cannot silently change outcomes.</p>
 <p class="quiet">IDDAS runs on infrastructure, but it is not merely infrastructure. The protocol defines what must remain true regardless of implementation.</p>
 <h3>Why this is not a crypto product</h3>
-<p class="quiet">
-IDDAS uses a blockchain as a verification layer - to lock rules and make outcomes auditable.
-It is not a token system, not a marketplace, and not a wallet-based user experience.
-Participants can activate and participate without touching crypto.
-</p>
+<p class="quiet">IDDAS uses blockchain only as a verification layer - to lock rules and make outcomes auditable. It is not a token system, not a marketplace, and not a wallet-based user experience. Participants can activate and participate without touching crypto.</p>
 <h3>Why this matters in the real world</h3>
 <ul>
 <li>Shared moments without coordination.</li>
@@ -1845,7 +1843,7 @@ Participants can activate and participate without touching crypto.
 </ul>
 <p class="quiet">People do not feel processed. They feel included.</p>
 <h3>How others build on IDDAS</h3>
-<p class="quiet">When builders extend IDDAS, they do not modify the object. They define capability layers that can be enabled, disabled, contextually activated, and shared across environments. The object stays recognizable. The experience adapts.</p>
+<p class="quiet">When builders extend IDDAS, they do not modify the object itself. They define capability layers that can be enabled, disabled, or contextually activated across environments. The object remains recognizable. The experience adapts.</p>
 <h3>What this is not</h3>
 <ul>
 <li>A QR code generator.</li>
@@ -1855,7 +1853,7 @@ Participants can activate and participate without touching crypto.
 </ul>
 <p class="quiet">It is a different way of thinking about interaction.</p>
 <h3>Why this explanation exists</h3>
-<p class="quiet">We explain this openly because IDDAS is counterintuitive. If this model is not made clear early, people misunderstand everything that follows. Familiar assumptions get projected onto it. The simplicity gets mistaken for limitation.</p>
+<p class="quiet">IDDAS is counterintuitive. If this model is not made clear early, familiar assumptions get projected onto it and the simplicity is mistaken for limitation.</p>
 <p class="quiet">Our goal is not to sound clever. Our goal is to be clear.</p>
 </details>
 <div class="iddas-transition">Once you understand this model, everything else on this site makes more sense.</div>
@@ -1881,17 +1879,17 @@ Participants can activate and participate without touching crypto.
 <div class="grid">
 <div class="card span-6">
 <h3>It is a rule, not a product</h3>
-<p>IDDAS is not a single app or a packaged offering. It is a rule set that governs what happens when a real, measurable outcome occurs - and only then.</p><p>If no value is created, no money moves. There is nothing to sell and nothing to persuade. The rule itself is the product - a predictable way to activate value, attribute contribution, and produce verifiable outcomes without negotiation, discretion, or exceptions.</p><p>IDDAS defines outcomes, not features. It defines how value moves, not how it is marketed or claimed.</p><ul><li>Outcome-based distribution - only when value occurs</li><li>Attribution via lineage, not self-claims or reporting</li><li>Verification replaces trust and salesmanship</li><li>Applicable across many industries and use cases</li></ul></div>
+<p>IDDAS is not a single app or a packaged offering. It is a rule set that governs what happens when a real, measurable outcome occurs - and only then.</p><p>If no value is created, no money moves. There is nothing to sell and nothing to persuade. The rule itself is the product: a predictable way to activate value, attribute contribution, and produce verifiable outcomes without negotiation, discretion, or exceptions.</p><p>IDDAS defines outcomes, not features. It defines how value moves, not how it is marketed or claimed.</p><ul><li>Outcome-based distribution - only when value occurs</li><li>Attribution via lineage, not self-claims or reporting</li><li>Verification replaces trust and salesmanship</li></ul></div>
 <div class="card span-6">
 <h3>It is a protocol that runs on infrastructure</h3>
-<p>IDDAS runs on normal infrastructure such as cloud services, databases, and standard software systems. It is not infrastructure itself.</p><p>Infrastructure executes the system. The protocol defines the limits of the system.</p><p>IDDAS defines the invariants - what must remain true regardless of implementation. These include activation before identity, lineage-based attribution, fixed rule enforcement, and verifiable outcomes (anchored on-chain so they can be audited independently).</p><p>Implementations can evolve. The rule cannot drift silently. The protocol is implementation-agnostic so others can build on it without changing the underlying economics or attribution logic.</p><ul><li>Activation before identity - identity optional later</li><li>Published rules with versioning and no silent changes</li><li>Lineage-based attribution with verifiable outcomes</li><li>Independent of any single platform or implementation</li></ul></div>
+<p>IDDAS runs on standard infrastructure such as cloud services, databases, and conventional software systems. It is not infrastructure itself.</p><p>Infrastructure executes the system. The protocol defines the limits of the system.</p><p>IDDAS defines the invariants - what must remain true regardless of implementation. These include activation before identity, lineage-based attribution, fixed rule enforcement, and verifiable outcomes anchored for independent audit.</p><p>Implementations may evolve. The rule cannot drift silently. The protocol is implementation-agnostic so others can build on it without changing the underlying economics or attribution logic.</p><ul><li>Activation before identity - identity optional later</li><li>Published rules with versioning and no silent changes</li><li>Lineage-based attribution with verifiable outcomes</li><li>Independent of any single platform or implementation</li></ul></div>
 </div>
 <div class="divider"></div>
 <div class="grid">
 <div class="card span-6">
 <h3>What it is not</h3>
 <p>IDDAS is intentionally narrow in what it defines and deliberately broad in what it enables.</p>
-<p>It does not attempt to replace entire industries or operate them directly. It provides a rule layer that those industries can build on.</p>
+<p>It does not attempt to replace entire industries or operate them directly. It provides a rule layer those industries can build on.</p>
 <p><strong>IDDAS is not:</strong></p>
 <ul>
 <li><strong>A loyalty program</strong><br/>Loyalty programs assume accounts, identity, and long-term tracking. IDDAS operates before any of that exists.</li>
@@ -1901,7 +1899,7 @@ Participants can activate and participate without touching crypto.
 <li><strong>A social network</strong><br/>There are no profiles, feeds, or attention mechanics.</li>
 <li><strong>A promise of income</strong><br/>If no real value is created, no money moves. Participation alone guarantees nothing.</li>
 </ul>
-<p>Many multi-billion-dollar industries use these models today and many are constrained by their structure. IDDAS does not compete with those industries. It removes structural friction that prevents them from capturing value that already exists.</p>
+<p>Many large industries rely on these models today and are constrained by their structure. IDDAS does not compete with those industries. It removes structural friction that prevents them from capturing value that already exists.</p>
 </div>
 <div class="card span-6">
 <h3>Why it matters</h3>
@@ -1914,10 +1912,10 @@ Participants can activate and participate without touching crypto.
 <li>There is no operator discretion over winners or outcomes</li>
 <li>Participants can verify results independently</li>
 </ul>
-<p>This matters because most real-world activation is currently lost - especially in public spaces, shared environments, collective moments, and situations where identity-first systems create friction instead of value.</p>
+<p>This matters because much real-world activation is currently lost - especially in public spaces, shared environments, collective moments, and situations where identity-first systems create friction instead of value.</p>
 <p>IDDAS is designed so others can build systems that capture that missing activation without changing the rule after adoption.</p>
 <p>Patent applications are pending. The goal is not ownership of use cases, but durability of the rule.</p>
-<p class="quiet">Note: You may hear IDDAS described as "infrastructure" because it sits underneath many systems. The precise term is protocol - the rule layer that constrains how infrastructure behaves.</p>
+<p class="quiet">Note: IDDAS is sometimes described as "infrastructure" because it sits beneath many systems. The precise term is protocol - the rule layer that constrains how infrastructure behaves.</p>
 </div>
 </div>
 </div></details>
@@ -2239,13 +2237,9 @@ They enable activation to exist.</p>
 <div class="sectionHead">
 <h2><span class="accent">Allocation</span> Plain English</h2>
 </div>
-<div class="hint">How allocation works before you see formulas.</div>
+<div class="hint">How allocation works before formulas.</div>
 </summary>
-<div class="siteAccordionBody"><p>Allocation Plain English</p>
-
-<p>How allocation works before formulas.</p>
-
-<p>IDDAS allocates value only after a real, qualifying transaction occurs.</p>
+<div class="siteAccordionBody"><p>IDDAS allocates value only after a real, qualifying transaction occurs.</p>
 
 <p>There is no negotiation after the fact.<br>
 There is no discretion.<br>
@@ -2617,12 +2611,10 @@ They do not change what an activation is, when it occurs, or how outcomes are ve
 <h4><span class="accent">Pricing</span> model</h4>
 <ul class="bullets">
 <li>The pricing unit is the activation.</li>
-<li>The price per activation is fixed.</li>
-<li>Pricing is universal across industries, sizes, and use cases.</li>
-<li>There are no negotiated rates.</li>
-<li>There are no tiers.</li>
-<li>There are no discounts.</li>
-<li>There is no discretionary pricing.</li>
+<li>The pricing structure per activation is fixed.</li>
+<li>Pricing is applied uniformly within a given implementation or deployment.</li>
+<li>There are no negotiated outcomes, discretionary overrides, or per-participant exceptions.</li>
+<li>Numeric pricing amounts, credits, or efficiency mechanisms, if any, are defined by the implementation in advance and apply forward-only.</li>
 </ul>
 <p>If no activation occurs, no charge occurs.</p>
 <h4><span class="accent">Payment</span> model</h4>
@@ -2714,7 +2706,7 @@ They do not change what an activation is, when it occurs, or how outcomes are ve
 <div class="hint">Activation infrastructure for the physical world</div>
 </summary>
 <div class="siteAccordionBody">
-<p>IDDAS is activation infrastructure for the physical world.</p>
+<p>IDDAS is a protocol that provides activation infrastructure for the physical world.</p>
 <p>It provides identity-free, intentionally activated proof of physical presence, with verifiable records that can be independently audited.</p>
 <p>IDDAS does not measure impressions, exposure, or background traffic.<br/>It records only deliberate entry into a system.</p>
 <p>If no one enters, nothing is recorded.<br/>If nothing is recorded, nothing is charged.</p>
@@ -3118,15 +3110,16 @@ The ledger is passive and permanent. Verification is active and repeatable.</li>
 <li>Events are hashed into the ledger</li>
 <li>Events represent what happened.</li>
 <li>Activation</li>
-<li>An activation is a contextual interpretation of one or more events.</li>
+<li>An activation is a canonical, verified event representing intentional human entry into the system.</li>
 </ul>
 <p><strong>Rules:</strong></p>
 <ul>
-<li>Activations are derived, not stored as facts</li>
-<li>Activations may change as rule versions evolve</li>
-<li>Activations always reference the source events</li>
-<li>Principle:
-Events are facts. Activations are interpretations.</li>
+<li>Activations are recorded as immutable, append-only facts</li>
+<li>Each activation establishes persistent system state</li>
+<li>Activations reference their originating event and lineage context</li>
+<li>Activations do not change once recorded</li>
+<li>Rule versions affect how activations are evaluated, not whether they occurred</li>
+<li>Principle: Events capture occurrences. Activations establish durable participation.</li>
 </ul>
 <p>Rule Version vs Protocol Version</p>
 <p>This distinction protects system integrity.</p>
@@ -4379,26 +4372,19 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 
 <footer>
 <div class="footRow">
-<div>© <span id="y"></span> IDDAS. All rights reserved.</div>
+<div>© 2026 IDDAS. All rights reserved.</div>
 <div style="display:flex; gap:12px; flex-wrap:wrap">
 <span style="opacity:.55">|</span>
 <span style="opacity:.85">Public summary of the IDDAS Whitepaper and Canonical Rule Set.</span>
 </div>
 </div>
 <div class="footDisclaimer" style="margin-top:10px; font-size:12px; line-height:1.45; opacity:.75; max-width:980px;">
-  Legal disclaimer: This page is a public, non-binding summary of the IDDAS Protocol and is provided for informational purposes only. Nothing here constitutes an offer, advice, or a promise of functionality, performance, pricing, or availability. Protocol truth is defined only by the published canonical rule set; forward-looking descriptions may change. “Patent pending” refers to pending patent application filings. References to blockchain describe optional audit anchoring, not a user-facing crypto product.</div>
+  Legal disclaimer: This page is a public, non-binding summary of the IDDAS Protocol and is provided for informational purposes only. Nothing here constitutes an offer, advice, or a promise of functionality, performance, pricing, or availability. Protocol truth is defined only by the published canonical rule set; forward-looking descriptions may change. “Patent pending” refers to patent application filings owned by IDDAS Technologies LLC. References to blockchain describe optional audit anchoring, not a user-facing crypto product.</div>
 
 <div class="protocol-summary">
   <h3>IDDAS 2026 – Instantly Distributed Digital Activation System</h3>
-  <p>
-    IDDAS is a protocol governing activation, attribution, lineage, and allocation.
-    It records verifiable facts of interaction. It does not operate applications,
-    process payments, or manage user accounts.
-  </p>
-  <p>
-    The Protocol Constitution and rule definitions are published here.
-    Rules are versioned, public, and non-retroactive.
-  </p>
+  <p>IDDAS is a protocol governing activation, attribution, lineage, and allocation. The protocol itself does not operate applications, process payments, or manage user accounts. Those activities, where they occur, are performed by independent implementations operated by IDDAS Technologies LLC or other parties that build on the protocol.</p>
+  <p>The Protocol Constitution and rule definitions are published here. Rules are versioned, public, and non-retroactive.</p>
   <p>
     <strong>Protocol contact:</strong><br/>
     <a href="mailto:protocol@iddasprotocol.tech">protocol@iddasprotocol.tech</a>
