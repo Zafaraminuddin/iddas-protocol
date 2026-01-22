@@ -67,18 +67,12 @@
     .nav{
   display:flex;
   align-items:center;
-  justify-content:flex-end;
-  gap:14px;
-  flex-wrap:nowrap;
-  overflow-x:auto;
-  scrollbar-width:none;
+  justify-content:center;
+  gap:16px;
+  flex-wrap:wrap;
+  overflow:visible;
 }
-.nav::-webkit-scrollbar{display:none;}
-.nav a{
-  white-space:nowrap;
-}
-
-.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;}
     .nav a{font-size:12px; color:var(--muted); text-decoration:none}
     .nav a:hover{color:var(--text)}
 
@@ -1436,6 +1430,36 @@ body.nav-hidden .content, body.nav-hidden .main, body.nav-hidden main{ width:100
   border: 0 !important;
 }
 
+
+/* === v94 Jump-to UX corrections === */
+.jumpNav{flex:0 0 auto; min-width:0 !important; margin-left:18px;}
+.jumpBtn{
+  min-width: 320px !important;
+  max-width: 380px !important;
+  padding: .48rem .9rem !important;
+  font-size: 13.5px !important;
+}
+.jumpPanel{
+  max-width: min(520px, 92vw) !important;
+}
+.jumpItem:nth-child(even){
+  background: rgba(255,255,255,.045);
+}
+.jumpItem:nth-child(odd){
+  background: rgba(0,0,0,0);
+}
+.jumpItem:hover{
+  background: rgba(255,0,60,.08) !important;
+  border: 1px solid rgba(255,0,60,.28);
+}
+
+/* Jump dropdown - force opaque background to prevent bleed-through */
+.jumpPanel{ background: #080a0e !important; }
+.jumpItem{ background: #0f1218 !important; }
+.jumpItem:nth-child(even){ background: #151a22 !important; }
+.jumpItem:hover{ background: rgba(255,0,60,.10) !important; }
+
+
 </style>
 <style>
 .gs-overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;background:rgba(0,0,0,.78);padding:18px}
@@ -1581,8 +1605,111 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 }
 </style>
 
+<style>
+/* v88 - "More" section jump dropdown (auto-populated; no manual maintenance) */
+.nav .navJump{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  font-size:12px;
+  color:var(--muted);
+  text-decoration:none;
+  background: rgba(10,12,18,.35);
+  border: 1px solid rgba(174,182,197,.22);
+  border-radius: 999px;
+  padding: 6px 28px 6px 10px;
+  line-height: 1;
+  cursor: pointer;
+}
+.nav .navJump:hover{ color:var(--text); border-color: rgba(176,19,42,.55); }
+.nav .navJump:focus-visible{
+  outline: 2px solid rgba(255,59,59,.35);
+  outline-offset: 3px;
+}
+/* small chevron for select */
+.nav .navJump{
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(233,238,247,.65) 50%),
+    linear-gradient(135deg, rgba(233,238,247,.65) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+@media (max-width: 720px){
+  .nav .navJump{ padding: 8px 30px 8px 12px; }
+}
+
+/* Jump dropdown (navigation) - keep existing black/white/red scheme */
+.jumpNav{position:relative;display:flex;align-items:center;justify-content:center;flex:1;min-width:320px}
+.jumpBtn{
+  background: rgba(10,12,18,.70);
+  color: #e9e9ef;
+  border: 1px solid rgba(255,0,60,.35);
+  border-radius: 999px;
+  padding: .55rem 1.1rem;
+  min-width: 480px;
+  max-width: 640px;
+  justify-content: center;
+  font: inherit;
+  letter-spacing: .2px;
+  cursor: pointer;
+  line-height: 1;
+  display:inline-flex;
+  align-items:center;
+  gap:.55rem;
+}
+.jumpBtn:hover{border-color: rgba(255,0,60,.55)}
+.jumpBtn:focus{outline: none; box-shadow: 0 0 0 2px rgba(255,0,60,.25)}
+.jumpCaret{
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgba(233,233,239,.90);
+  margin-top: 2px;
+}
+.jumpPanel{
+  position:absolute;
+  top: calc(100% + .55rem);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  max-width: min(560px, 92vw);
+  max-height: min(60vh, 520px);
+  overflow:auto;
+  background: rgba(8,10,14,.92);
+  border: 1px solid rgba(255,0,60,.35);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.45);
+  padding: .35rem;
+  display:none;
+  z-index: 9999;
+}
+.jumpPanel[data-open="true"]{display:block}
+.jumpItem{
+  display:block;
+  padding: .55rem .75rem;
+  border-radius: 10px;
+  color: rgba(233,233,239,.92);
+  text-decoration:none;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+.jumpItem:hover{background: rgba(255,0,60,.10)}
+.jumpItem:focus{outline:none;background: rgba(255,0,60,.14)}
+.jumpGroup{
+  padding: .35rem .65rem .25rem;
+  color: rgba(233,233,239,.55);
+  font-size: .85em;
+  letter-spacing: .4px;
+}
+
+</style>
 </head>
 <body>
+<div id="pageTop"></div>
 <!-- DEVELOPER REFERENCE POP-UP NOTICE (SAFE TO REMOVE LATER) -->
 <style>
 #devNoticeOverlay {
@@ -1677,17 +1804,24 @@ html.ss-lock, body.ss-lock{overflow:hidden}
     </span>
 </a>
   <nav aria-label="Site" class="nav">
-<a href="#what">What it is</a>
-<a href="#before-anything-else">What makes it different</a>
-<a href="#rule">The rule</a>
-<a href="#activation">Activation</a>
-<a href="#pricing-activation">Pricing</a>
-<a href="#pricing-philosophy">Pricing philosophy</a>
-<a href="#verification">Verification</a>
-<a href="#usecases">Use cases</a>
-<a href="#defense">Defensibility</a>
-<a href="#protocol-constitution">Protocol</a>
-<a href="#faq">FAQ</a></nav>
+  <a href="#what">What IDDAS is</a>
+  <a href="#terminology-framing">Terminology and framing</a>
+  <a href="#activation">Activation</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#verification">Verification</a>
+  <a href="#usecases">Use cases</a>
+  <a href="#defense">Defensibility</a>
+  <a href="#protocol-constitution">Protocol</a>
+  <a href="#faq">FAQ</a>
+  <a href="#faq" data-jump='[data-section="faq-hard"]'>Hard questions</a>
+  <div class="jumpNav">
+    <button type="button" class="jumpBtn" id="jumpBtn" aria-haspopup="true" aria-expanded="false">
+      Jump to a section
+      <span class="jumpCaret" aria-hidden="true"></span>
+    </button>
+    <div class="jumpPanel" id="jumpPanel" role="menu" aria-label="Jump to section"></div>
+  </div>
+</nav>
 </div>
 
 
@@ -2015,108 +2149,98 @@ html.ss-lock, body.ss-lock{overflow:hidden}
 </div>
 <div class="hint">Clarifications and confirmations.</div>
 </summary>
-<div class="siteAccordionBody"><p><span class="step-header-red">Infrastructure</span> Originators (Deployment Roots)</p>
-<p>Clarifications and confirmations.</p>
+<div class="siteAccordionBody">
 
-<p>This section clarifies the Infrastructure Originator (IO) role and how IO participation works in practice.<br/>
-It introduces no new protocol rules. It explains how activation-based economics apply to deployment roots.</p>
+<p class="step-header-red">What this section does</p>
+<p>This section explains how Infrastructure Originators (IOs) are recognized in V1 and how activation-based attribution applies to deployment roots.<br/>
+It introduces no sales programs, no brokerage roles, and no off-protocol economics.</p>
 
 <p class="step-header-red">What an Infrastructure Originator is</p>
+<p>An Infrastructure Originator (IO) is a deployment root that enables an activation surface to exist in the real world.</p>
 
-<p>An Infrastructure Originator (IO) is a deployment root that authorizes or enables one or more activation surfaces to exist in the real world.</p>
+<p>An activation surface may be physical or digital (for example, kiosks, screens, transit placements, venues, or other authorized locations) and may later generate verified activations.</p>
 
-<p>Those surfaces may later produce verified activations.</p>
-
-<p>IO status is structural.<br/>
-It is not a title, partnership, designation, or program.</p>
-
-<p>An IO exists only if protocol-valid activations occur through an originated surface.<br/>
-If no activations occur, no IO compensation exists.</p>
+<p>IO status is structural, not discretionary.<br/>
+An IO exists only if protocol-valid activations occur through an originated surface.</p>
 
 <p class="step-header-red">What an Infrastructure Originator is not</p>
-
 <p>An Infrastructure Originator is not:</p>
-
 <ul>
-  <li>an affiliate</li>
   <li>a sales agent</li>
-  <li>a reseller</li>
-  <li>a broker or finder</li>
-  <li>a negotiator of terms</li>
+  <li>an affiliate</li>
+  <li>a reseller or broker</li>
+  <li>a negotiator of Brand terms</li>
   <li>a recipient of discretionary rewards</li>
 </ul>
 
-<p>Infrastructure Originators are not compensated for effort, intent, relationships, or access.<br/>
+<p>Infrastructure Originators are not compensated for effort, access, influence, persuasion, or relationships.<br/>
 They are compensated only when verified activations occur.</p>
 
-<p class="step-header-red">No approval, application, or permission</p>
-
+<p class="step-header-red">No approval or designation</p>
 <p>Infrastructure Originator status:</p>
-
 <ul>
   <li>is not applied for</li>
-  <li>is not granted</li>
-  <li>is not approved</li>
+  <li>is not granted or approved</li>
   <li>is not negotiated</li>
   <li>cannot be revoked by discretion</li>
 </ul>
 
-<p>The system does not evaluate people.<br/>
+<p>The system does not evaluate people or effort.<br/>
 It evaluates activation events.</p>
 
-<p class="step-header-red">Authorization without operation</p>
-
-<p>Infrastructure Originators may enable deployment without directly operating, managing, or installing activation surfaces.</p>
-
-<p>An IO may:</p>
-
-<ul>
-  <li>authorize a deployment root</li>
-  <li>allow activation surfaces to exist</li>
-  <li>permit others to deploy or operate those surfaces</li>
-</ul>
-
-<p>The system attributes activations to the originating root, not to operational labor.</p>
-
-<p class="step-header-red">Activation-based compensation</p>
-
-<p>Infrastructure Originators participate only in activation economics.</p>
-
+<p class="step-header-red">Activation-based attribution (V1)</p>
 <p>For each verified activation that occurs through an originated surface:</p>
-
 <ul>
-  <li>20% of the activation fee is attributed to the Infrastructure Originator</li>
-  <li>This amount is computed automatically</li>
-  <li>It is proportional to activation volume</li>
-  <li>It is independent of downstream deals, revenue, or outcomes</li>
+  <li>a fixed $0.50 deployment attribution is recorded for the Infrastructure Originator</li>
+  <li>this attribution is computed automatically</li>
+  <li>it is triggered only by a verified activation</li>
+  <li>it is paid by the operating Steward, not by Brands and not by Participants</li>
 </ul>
 
-<p>If one activation occurs, one activation fee applies.<br/>
-If one million activations occur, one million activation fees apply.</p>
+<p>This attribution is:</p>
+<ul>
+  <li>not a commission</li>
+  <li>not a sales fee</li>
+  <li>not payment for labor</li>
+  <li>not dependent on downstream outcomes</li>
+</ul>
+
+<p>If one activation occurs, one deployment attribution applies.<br/>
+If one million activations occur, one million deployment attributions apply.</p>
 
 <p>There are no guarantees.<br/>
 There are no minimums.<br/>
 There is no compensation without activation.</p>
 
-<p class="step-header-red">Attribution and permanence</p>
+<p class="step-header-red">Separation from private arrangements</p>
+<p>Any private agreements, consulting fees, access arrangements, installation costs, or other compensation negotiated by an Infrastructure Originator outside the Protocol are entirely independent of the Protocol and the Steward.</p>
 
-<p>IO attribution is recorded at activation creation time.</p>
+<p>Such arrangements:</p>
+<ul>
+  <li>are not governed by the Protocol</li>
+  <li>do not affect attribution</li>
+  <li>do not alter activation economics</li>
+  <li>do not create protocol-level rights</li>
+</ul>
+
+<p>The Protocol recognizes only verified activation events and their recorded lineage.</p>
+
+<p class="step-header-red">Attribution permanence</p>
+<p>Infrastructure Originator attribution is recorded at activation creation time.</p>
 
 <p>Once recorded:</p>
-
 <ul>
   <li>it cannot be reassigned</li>
   <li>it cannot be removed</li>
-  <li>it cannot be bypassed through side agreements</li>
-  <li>it cannot be suppressed by brands or operators</li>
+  <li>it cannot be overridden by side agreements</li>
+  <li>it cannot be suppressed by Brands or operators</li>
 </ul>
 
 <p>Any use of protocol-valid activations necessarily honors recorded attribution.</p>
 
 <p class="step-header-red">Why this exists</p>
-
 <p>This structure rewards those who make activation possible<br/>
-without turning infrastructure into sales, brokerage, or negotiation.</p>
+without converting infrastructure enablement into sales, brokerage, or influence programs.</p>
 
 <p>Infrastructure Originators do not extract value.<br/>
 They enable activation to exist.</p>
@@ -5161,7 +5285,7 @@ iddasBackToTop.addEventListener('click', () => {
     handleHash();
   })();
 </script>
-<a aria-label="Back to top" class="backToTop" href="#top">↑ Top</a>
+<a aria-label="Back to top" class="backToTop" href="#pageTop">↑ Top</a>
 <script>
 (function(){
   function setupProtocolNav(){
@@ -5784,5 +5908,211 @@ document.addEventListener("DOMContentLoaded", function(){
 })();
 
 </script>
+<script>
+/* v88 - auto-populate "More" jump dropdown with any accordion sections not already in the top nav */
+(function(){
+  var sel = document.getElementById('sectionJump');
+  if(!sel) return;
+
+  var existing = new Set();
+  document.querySelectorAll('.nav a[href^="#"]').forEach(function(a){
+    existing.add(a.getAttribute('href'));
+  });
+
+  var items = [];
+  document.querySelectorAll('details.siteAccordion[id]').forEach(function(d){
+    var id = d.getAttribute('id');
+    if(!id) return;
+    var href = '#' + id;
+    if(existing.has(href)) return;
+
+    var s = d.querySelector('summary');
+    if(!s) return;
+
+    var label = (s.textContent || '').replace(/\s+/g,' ').trim();
+    if(!label) return;
+
+    items.push({href: href, label: label});
+  });
+
+  items.sort(function(a,b){ return a.label.localeCompare(b.label); });
+
+  if(items.length){
+    items.forEach(function(it){
+      var opt = document.createElement('option');
+      opt.value = it.href;
+      opt.textContent = it.label;
+      sel.appendChild(opt);
+    });
+  }else{
+    sel.disabled = true;
+    sel.style.opacity = '0.6';
+  }
+
+  sel.addEventListener('change', function(){
+    var v = sel.value;
+    if(!v) return;
+    var target = document.querySelector(v);
+    if(target && typeof target.scrollIntoView === 'function'){
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+    }else{
+      location.hash = v;
+    }
+    setTimeout(function(){ sel.value = ''; }, 250);
+  });
+})();
+</script>
+
+<script>
+(function(){
+  function normalizeLabel(s){
+    s = (s||"").replace(/\s+/g," ").trim();
+
+    // Fix known concatenations
+    s = s.replace(/SECONDARYECONOMIC/gi, "Secondary economic");
+
+    // If label is ALL CAPS, convert to sentence case while preserving key acronyms
+    var letters = s.replace(/[^A-Za-z]/g,"");
+    if(letters && s === s.toUpperCase()){
+      var lower = s.toLowerCase();
+      lower = lower.replace(/\biddas\b/g, "IDDAS")
+                   .replace(/\bfaq\b/g, "FAQ")
+                   .replace(/\bv1\b/g, "V1")
+                   .replace(/\bio\b/g, "IO");
+      lower = lower.charAt(0).toUpperCase() + lower.slice(1);
+      s = lower;
+    }
+
+    return s;
+  }
+
+  function scrollToSelector(sel){
+    if(!sel) return false;
+    var el = null;
+    try{ el = document.querySelector(sel); }catch(e){ el = null; }
+    if(!el) return false;
+    if(typeof el.scrollIntoView === "function"){
+      el.scrollIntoView({behavior:"smooth", block:"start"});
+      return true;
+    }
+    return false;
+  }
+
+  function buildJumpMenu(){
+    var btn = document.getElementById("jumpBtn");
+    var panel = document.getElementById("jumpPanel");
+    if(!btn || !panel) return;
+
+    var items = [];
+
+    function addItem(id, label){
+      if(!id) return;
+      if(items.some(function(x){ return x.id === id; })) return;
+      items.push({id:id, label:label || id});
+    }
+
+    // A) Primary page sections (section[id]) - label from first visible heading
+    Array.prototype.slice.call(document.querySelectorAll("section[id]")).forEach(function(sec){
+      var id = sec.getAttribute("id");
+      if(!id) return;
+      var h = sec.querySelector("h1,h2,h3,.sectionHead h2,.sectionHead h3");
+      var label = normalizeLabel(h ? h.textContent : id);
+      addItem(id, label);
+    });
+
+    // B) All accordions (details.siteAccordion[id]) - include nested everywhere (including inside Protocol areas)
+    Array.prototype.slice.call(document.querySelectorAll("details.siteAccordion[id]")).forEach(function(acc){
+      var id = acc.getAttribute("id");
+      if(!id) return;
+
+      var sum = acc.querySelector("summary");
+      var raw = sum ? sum.textContent : id;
+      raw = (raw || "").replace(/▾/g," ").replace(/\s+/g," ").trim();
+      var label = normalizeLabel(raw);
+      addItem(id, label);
+    });
+
+    // Sort alphabetically
+    items.sort(function(a,b){ return a.label.localeCompare(b.label); });
+
+    // Render (NO group headers - avoids non-clickable "Accordions" row)
+    panel.innerHTML = "";
+    items.forEach(function(it){
+      var a = document.createElement("a");
+      a.className = "jumpItem";
+      a.href = "#" + it.id;
+      a.setAttribute("role","menuitem");
+      a.textContent = it.label;
+      a.addEventListener("click", function(){ closeMenu(); });
+      panel.appendChild(a);
+    });
+}
+
+
+  function openMenu(){
+    var btn = document.getElementById("jumpBtn");
+    var panel = document.getElementById("jumpPanel");
+    if(!btn || !panel) return;
+    panel.setAttribute("data-open","true");
+    btn.setAttribute("aria-expanded","true");
+  }
+  function closeMenu(){
+    var btn = document.getElementById("jumpBtn");
+    var panel = document.getElementById("jumpPanel");
+    if(!btn || !panel) return;
+    panel.removeAttribute("data-open");
+    btn.setAttribute("aria-expanded","false");
+  }
+  function toggleMenu(){
+    var panel = document.getElementById("jumpPanel");
+    if(!panel) return;
+    var isOpen = panel.getAttribute("data-open")==="true";
+    if(isOpen) closeMenu(); else openMenu();
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    buildJumpMenu();
+
+    var btn = document.getElementById("jumpBtn");
+    var panel = document.getElementById("jumpPanel");
+
+    if(btn && panel){
+      btn.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      document.addEventListener("click", function(e){
+        if(panel.getAttribute("data-open")==="true"){
+          if(!panel.contains(e.target) && e.target !== btn){
+            closeMenu();
+          }
+        }
+      });
+
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape"){ closeMenu(); }
+      });
+    }
+
+    // Handle nav links that target selectors (e.g., FAQ hard questions)
+    Array.prototype.slice.call(document.querySelectorAll("a[data-jump]")).forEach(function(a){
+      a.addEventListener("click", function(e){
+        var sel = a.getAttribute("data-jump");
+        if(sel){
+          e.preventDefault();
+          e.stopPropagation();
+          if(!scrollToSelector(sel)){
+            var href = a.getAttribute("href");
+            if(href) location.hash = href;
+          }
+        }
+      });
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
