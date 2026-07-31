@@ -2203,7 +2203,7 @@ It evaluates activation events.</p>
 <p class="step-header-red">Activation-based attribution (V1)</p>
 <p>For each verified activation that occurs through an originated surface:</p>
 <ul>
-  <li>a fixed $0.50 deployment attribution is recorded for the Infrastructure Originator</li>
+  <li>a deployment attribution is recorded for the Infrastructure Originator according to the implementation's published rules</li>
   <li>this attribution is computed automatically</li>
   <li>it is triggered only by a verified activation</li>
   <li>it is paid by the operating Steward, not by Brands and not by Participants</li>
@@ -2343,25 +2343,13 @@ They enable activation to exist.</p>
 <p><b>2. Deals formed through the candle remain verifiable</b></p>
 <p>If a deal is formed through the candle, the resulting record retains lineage integrity and can be verified from committed events and published, versioned protocol rules.</p>
 
-<p><b>3. Canonical sealing action (enterprise-enabled)</b></p>
-<p>In enterprise-enabled implementations, a deal may be sealed through a single canonical gesture:</p>
-<ul>
-<li>the candle must be unsealed</li>
-<li>the flame must be off</li>
-<li>the user performs a continuous 10-second hold on the candle</li>
-<li>any interruption cancels the attempt silently</li>
-<li>completion emits a single Seal Event and seals immediately</li>
-<li>no confirmation dialog exists</li>
-<li>no alternative gestures exist</li>
-</ul>
-
-<p><b>4. Post-seal behavior</b></p>
+<p><b>3. Post-seal behavior</b></p>
 <p>After sealing, the candle enters a sealed state. The lineage remains append-only and upstream participants cannot be removed or renegotiated. Sealing is one-time and irreversible - there is no unsealing, repetition, or override.</p>
 
-<p><b>5. If a deal occurs outside the candle</b></p>
+<p><b>4. If a deal occurs outside the candle</b></p>
 <p>If a deal is formed outside the candle, the protocol cannot produce lineage-based verification for that deal. This means loss of protocol verification and loss of lineage-based attribution for that outcome.</p>
 
-<p><b>6. The candle as boundary</b></p>
+<p><b>5. The candle as boundary</b></p>
 <p>The candle is the verification boundary: only deals formed through the candle retain lineage integrity for protocol verification.</p>
 </div>
 
@@ -2480,7 +2468,7 @@ The rule does not change afterward.</p>
 </section>
 </div>
 <section class="section" id="pricing-activation" style="grid-column: 1 / -1; width: 100%; max-width: 1100px; margin: 0 auto;">
-<details class="siteAccordion" data-section="pricing-activation">
+<details id="pricing" class="siteAccordion" data-section="pricing-activation">
 <summary class="siteAccordionSummary">
 <div class="sectionHead">
 <h2><span class="accent">Pricing</span> and Activation Definition</h2>
@@ -3105,6 +3093,86 @@ Those parameters, if any, are implementation- or Brand-defined and exist outside
 </ul>
 </div>
 </details>
+<details class="card span-4 usecase">
+<summary><span class="title">Hospitality and travel</span><span class="chev"></span></summary>
+<div class="usecaseBody">
+<p>Hotels, airports, cruise lines, tour operators, travel retail.</p>
+<p>Hospitality and travel move people through unfamiliar environments under time pressure. Engagement systems that depend on apps, accounts, or prior registration fail at the moments that matter most: arrival, boarding, check-in, and transition.</p>
+<p>IDDAS enables activation at the point of presence without requiring prior relationship. A traveler can receive a persistent digital object at check-in, access capabilities across the duration of a stay, and retain a connection that continues after departure.</p>
+<p>Capability kits allow hotels, airlines, and operators to evolve what the object does over time without changing the physical touchpoint. Attribution follows the real journey rather than the last digital click.</p>
+<div class="kicker">What becomes possible now</div>
+<ul>
+<li>Activation at arrival without app download</li>
+<li>Capabilities that persist across the full journey</li>
+<li>Post-departure connection without a loyalty account</li>
+<li>Verifiable attribution across physical touchpoints</li>
+</ul>
+</div>
+</details>
+<details class="card span-4 usecase">
+<summary><span class="title">Healthcare and wellness</span><span class="chev"></span></summary>
+<div class="usecaseBody">
+<p>Clinics, hospitals, pharmacies, wellness programs, public health.</p>
+<p>Healthcare encounters generate moments of high attention and genuine need. Most systems lose that value because they require identity, enrollment, or digital infrastructure before any participation can occur.</p>
+<p>IDDAS allows a care moment to become a persistent object without capturing personal data upfront. Participants can receive capabilities tied to a care encounter, access follow-on information, and maintain a connection that identity-free systems cannot provide.</p>
+<p>Capability kits allow programs to attach evolving content, instructions, or access to the same object without reissuing materials. Public health programs can activate populations at scale without the enrollment barriers that typically reduce reach.</p>
+<div class="kicker">What becomes possible now</div>
+<ul>
+<li>Care-moment activation without identity capture</li>
+<li>Persistent access to follow-on resources</li>
+<li>Population-scale programs without enrollment friction</li>
+<li>Attribution across care journeys without personal data dependency</li>
+</ul>
+</div>
+</details>
+<details class="card span-4 usecase">
+<summary><span class="title">Education and learning</span><span class="chev"></span></summary>
+<div class="usecaseBody">
+<p>Schools, universities, training programs, credentialing, informal learning.</p>
+<p>Education creates structured participation across time, but most systems for tracking that participation are fragmented, institution-dependent, and identity-heavy. Learners move between programs, leave and return, and accumulate experience that existing systems cannot easily verify or carry forward.</p>
+<p>IDDAS allows educational activation to produce a persistent, verifiable object that carries lineage across the full learning journey. Institutions can attach capabilities, credentials, or access to a moment of learning without requiring the learner to maintain accounts across systems.</p>
+<p>Attribution follows the chain of instruction and contribution rather than institutional claims.</p>
+<div class="kicker">What becomes possible now</div>
+<ul>
+<li>Persistent learning records without institutional dependency</li>
+<li>Credential attachment without account proliferation</li>
+<li>Attribution across instructors, programs, and environments</li>
+<li>Activation at the moment of learning rather than enrollment</li>
+</ul>
+</div>
+</details>
+<details class="card span-4 usecase">
+<summary><span class="title">Financial services and fintech</span><span class="chev"></span></summary>
+<div class="usecaseBody">
+<p>Banks, credit unions, insurance, payments, advisory services.</p>
+<p>Financial services require identity at the moment of transaction, but relationship-building does not. Most financial systems conflate the two, creating friction that prevents engagement before trust is established.</p>
+<p>IDDAS allows financial organizations to activate relationships before identity is required. A prospect, member, or client can receive a persistent object tied to a moment of contact, return to it across time, and progress toward identity-bearing transactions at their own pace.</p>
+<p>Capability kits allow institutions to evolve what the object offers without reissuing materials or rebuilding campaigns. Attribution follows the genuine relationship chain rather than last-touch digital claims.</p>
+<div class="kicker">What becomes possible now</div>
+<ul>
+<li>Relationship activation before identity is required</li>
+<li>Persistent engagement across the trust-building period</li>
+<li>Capability evolution without reissuing materials</li>
+<li>Verifiable attribution for referral and advisor networks</li>
+</ul>
+</div>
+</details>
+<details class="card span-4 usecase">
+<summary><span class="title">Retail and consumer services</span><span class="chev"></span></summary>
+<div class="usecaseBody">
+<p>Car washes, salons, dry cleaners, auto services, specialty retail, subscription businesses.</p>
+<p>Retail and consumer service businesses build real relationships through repeated visits, but most have no practical way to make those relationships persistent and digital without requiring apps or loyalty program enrollment. The moment a customer is present and engaged is the highest-value moment, and most systems miss it entirely.</p>
+<p>IDDAS enables activation at the point of service without friction. A customer at a car wash, salon, or retail counter can receive a persistent digital object tied to that visit, return to it, share it with people they know, and carry it forward across future visits. Keepers can attach capabilities, offers, and communications to the same object over time without replacing materials or running new campaigns.</p>
+<p>Sponsorship positions inside the candle allow the business to extend additional value to customers through curated partner relationships, creating a new revenue layer on top of the existing service. The same customer who washes their car today can carry a candle that carries meaning, offers, and ongoing connection long after they leave the lot.</p>
+<div class="kicker">What becomes possible now</div>
+<ul>
+<li>Activation at point of service without app or enrollment</li>
+<li>Persistent customer connection across repeat visits</li>
+<li>Shareable object that brings new customers through existing ones</li>
+<li>Sponsorship revenue from curated partner placements inside the candle</li>
+</ul>
+</div>
+</details>
 <details class="card span-12 usecase">
 <summary><span class="title">Why these are examples, not limits</span><span class="chev"></span></summary>
 <div class="usecaseBody">
@@ -3724,36 +3792,18 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <li>The boundaries that preserve the sacred candle</li>
 </ul>
 <p>This spec is protocol law. UI, animation, and implementation must conform to it.</p>
-<div class="protoH protoH2" id="p16-2">16.2 Canonical sealing action (non-negotiable)</div>
-<p>The only valid sealing action is:</p>
-<p>In an enterprise-enabled context, the user performs a continuous 10-second hold on an unsealed candle with the flame off. Any interruption cancels the attempt silently, and completion seals immediately with no confirmation dialog.</p>
-<p>There are:</p>
-<ul class="protoList">
-<li>No alternative gestures</li>
-<li>No variants</li>
-<li>No shortcuts</li>
-<li>No secondary confirmation mechanisms</li>
-</ul>
-<p>This action is canonical across enterprise-enabled implementations, devices, and environments.</p>
-<div class="protoH protoH2" id="p16-3">16.3 Preconditions (when sealing is allowed)</div>
+<div class="protoH protoH2" id="p16-2">16.2 Preconditions (when sealing is allowed)</div>
 <p>A candle may be sealed only if all of the following are true:</p>
 <ul class="protoList">
 <li>1) The candle is unsealed</li>
 <li>2) The flame is off</li>
-<li>3) The user performs a continuous 10-second hold on the candle (or flame area) in an enterprise-enabled context</li>
 </ul>
 <p>Notes:</p>
 <ul class="protoList">
 <li>A candle may be sealed immediately upon receipt, or saved and sealed later while it remains unsealed.</li>
 <li>A candle with the flame on cannot be sealed.</li>
 </ul>
-<div class="protoH protoH2" id="p16-4">16.4 Sealing gesture requirements</div>
-<p>Duration</p>
-<ul class="protoList">
-<li>Hold duration: 10.0 seconds</li>
-<li>Must be continuous</li>
-<li>Any interruption cancels the attempt</li>
-</ul>
+<div class="protoH protoH2" id="p16-3">16.3 Sealing gesture requirements</div>
 <p>Feedback during hold</p>
 <ul class="protoList">
 <li>The system MUST provide calm, visible progress feedback</li>
@@ -3767,15 +3817,14 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <li>No message is shown</li>
 <li>The candle remains unsealed</li>
 </ul>
-<div class="protoH protoH2" id="p16-5">16.5 Completion moment (the seal)</div>
-<p>When the 10-second hold completes:</p>
+<div class="protoH protoH2" id="p16-4">16.4 Completion moment (the seal)</div>
 <ul class="protoList">
 <li>1) A single seal acknowledgment moment occurs</li>
 <li>2) The candle is immediately and permanently sealed</li>
 <li>3) A Seal Event is emitted (see 16.8)</li>
 </ul>
 <p>There is no confirmation dialog. Completion of the hold is the commitment.</p>
-<div class="protoH protoH2" id="p16-6">16.6 Irreversibility</div>
+<div class="protoH protoH2" id="p16-5">16.5 Irreversibility</div>
 <p>Once sealed:</p>
 <ul class="protoList">
 <li>The candle cannot be unsealed</li>
@@ -3784,7 +3833,7 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <li>The sealing action cannot be repeated</li>
 </ul>
 <p>This irreversibility is intentional and required. Sealing is equivalent to signing a contract, sealing a letter, or committing a transaction.</p>
-<div class="protoH protoH2" id="p16-7">16.7 Relationship to the candle (sacred boundary)</div>
+<div class="protoH protoH2" id="p16-6">16.6 Relationship to the candle (sacred boundary)</div>
 <p>The candle remains:</p>
 <ul class="protoList">
 <li>Visually a candle</li>
@@ -3798,7 +3847,7 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <li>The candle does not expose settings or status panels</li>
 <li>The candle remains recognizable and unchanged</li>
 </ul>
-<div class="protoH protoH2" id="p16-8">16.8 Seal event (protocol artifact)</div>
+<div class="protoH protoH2" id="p16-7">16.7 Seal event (protocol artifact)</div>
 <p>Upon successful sealing, the system MUST generate a single immutable Seal Event containing:</p>
 <ul class="protoList">
 <li>Timestamp</li>
@@ -3808,9 +3857,9 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <li>Rule version reference</li>
 </ul>
 <p>This event is immutable, verifiable, and is the authoritative record of commitment.</p>
-<div class="protoH protoH2" id="p16-9">16.9 Post-seal boundary</div>
+<div class="protoH protoH2" id="p16-8">16.8 Post-seal boundary</div>
 <p>Any post-seal steps occur outside the candle and outside this specification. This spec governs only the sealing action, its prerequisites, its irreversibility, and the resulting Seal Event.</p>
-<div class="protoH protoH2" id="p16-10">16.10 Explicit non-goals (what this is NOT)</div>
+<div class="protoH protoH2" id="p16-9">16.9 Explicit non-goals (what this is NOT)</div>
 <p>The Candle Seal is not:</p>
 <ul class="protoList">
 <li>A settings action</li>
@@ -3822,7 +3871,7 @@ Payout execution may occur later without altering any protocol-defined outcome.<
 <li>A consumer-default feature</li>
 </ul>
 <p>There is one candle. There is one seal.</p>
-<div class="protoH protoH2" id="p16-11">16.11 Authority</div>
+<div class="protoH protoH2" id="p16-10">16.10 Authority</div>
 <p>This spec governs UI design, animation, engineering implementation, documentation, and website language. If an implementation conflicts with this spec, the spec wins.</p>
 <p>Status</p>
 <p>CANDLE SEALING SPEC v1.0 - LOCKED</p>
