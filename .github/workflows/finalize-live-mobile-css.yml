@@ -1,0 +1,51 @@
+name: Finalize live mobile CSS cascade
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/finalize-live-mobile-css.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize-live-mobile-css:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Put mobile repair after all legacy styles
+        shell: python
+        run: |
+          from pathlib import Path
+          page = Path("index.html")
+          css_file = Path("mobile-fix.css")
+          html = page.read_text(encoding="utf-8")
+          css = css_file.read_text(encoding="utf-8")
+          html = html.replace('<link rel="stylesheet" href="mobile-fix.css"/>', '')
+          start = '<style id="iddas-mobile-repair">'
+          end = '</style><!-- /iddas-mobile-repair -->'
+          if start in html:
+              before, rest = html.split(start, 1)
+              _, after = rest.split(end, 1)
+              html = before + after
+          block = '\n<style id="iddas-mobile-repair">\n' + css + '\n</style><!-- /iddas-mobile-repair -->\n'
+          if '</body>' not in html:
+              raise SystemExit('Closing body tag not found')
+          html = html.replace('</body>', block + '</body>', 1)
+          page.write_text(html, encoding='utf-8')
+
+      - name: Commit final live page
+        shell: bash
+        run: |
+          rm -f .github/workflows/finalize-live-mobile-css.yml
+          git config user.name "IDDAS Mobile Repair"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html mobile-fix.css .github/workflows/finalize-live-mobile-css.yml
+          git diff --cached --quiet || git commit -m "Finalize live mobile responsive cascade"
+          git push origin HEAD:main
