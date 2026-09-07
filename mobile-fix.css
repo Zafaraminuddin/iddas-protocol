@@ -2,17 +2,36 @@
 @media (max-width: 900px) {
   html, body { width:100%; max-width:100%; overflow-x:hidden; }
   body { -webkit-text-size-adjust:100%; }
-  .wrap { width:100%; max-width:100%; padding-left:14px !important; padding-right:14px !important; }
+
+  .wrap {
+    width:100%; max-width:100%;
+    padding-left:14px !important; padding-right:14px !important;
+  }
+
+  /* Several legacy sections sit outside .wrap. Give them the same mobile gutter. */
+  body > .sectionGrid,
+  body > section[id],
+  footer {
+    width:100% !important; max-width:100% !important;
+    padding-left:14px !important; padding-right:14px !important;
+    box-sizing:border-box;
+  }
+
   .top {
     width:100%; min-width:0; display:flex; flex-direction:column;
     align-items:stretch; gap:10px; padding:10px 54px 8px 0;
   }
   .brand { width:fit-content; max-width:100%; min-width:0; }
   .brand img { height:48px !important; width:auto !important; max-width:100%; }
-  .nav { width:100%; min-width:0; display:block; flex-wrap:wrap !important; overflow:visible; }
-  .nav > a { display:none; }
+
+  /* On phones the existing Jump control is the navigation. */
+  .nav {
+    width:100%; min-width:0; display:block !important;
+    flex-wrap:wrap !important; overflow:visible;
+  }
+  .nav > a { display:none !important; }
   .jumpNav {
-    position:relative; display:block; width:100%; max-width:100%;
+    position:relative; display:block !important; width:100%; max-width:100%;
     min-width:0 !important; margin:0 !important; flex:0 1 100%;
   }
   .jumpBtn {
@@ -30,6 +49,8 @@
     white-space:normal; overflow-wrap:anywhere;
   }
   .site-search-btn { top:12px; right:12px; min-height:40px; }
+
+  /* Remove desktop widths and force a clean single-column reading flow. */
   .hero, .sectionGrid, .grid, .protoLayout, .siteFooter .footerInner {
     width:100%; max-width:100%; min-width:0;
   }
@@ -41,9 +62,10 @@
   }
   .heroCard, .sideCard, .iddas-callout, .card, .callout,
   details.siteAccordion, .protoWrap, .protocol-summary {
-    width:100%; max-width:100%; min-width:0;
+    width:100% !important; max-width:100% !important; min-width:0;
   }
   .heroCard, .sideCard { padding:18px; }
+
   .sectionHead, .sectionHead h2, .sectionHead h3,
   .siteAccordionSummary, .siteAccordionSummary *,
   .card, .card *, .protoWrap, .protoWrap * {
@@ -53,6 +75,7 @@
   .siteAccordionSummary {
     width:100%; grid-template-columns:minmax(0, 1fr) auto !important;
     column-gap:12px; row-gap:7px; padding:18px !important;
+    text-align:left !important;
   }
   .siteAccordionSummary .sectionHead,
   .siteAccordionSummary .secHead,
@@ -65,14 +88,21 @@
   .siteAccordionSummary::after {
     grid-column:2 !important; grid-row:1 / span 2 !important; align-self:center;
   }
+  #what > details.siteAccordion > summary.siteAccordionSummary {
+    padding-top:22px !important; padding-bottom:22px !important;
+  }
   .siteAccordionBody, .usecases-details .usecaseBody,
   #usecases details.siteAccordion > .grid.usecases-details,
   #usecases details.siteAccordion > p.sub {
     padding-left:16px !important; padding-right:16px !important;
   }
+
+  /* Desktop floating controls become normal in-flow touch controls. */
   #accordionControls.floatingControls {
-    position:static !important; inset:auto !important; transform:none !important;
-    z-index:auto !important; width:100% !important; max-width:100%;
+    position:static !important; top:auto !important; right:auto !important;
+    bottom:auto !important; left:auto !important; inset:auto !important;
+    transform:none !important; z-index:auto !important;
+    width:100% !important; max-width:100%;
     display:flex !important; flex-direction:row !important; flex-wrap:wrap !important;
     align-items:center !important; justify-content:flex-start !important;
     gap:8px !important; margin:10px 0 8px !important;
@@ -82,6 +112,8 @@
   #accordionControls.floatingControls a {
     min-height:42px; white-space:normal;
   }
+
+  /* Protocol constitution: remove the desktop side rail on small screens. */
   .protoLayout { flex-direction:column !important; }
   .protoNav, .protoLayout.proto-nav-hidden .protoNav {
     position:static !important; top:auto !important;
@@ -99,6 +131,12 @@
   .protoWrap.isFull {
     top:2vh !important; left:2vw !important; right:2vw !important; bottom:2vh !important;
   }
+  .protoWrap.isFull .protoLayout.proto-nav-hidden #jumpNavToggle {
+    position:static !important; left:auto !important; top:auto !important;
+    width:100% !important;
+  }
+
+  /* Overlays and media must stay inside the viewport. */
   #devNoticeOverlay { padding:14px; }
   #devNoticeBox {
     width:100%; max-width:640px; max-height:calc(100vh - 28px);
@@ -113,9 +151,16 @@
   }
   pre, code { max-width:100%; }
   pre { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .betweenNote, .allocationNote, .midnote, .footDisclaimer { max-width:100%; }
 }
+
 @media (max-width: 520px) {
   .wrap { padding-left:12px !important; padding-right:12px !important; }
+  body > .sectionGrid,
+  body > section[id],
+  footer {
+    padding-left:12px !important; padding-right:12px !important;
+  }
   .top { padding-right:50px; }
   .brand img { height:42px !important; }
   h1 {
